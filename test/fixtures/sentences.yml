@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  content: MyText
+  track_id: 1
+  injection_time: 1
+
+two:
+  content: MyText
+  track_id: 1
+  injection_time: 1

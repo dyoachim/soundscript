@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  username: MyString
+  oauth_token: MyString
+  oauth_secret: MyString
+
+two:
+  username: MyString
+  oauth_token: MyString
+  oauth_secret: MyString
