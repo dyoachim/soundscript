@@ -6,6 +6,28 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
+		<nav>
+				<ul>
+					<li>Sound Script</li>
+						<%if current_user%>
+					<li class="nav_link"><%= link_to "Logout", session_path(current_user), data: { confirm: "Are you sure?" }, method: "delete" %>	</li>
+
+					<li class="nav_link"><%= link_to "Profile", user_path(current_user) %></li>	
+					<%else%>
+					<li class="nav_link"><%= link_to "Sign Up", new_user_path %></li>
+
+					<li class="nav_link"><%= form_for(:session, url: sessions_path, :html => {:class => "loginform"}) do |f| %>
+						<%= f.label :email %>
+						<%= f.text_field :email %>
+						<%= f.label :password %>
+						<%= f.password_field :password %>
+						<%= f.submit "Sign In" %>
+						<% end %></li>
+						<%end%>
+					<li class="nav_link">Browse</li>
+					<li class="nav_link"><%= link_to "Home", root_path %></li>
+				</ul>
+		</nav>
 <body>
 
 <%= yield %>
