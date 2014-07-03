@@ -32,8 +32,11 @@ gem 'spring',        group: :development
 # travis-lint
 gem 'travis-lint'
 
-
 gem 'simplecov', '~> 0.7.1', :require => false, :group => :test
+
+gem 'trollop'
+
+gem 'google-api-client'
 
 group :development, :test do
   gem 'rspec-rails'
