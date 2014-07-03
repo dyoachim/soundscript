@@ -28,12 +28,20 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
 
+
+# travis-lint
+gem 'travis-lint'
+
+
 gem 'simplecov', '~> 0.7.1', :require => false, :group => :test
 
 group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'database_cleaner'
+	
+	# Table-print allows for formatted tables
+	gem 'table_print'
 end
 
 # Use ActiveModel has_secure_password
@@ -48,6 +56,4 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-# Table-print allows for formatted tables
-gem 'table_print'
 
