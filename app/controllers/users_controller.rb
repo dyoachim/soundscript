@@ -20,7 +20,7 @@ include SessionsHelper
 			@user = current_user
 			render 'edit'
 		else
-			not_found
+			redirect_to root_path
 		end
 
 	end
@@ -30,7 +30,7 @@ include SessionsHelper
 			@user = current_user
 			render 'show'
 		else
-			not_found
+			redirect_to root_path
 		end
 	end
 
@@ -39,7 +39,7 @@ include SessionsHelper
 			current_user.update(user_params)
 			redirect_to user_path(current_user)
 		else
-			not_found
+			redirect_to root_path
 		end
 	end
 
