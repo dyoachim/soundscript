@@ -1,4 +1,18 @@
 <h1> videos show page </h1> 
 <% @video.each do |video| %>
-  <%= video.id%>
+
+<script type="text/javascript" src="swfobject.js"></script>    
+<div id="ytapiplayer">
+  You need Flash player 8+ and JavaScript enabled to view this video.
+</div>
+
+<script type="text/javascript">
+
+var params = { allowScriptAccess: "always" };
+var atts = { id: "myytplayer" };
+swfobject.embedSWF("http://www.youtube.com/v/<%=video.id%>?enablejsapi=1&playerapiid=ytplayer&version=3",
+    "ytapiplayer", "425", "356", "8", null, null, params, atts);
+
+</script>
+
 <% end %>
