@@ -73,13 +73,13 @@ ul li a{
 
 .controls_box li {
 	display: inline;
-	margin:20px;
+	margin:10px;
 	font-size: 32px; 
 }
 
 .video_box {
-	width: 480px;
-	height: 360px;
+	width: 640px;
+	height: 321px;
 	background-color: red;
 	float: right;
 }
@@ -102,8 +102,6 @@ ul li a{
 .clearfix {
 	clear: both;
 }
-
-
 
 #new_user{
 	width:300px;

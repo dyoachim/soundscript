@@ -1,48 +1,46 @@
-<h1> videos show page </h1> 
-<% @video.each do |video| %>
-  <p> duration: <%=  video.contentDetails.duration  %> </p>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>    
-<div id="ytapiplayer">
-  You need Flash player 8+ and JavaScript enabled to view this video.
+
+
+<div class='video_box'>
+	<div id="ytapiplayer">
+  	You need Flash player 8+ and JavaScript enabled to view this video.
+	</div>
 </div>
-
-<script type="text/javascript">
-
-var params = { allowScriptAccess: "always" };
-var atts = { id: "myytplayer" };
-swfobject.embedSWF("http://www.youtube.com/v/<%=video.id%>?enablejsapi=1&playerapiid=ytplayer&version=3",
-    "ytapiplayer", "425", "356", "8", null, null, params, atts);
-
-
-  function onYouTubePlayerReady(playerId) {
-    ytplayer = document.getElementById("myytplayer");
-    setInterval(updatePlayerInfo, 250);
-    updatePlayerInfo();
-  }
-  
-  function updateHTML(elmId, value) {
-      document.getElementById(elmId).innerHTML = value;
-  }
-
-function updatePlayerInfo() {
-  if (ytplayer) {
-    updateHTML("currentTime", ytplayer.getCurrentTime());   
-    }
-  }
-
-</script>
-
-<% end %>
-<div class='video_box'></div>
 <div class='controls_box'>
+	<% @video.each do |video| %>
+	  <p> duration: <%=  video.contentDetails.duration  %> </p>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>    
+
+		<script type="text/javascript">
+
+		var params = { allowScriptAccess: "always" };
+		var atts = { id: "myytplayer" };
+		swfobject.embedSWF("http://www.youtube.com/v/<%=video.id%>?enablejsapi=1&playerapiid=ytplayer&version=3",
+		    "ytapiplayer", "640", "321", "8", null, null, params, atts);
+
+
+		  function onYouTubePlayerReady(playerId) {
+		    ytplayer = document.getElementById("myytplayer");
+		    setInterval(updatePlayerInfo, 250);
+		    updatePlayerInfo();
+		  }
+		  
+		  function updateHTML(elmId, value) {
+		      document.getElementById(elmId).innerHTML = value;
+		  }
+
+		function updatePlayerInfo() {
+		  if (ytplayer) {
+		    updateHTML("currentTime", Number(ytplayer.getCurrentTime()).toFixed(2));   
+		    updateHTML("totalDuration", Number(ytplayer.getDuration()).toFixed(2));   
+		    }
+		  }
+		</script>
+	<% end %>
 	<ul>
-	  <li><a href="#" id="click">timestap but where does it show up?</a></li>
-		<li>&#9616&#9616 
-<a href="javascript:ytplayer.pauseVideo()">Pause</a>  </li>
-		<li>&#9658
-		<a href="javascript:ytplayer.playVideo()"></a> </li>
-		<li>&#9724</li>
-		<li><p> current time: <span id="currentTime">--:--</span> </p></li>
+		<a href="javascript:ytplayer.pauseVideo()"><li>&#9616&#9616</li></a>
+		<a href="javascript:ytplayer.playVideo()"><li>&#9658</li></a>
+		<a href=""><li>&#9724</li></a><br>
+		<li>current time: <span id="currentTime">--:--</span> / <span id='totalDuration'></span></li>
 	</ul>
 </div>
 <div class='clearfix'></div>
