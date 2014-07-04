@@ -14,45 +14,59 @@
  *= require_self
  */
 
-
-nav li {
-	display: inline-block;
-	margin-top: 60px;
-	float:right;
-	padding-right: 10px;
-}
-
-#logodbc{
-	float:left;
-	margin-top: 10px;
-
-}
-
-nav ul{
-	padding-right: 13px;
-}
-
 nav{
+	background-color: gray;
 	width: 100%;
-	height: 80px;
-	background-color: black;
+	height: 100px;
+	position: fixed;
+	left: 0;
+	top: 0;
 }
 
-li {
+nav ul li {
+	display: inline-block;
+	float: right;
+	padding-right: 15px;
 	text-decoration: none;
 }
 
 
-.nav_link a{
-	color: white;
+nav ul li a{
 	text-decoration: none;
-}
-.nav_link{
-	color: white;
+	color: black;
+
 }
 
-.loginform{
-	color: white;
+nav h1 a {
+	color: black;
+	text-decoration: none;
+	font-size: 40px;
+
 }
+nav h1 {
+margin-top: 0px;
+padding-left: 35px;
+}
+
+body{
+	margin:0px;
+}
+
+ul li a{
+	text-decoration: none;
+	color: black;
+}
+
+.container{
+	margin: 100px auto;
+	margin-left: 5%;
+
+}
+
+#new_user{
+	width:300px;
+}
+
+
 
 
