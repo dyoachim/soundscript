@@ -1,7 +1,7 @@
 <h1> videos show page </h1> 
 <% @video.each do |video| %>
-
-<script type="text/javascript" src="swfobject.js"></script>    
+  <p> duration: <%=  video.contentDetails.duration  %> </p>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>    
 <div id="ytapiplayer">
   You need Flash player 8+ and JavaScript enabled to view this video.
 </div>
@@ -13,6 +13,30 @@ var atts = { id: "myytplayer" };
 swfobject.embedSWF("http://www.youtube.com/v/<%=video.id%>?enablejsapi=1&playerapiid=ytplayer&version=3",
     "ytapiplayer", "425", "356", "8", null, null, params, atts);
 
+
+  function onYouTubePlayerReady(playerId) {
+    ytplayer = document.getElementById("myytplayer");
+    setInterval(updatePlayerInfo, 250);
+    updatePlayerInfo();
+  }
+  
+  function updateHTML(elmId, value) {
+      document.getElementById(elmId).innerHTML = value;
+  }
+
+function updatePlayerInfo() {
+  if (ytplayer) {
+    updateHTML("currentTime", ytplayer.getCurrentTime());   
+    }
+  }
+
 </script>
+<a href="javascript:ytplayer.playVideo()">Play</a>
+<a href="javascript:ytplayer.pauseVideo()">Pause</a>
+<a href="#" id="click">timestap but where does it show up?</a>
+<p> current time: <span id="currentTime">--:--</span> </p>
+length, 
+pause, 
+reset, 
 
 <% end %>
