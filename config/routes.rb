@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   resources :users, only: [:new, :create, :destroy, :show, :edit, :update]
-  resources :sessions, only: [:create, :destroy]
+  resources :sessions, only: [:new, :create, :destroy]
 
   resources :videos, only: [:show, :index] do
     resources :tracks, only: [:new, :edit, :destroy]

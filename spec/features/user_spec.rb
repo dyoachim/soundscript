@@ -25,7 +25,7 @@ feature 'User browsing the website' do
 
   it 'edits user fields' do
     @user = User.create(username: "Dan", email: 'dan@dan.com', password: "password")
-    visit root_path
+    visit new_session_path
     fill_in 'session[email]', with: @user.email
     fill_in 'session[password]', with: "password"
     click_on 'Sign In'
@@ -43,7 +43,7 @@ feature 'User browsing the website' do
 
   it 'deletes user' do
     @user = User.create(username: "Dan", email: 'dan@dan.com', password: "password")
-    visit root_path
+    visit new_session_path
     fill_in 'session[email]', with: @user.email
     fill_in 'session[password]', with: "password"
     click_on 'Sign In'

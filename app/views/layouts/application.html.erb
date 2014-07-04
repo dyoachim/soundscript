@@ -5,12 +5,15 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <link href='http://fonts.googleapis.com/css?family=Muli' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Noto+Sans|Quicksand|Muli' rel='stylesheet' type='text/css'>
+
 </head>
 		
 <body>
 		<nav>
 				<ul>
-					<li>Sound Script</li>
+					<li id="soundscript_logo"><div class="soundscript_logo"></div></li>
 						<%if current_user%>
 					<li class="nav_link"><%= link_to "Logout", session_path(current_user), data: { confirm: "Are you sure?" }, method: "delete" %>	</li>
 
@@ -18,15 +21,8 @@
 					<%else%>
 					<li class="nav_link"><%= link_to "Sign Up", new_user_path %></li>
 
-					<li class="nav_link"><%= form_for(:session, url: sessions_path, :html => {:class => "loginform"}) do |f| %>
-						<%= f.label :email %>
-						<%= f.text_field :email %>
-						<%= f.label :password %>
-						<%= f.password_field :password %>
-						<%= f.submit "Sign In" %>
-						<% end %></li>
+					<li class="nav_link"><%= link_to "Log In", new_session_path %></li>
 						<%end%>
-					<li class="nav_link">Browse</li>
 					<li class="nav_link"><%= link_to "Home", root_path %></li>
 				</ul>
 		</nav><br>
@@ -38,3 +34,8 @@
 		</div>
 </body>
 </html>
+
+
+
+
+
