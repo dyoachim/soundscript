@@ -13,7 +13,7 @@
 <body>
 		<nav>
 				<ul>
-					<li id="soundscript_logo"><div class="soundscript_logo"></div></li>
+					<a href="/"><li id="soundscript_logo"><div class="soundscript_logo"></div></li></a>
 						<%if current_user%>
 					<li class="nav_link"><%= link_to "Logout", session_path(current_user), data: { confirm: "Are you sure?" }, method: "delete" %>	</li>
 
@@ -23,15 +23,11 @@
 
 					<li class="nav_link"><%= link_to "Log In", new_session_path %></li>
 						<%end%>
-					<li class="nav_link"><%= link_to "Home", root_path %></li>
 				</ul>
 		</nav><br>
 		<br>
 		<br>
-
-		<div class="container">
-			<%= yield %>
-		</div>
+		<%= yield %>
 </body>
 </html>
 
