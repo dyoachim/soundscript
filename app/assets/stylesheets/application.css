@@ -57,16 +57,54 @@ ul li a{
 	color: black;
 }
 
-.container{
-	margin: 100px auto;
-	margin-left: 5%;
 
+.container{
+	margin: 46px auto 0 auto;
 }
+
+.controls_box {
+	float: right;
+	padding: 150px 100px 0 0;
+}
+
+.controls_box ul {
+	padding: 0;
+}
+
+.controls_box li {
+	display: inline;
+	margin:20px;
+	font-size: 32px; 
+}
+
+.video_box {
+	width: 480px;
+	height: 360px;
+	background-color: red;
+	float: right;
+}
+
+.language_box {
+	width: 100px;
+	height: 280px;
+	background-color: green;
+	border: 1px solid black;
+	float: left;
+}
+
+.tracks_box {
+	height: 280px;
+	margin-left: 100px;
+	background-color: gray;
+	border: 1px solid black;
+}
+
+.clearfix {
+	clear: both;
+}
+
+
 
 #new_user{
 	width:300px;
 }
-
-
-
-
