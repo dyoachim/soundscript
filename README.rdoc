@@ -1,28 +1,52 @@
-== README
+Sound Script [![Build Status](https://travis-ci.org/dyoachim/soundscript.svg?branch=master)](https://travis-ci.org/dyoachim/soundscript)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
+===========
+## Overview
 Things you may want to cover:
 
-* Ruby version
+Sound Script allows you to follow along transcribed youtube videos based on your language preference. 
+It also gives users the ability to transcribe videos in a certain language for others.
 
-* System dependencies
+## User Perspective
 
-* Configuration
+Check out [Sound Script](http://soundscript.herokuapp.com/)! Check out videos that already have been transcibed by users. Feel free to try it out and experiment learning a new language!
 
-* Database creation
+## Ruby version
 
-* Database initialization
+Sound Script runs on version ruby 2.0.0p451.
 
-* How to run the test suite
+## System dependencies
 
-* Services (job queues, cache servers, search engines, etc.)
+Sound Script can be deployed through [Heroku](https://id.heroku.com/login).
 
-* Deployment instructions
+To get it running on a local host, set the environment variable 
+'export ENV_YOUTUBE_API="REPLACE WITH YOUR GOOGLE API KEY"'
 
-* ...
+run bundle install. 
+
+## Configuration
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+## Agile Development
+
+Our team uses agile workflow and when resources need to be shared, we use [HipChat] https://www.hipchat.com and a tool. [Trello](https://trello.com/b/kI5uhSO1/dbc-overflow) was used as well as a physical scrum board with drawn out wireframes. 
+
+## Database creation
+
+Our database is run on postgresql
+
+## Services (job queues, cache servers, search engines, etc.)
+
+We are using the youtube API.
+
+## Testing
+
+Before testing, set the environment variable in your terminal with your google api key. 
+run rspec in the root directory.
+
+All our tests are written in RSPEC. We are using ['capybara'](https://github.com/jnicklas/capybara) for our integration tests. 
+We use [Travis](http://docs.travis-ci.com/) for continuous integration testing and [SimpleCov](https://github.com/colszowka/simplecov) for code coverage.
+
+## Licensing
+
+
