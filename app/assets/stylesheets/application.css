@@ -88,8 +88,8 @@ ul li a:hover{
 	margin-left: 5%;
 }
 
-#new_user{
-	width:300px;
+.videoShowContainer{
+	margin: 75px 0 0 0;
 }
 
 #index_page_container{
@@ -101,7 +101,7 @@ ul li a:hover{
   overflow:scroll;
 }
 
-#blurb{
+#blurb {
 	margin: 20px auto;
 	font-family: 'Quicksand', sans-serif;
 	text-align: center;
@@ -110,8 +110,8 @@ ul li a:hover{
 	height: 150px;
   width: 500px;
   padding: 20px 20px 10px 20px;
- 
 }
+
 #search_form{
 	padding-top: 20px;
 	width:300px;
@@ -123,21 +123,14 @@ ul li a:hover{
 	width:700px;
 	/*margin: 0 auto;*/
 	padding-top: 30px;
-
-
 }
+
 #search_form form input{
 	width:500px;
 	height:30px;
 	font-size: 20px;
 	
 }
-
-/*input #submit_index{
-	height:50px;
-	width:13px;
-}
-*/
 
 #index_page_container #search_form{
 	margin-left: 150px;
@@ -146,13 +139,11 @@ ul li a:hover{
 #index_page_container .video_thumbnail{
 	margin: 20px;
 	float:left;
-
 }
 
 #index_page_container .video_thumbnail img{
 	width: 180px;
 	height: 101px;
-	
 }
 
 .login_form {
@@ -176,16 +167,57 @@ ul li a:hover{
 	width:320px;
 }
 
-
 .video_thumbnail .caption{
 	width:180px;
 }
-
 
 #error_message{
 	margin-top: 30px;
 	color:red;
 }
 
+#new_user{
+	width:300px;
+}
 
+.controls_box {
+	float: right;
+	padding: 150px 100px 0 0;
+}
+
+ul {
+	padding-left: 0;
+}
+
+.controls_box li {
+	display: inline;
+	margin:20px;
+	font-size: 32px; 
+}
+
+.video_box {
+	width: 640px;
+	height: 321px;
+	background-color: red;
+	float: right;
+}
+
+.language_box {
+	width: 100px;
+	height: 280px;
+	background-color: green;
+	border: 1px solid black;
+	float: left;
+}
+
+.tracks_box {
+	height: 280px;
+	margin-left: 100px;
+	background-color: gray;
+	border: 1px solid black;
+}
+
+.clearfix {
+	clear: both;
+}
 
