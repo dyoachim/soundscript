@@ -41,8 +41,8 @@ ActiveRecord::Schema.define(version: 20140703144944) do
 
   create_table "users", force: true do |t|
     t.string   "username"
-    t.string   "oauth_token"
-    t.string   "oauth_secret"
+    t.string   "email"
+    t.string   "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

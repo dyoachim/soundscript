@@ -1,4 +1,4 @@
-User.create(username:"monica", oauth_token: "skjvdadkjn",oauth_secret: 'sdvkdjnsflkv')
+User.create(username:"monica", password: "password", email: 'monica@yahoo.com')
 
 User.find(1).tracks << Track.create(youtube_url:"www.youtube.com")
 

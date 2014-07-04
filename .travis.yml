@@ -1,7 +1,9 @@
 language: ruby
 rvm:
-  - "2.0.0"
-# uncomment this line if your project needs to run something other than `rake`:
+- 2.0.0
 script: bundle exec rspec spec
 before_script:
-  - psql -c 'create database padded_pockets_test;' -U postgres
+- psql -c 'create database soundscript_test;' -U postgres
+env:
+  global:
+    secure: COqkpVALoPUrlIsktsSN8X89Y3osx+b3N8KxUg62kzFGvsi1SM4p8Bh2Z2wQqQWLv1kNBsgCj+FTb2HUfhMunXyTgkZUAtEB7aXn4d/2wEU5Jiv6xPpBRd54ja/5isuN36b46D26cKcCHaAMfPmlkHi/o+lGovjT7VFrSwnoiVs=
