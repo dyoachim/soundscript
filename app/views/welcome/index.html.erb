@@ -1,0 +1,29 @@
+
+<h1>Index page for SoundScript</h1>
+<form action='/' method='GET'>
+	<input type='text' name='search_term' placeholder='Search'>
+	<input type='submit'>
+</form>
+
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script> 
+
+<% if @videos %>
+	<% @videos.each do |video| %>
+		<p><%= video.snippet.title %></p>
+		<img src='<%= video.snippet.thumbnails.default.url %>'>
+  	<div id="ytapiplayer">
+    	You need Flash player 8+ and JavaScript enabled to view this video.
+  	</div>
+
+  	<script type="text/javascript">
+
+    	var params = { allowScriptAccess: "always" };
+    	var atts = { id: "myytplayer" };
+    	swfobject.embedSWF("http://www.youtube.com/v/<%= video.id['videoId'] %>?enablejsapi=1&playerapiid=ytplayer&version=3",
+                       "ytapiplayer", "425", "356", "8", null, null, params, atts);
+
+  	</script>
+	<% end  %>
+<% end  %>
+

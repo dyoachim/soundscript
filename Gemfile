@@ -29,6 +29,13 @@ gem 'spring',        group: :development
 # travis-lint
 gem 'travis-lint'
 
+gem 'simplecov', '~> 0.7.1', :require => false, :group => :test
+
+gem 'trollop'
+
+gem 'google-api-client'
+
+
 group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
@@ -38,7 +45,6 @@ group :development, :test do
 	gem 'table_print'
 end
 
-gem 'simplecov', '~> 0.7.1', :require => false, :group => :test
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
