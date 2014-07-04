@@ -12,7 +12,7 @@
 <div id="search_form">
 	<form action='/' method='GET'>
 		<input type='text' name='search_term' placeholder='Search'>
-		<input id="submit_index" type='submit' style= 'width:50px;'>
+		<input id="submit_index" type='submit' style= 'height:90px; width:90px;  font-size:30px;'>
 	</form>
 </div>
 
@@ -22,7 +22,6 @@
 
 	<% @videos.each do |video| %>
 		<div class="video_thumbnail">
-
 			<a href="videos/<%= video.id['videoId'] %>"><img src='<%= video.snippet.thumbnails.medium.url %>'></a>
 			<div class="caption">
 					<p><a href="videos/<%= video.id['videoId'] %>"><%= video.snippet.title %></a></p>
