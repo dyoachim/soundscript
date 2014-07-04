@@ -3,7 +3,7 @@
 
 	<p>Learn a language by following along
 	any YouTube video translated by Sound Script
-	users. Anotate a video of your own
+	users. Annotate a video of your own
 	by clicking any YouTube video. </p>
 </div>
 
@@ -19,10 +19,15 @@
 
 
 <% if @videos %>
+
 	<% @videos.each do |video| %>
-		<p><%= video.snippet.title %></p>
-		<a href="videos/<%= video.id['videoId'] %>"><img src='<%= video.snippet.thumbnails.default.url %>'></a>
-  	
+		<div class="video_thumbnail">
+
+			<a href="videos/<%= video.id['videoId'] %>"><img src='<%= video.snippet.thumbnails.medium.url %>'></a>
+			<div class="caption">
+					<p><%= video.snippet.title %></p>
+				</div>
+	</div>
 	<% end  %>
 <% end  %>
 </div>

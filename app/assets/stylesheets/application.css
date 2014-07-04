@@ -35,6 +35,7 @@ nav ul li {
 nav ul li a{
 	text-decoration: none;
 	color: black;
+	/*margin-top: 30px;*/
 
 }
 
@@ -57,10 +58,22 @@ ul li a{
 	text-decoration: none;
 	color: black;
 	font-family: 'Muli', sans-serif;
+	/*margin-top: 30px;*/
+}
+
+ul li a:hover{
+	text-decoration: none;
+	color: grey;
+	font-family: 'Muli', sans-serif;
+	/*margin-top: 30px;*/
+}
+.nav_link{
+	margin-top: 60px;
+	margin-right: 20px;
 }
 
 .soundscript_logo{
-	background:url('/assets/soundscript_logo.png');
+	background:url('/assets/logo.png');
 	width:400px;
 	height:93px;
 }
@@ -85,16 +98,17 @@ ul li a{
   width: 900px;
   padding: 0px 20px 20px 20px;
   border-radius: .75em;
+  overflow:scroll;
 }
 
 #blurb{
 	margin: 20px auto;
-	font-family: 'Muli', sans-serif;
+	font-family: 'Quicksand', sans-serif;
 	text-align: center;
 	color: #323338;	
 	font-size: 1.3em;
 	height: 150px;
-  width: 400px;
+  width: 500px;
   padding: 20px 20px 10px 20px;
  
 }
@@ -109,12 +123,13 @@ ul li a{
 	width:506px;
 	/*margin: 0 auto;*/
 	padding-top: 30px;
-	
+
 
 }
 #search_form form input{
 	width:500px;
 	height:30px;
+	font-size: 20px;
 }
 
 /*input #submit_index{
@@ -123,5 +138,42 @@ ul li a{
 }
 */
 
+#index_page_container .video_thumbnail{
+	margin: 20px;
+	float:left;
+
+}
+
+#index_page_container .video_thumbnail img{
+	width: 180px;
+	height: 101px;
+	
+}
+
+.login_form {
+	width:350px;
+	height:290px;
+	margin: auto;
+	padding: 20px;
+	background-color: gray;
+	border-radius: .75em;
+}
+.login_form form label{
+	padding-top: 12px;
+	font-family: 'Quicksand', sans-serif;
+	color:white;
+}
+
+.login_form form input{
+	border-radius: .30em;
+	font-size: 20px;
+	height:30px; 
+	width:320px;
+}
+
+
+.video_thumbnail .caption{
+	width:180px;
+}
 
 
