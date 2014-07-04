@@ -67,6 +67,9 @@ ul li a{
 	width:300px;
 }
 
-
+/*REMOVE*/
+body {
+	background: pink;
+}
 
 

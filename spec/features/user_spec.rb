@@ -30,9 +30,9 @@ feature 'User browsing the website' do
     fill_in 'session[password]', with: "password"
     click_on 'Sign In'
     visit edit_user_path(@user)
-    fill_in 'user[username]', with: "Daniel"
-    click_button 'Create Me!'
-    expect(User.find(@user.id).username).to eq 'Daniel'
+    fill_in 'user[email]', with: "new@email.com"
+    click_button 'Update!'
+    expect(User.find(@user.id).email).to eq 'new@email.com'
   end
 
   it 'edits user fields' do
