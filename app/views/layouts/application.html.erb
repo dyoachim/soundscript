@@ -6,6 +6,8 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
+		
+<body>
 		<nav>
 				<ul>
 					<li>Sound Script</li>
@@ -27,10 +29,12 @@
 					<li class="nav_link">Browse</li>
 					<li class="nav_link"><%= link_to "Home", root_path %></li>
 				</ul>
-		</nav>
-<body>
+		</nav><br>
+		<br>
+		<br>
 
-<%= yield %>
-
+		<div class="container">
+			<%= yield %>
+		</div>
 </body>
 </html>
