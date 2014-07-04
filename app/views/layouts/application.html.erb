@@ -20,13 +20,7 @@
 					<%else%>
 					<li class="nav_link"><%= link_to "Sign Up", new_user_path %></li>
 
-					<li class="nav_link"><%= form_for(:session, url: sessions_path, :html => {:class => "loginform"}) do |f| %>
-						<%= f.label :email %>
-						<%= f.text_field :email %>
-						<%= f.label :password %>
-						<%= f.password_field :password %>
-						<%= f.submit "Sign In" %>
-						<% end %></li>
+					<li class="nav_link"><%= link_to "Log In", new_session_path %></li>
 						<%end%>
 					<li class="nav_link"><%= link_to "Home", root_path %></li>
 				</ul>
@@ -39,3 +33,8 @@
 		</div>
 </body>
 </html>
+
+
+
+
+
