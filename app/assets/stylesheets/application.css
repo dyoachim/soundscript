@@ -144,11 +144,20 @@ ul li a:hover{
 
 }
 
+
 #index_page_container .video_thumbnail img{
 	width: 180px;
 	height: 101px;
-	
-}
+	}
+
+
+.language_box {
+	width: 100px;
+	height: 280px;
+	background-color: green;
+	border: 1px solid black;
+	float: left;
+
 
 .login_form {
 	width:350px;
@@ -182,3 +191,7 @@ ul li a:hover{
 	color:red;
 }
 
+
+#new_user{
+	width:300px;
+}
