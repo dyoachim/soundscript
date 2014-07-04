@@ -1,6 +1,6 @@
 class Search
 
-	 #!/usr/bin/ruby
+  #!/usr/bin/ruby
 
   # Set DEVELOPER_KEY to the API key value from the APIs & auth > Credentials
   # tab of
@@ -34,12 +34,12 @@ class Search
       # Call the search.list method to retrieve results matching the specified
       # query term.
       search_response = client.execute!(
-        :api_method => youtube.search.list,
-        :parameters => {
-          :part => 'snippet',
-          :q => opts[:q],
-          :maxResults => opts[:max_results]
-        }
+	:api_method => youtube.search.list,
+	:parameters => {
+	  :part => 'snippet',
+	  :q => opts[:q],
+	  :maxResults => opts[:max_results]
+	}
       )
 
       videos = []
@@ -47,6 +47,33 @@ class Search
 
       # Add each result to the appropriate list, and then display the lists of
       # matching videos, channels, and playlists.
+
+
+    rescue Google::APIClient::TransmissionError => e
+      puts e.result.body
+    end
+
+    return search_response.data.items
+  end
+
+  def self.video_by_id(id)
+
+    opts = Trollop::options do
+      opt :id, id, :type => String, :default => id
+    end
+
+    client, youtube = get_service
+
+    begin
+      # Call the search.list method to retrieve results matching the specified
+      # query term.
+      search_response = client.execute!(
+	:api_method => youtube.videos.list,
+	:parameters => {
+	  :part => 'id',
+	  :id => opts[:id]
+	}
+      )
 
 
     rescue Google::APIClient::TransmissionError => e

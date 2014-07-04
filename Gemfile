@@ -46,6 +46,7 @@ group :development, :test do
 	gem 'table_print'
 end
 
+
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
