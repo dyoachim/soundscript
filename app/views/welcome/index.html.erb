@@ -1,17 +1,28 @@
 
-<h1>Index page for SoundScript</h1>
-<form action='/' method='GET'>
-	<input type='text' name='search_term' placeholder='Search'>
-	<input type='submit'>
-</form>
+<div id="blurb">
+
+	<p>Learn a language by following along
+	any YouTube video translated by Sound Script
+	users. Anotate a video of your own
+	by clicking any YouTube video. </p>
+</div>
+
+<div id="index_page_container">
+
+<div id="search_form">
+	<form action='/' method='GET'>
+		<input type='text' name='search_term' placeholder='Search'>
+		<input id="submit_index" type='submit' style= 'width:50px;'>
+	</form>
+</div>
+
+
 
 <% if @videos %>
 	<% @videos.each do |video| %>
 		<p><%= video.snippet.title %></p>
 		<a href="videos/<%= video.id['videoId'] %>"><img src='<%= video.snippet.thumbnails.default.url %>'></a>
-  	<div id="ytapiplayer">
-    	You need Flash player 8+ and JavaScript enabled to view this video.
-  	</div>
+  	
 	<% end  %>
 <% end  %>
-
+</div>
