@@ -1,6 +1,12 @@
 
+
+
 <div class="login_form">
 
 	<%= render "form" %>
+	<%if @error%>
+	<h1><%= @error %></h1>
+	<p><%= session[:user_id] %></p>
+<%end%>
 
 </div>

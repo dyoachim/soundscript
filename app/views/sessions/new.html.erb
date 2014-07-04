@@ -1,3 +1,5 @@
+
+
 <%= form_for(:session, url: sessions_path, :html => {:class => "loginform"}) do |f| %>
 	<%= f.label :email %>
 	<%= f.text_field :email %>
@@ -5,3 +7,7 @@
 	<%= f.password_field :password %>
 	<%= f.submit "Sign In" %>
 <% end %>
+
+<%if @error%>
+	<p id="error_message"><%= @error %></p>
+<%end%>

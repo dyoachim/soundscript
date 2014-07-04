@@ -25,7 +25,7 @@
 
 			<a href="videos/<%= video.id['videoId'] %>"><img src='<%= video.snippet.thumbnails.medium.url %>'></a>
 			<div class="caption">
-					<p><%= video.snippet.title %></p>
+					<p><a href="videos/<%= video.id['videoId'] %>"><%= video.snippet.title %></a></p>
 				</div>
 	</div>
 	<% end  %>

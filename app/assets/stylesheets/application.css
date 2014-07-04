@@ -83,33 +83,15 @@ ul li a:hover{
 	margin-top: 3px;
 }
 
-
 .container{
-	margin: 46px auto 0 auto;
-}
-.controls_box {
-	float: right;
-	padding: 150px 100px 0 0;
-
-
-.controls_box ul {
-	padding: 0;
+	margin: 100px auto;
+	margin-left: 5%;
 }
 
-.controls_box li {
-	display: inline;
-	margin:20px;
-	font-size: 32px; 
+#new_user{
+	width:300px;
 }
 
-.video_box {
-	width: 480px;
-	height: 360px;
-	background-color: red;
-	float: right;
-}
-
-<<<<<<< HEAD
 #index_page_container{
 	background-color: #bdbec5;
 	margin: 20px auto;
@@ -192,27 +174,11 @@ ul li a:hover{
 
 .video_thumbnail .caption{
 	width:180px;
-
-.language_box {
-	width: 100px;
-	height: 280px;
-	background-color: green;
-	border: 1px solid black;
-	float: left;
-}
-
-.tracks_box {
-	height: 280px;
-	margin-left: 100px;
-	background-color: gray;
-	border: 1px solid black;
-
-.clearfix {
-	clear: both;
 }
 
 
-
-#new_user{
-	width:300px;
+#error_message{
+	margin-top: 30px;
+	color:red;
 }
+
