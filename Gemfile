@@ -35,6 +35,8 @@ gem 'trollop'
 
 gem 'google-api-client'
 
+gem 'rails_12factor'
+
 group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
