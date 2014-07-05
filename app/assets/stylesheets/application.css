@@ -329,3 +329,10 @@ ul {
 }
 
 
+#progressBar {
+  position: relative; 
+  background-color: red;
+  width: 3px;
+  height: 100%; 
+}
+
