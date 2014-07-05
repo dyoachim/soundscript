@@ -302,3 +302,10 @@ ul {
   min-height: 70px;
   outline: none;
 }
+
+#progressBar {
+  position: relative; 
+  background-color: red;
+  width: 3px;
+  height: 100%; 
+}
