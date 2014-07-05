@@ -13,7 +13,6 @@
  *= require_tree .
  *= require_self
  */
-
 nav{
 	background-color: #f0a502;
 	width: 100%;
@@ -54,7 +53,6 @@ padding-left: 35px;
 body{
 	margin:0px;
 	background-color: white;
-
 }
 
 ul li a{
@@ -90,7 +88,6 @@ ul li a:hover{
 	margin: 130px auto;
 	margin-left: 5%;
 	background-color: white;
-
 }
 
 .videoShowContainer{
@@ -121,14 +118,11 @@ ul li a:hover{
 #search_form{
 	padding-top: 20px;
 	width:300px;
-	/*margin: 0 auto;*/
 	padding-bottom: 30px;
-
 }
 
 #search_form form {
 	width:700px;
-	/*margin: 0 auto;*/
 	padding-top: 30px;
 }
 
@@ -136,7 +130,6 @@ ul li a:hover{
 	width:500px;
 	height:30px;
 	font-size: 20px;
-	
 }
 
 #index_page_container #search_form{
@@ -228,16 +221,13 @@ ul {
 	clear: both;
 }
 
+/*#input_nav{
 
 
-#input_nav{
-
-
-}
+}*/
 
 .create_form .submit{
 	width:120px;
-
 }
 
 

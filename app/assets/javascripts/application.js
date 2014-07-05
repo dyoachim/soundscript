@@ -23,4 +23,13 @@ $(document).ready( function(){
 		$('#form_nav').show();
 		$('#browse').hide();
 	});
+
+//test this to see if it is working. 
+	$('.submit').submit(function(){
+		if ($('.input_fields').val() == ''){
+			alert('Please fill in all fields');
+			return false;
+		}
+	});
 });
+
