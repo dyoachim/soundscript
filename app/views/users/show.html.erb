@@ -1,6 +1,8 @@
+<div id="profile_container">
+
 <h1>Profile</h1>
-	<p><%=current_user.username%></p>
-	<p><%=current_user.email%></p>
+     <p>Username: <%=current_user.username%></p>
+     <p>Email: <%=current_user.email%></p>
 
 
 <%current_user.tracks.each do |track|%>
@@ -9,6 +11,10 @@
 <%end%>
 
 <p><%= link_to "Edit Profile", edit_user_path(current_user), id:"edit_profile" %></p>
-		<br>
+          <br>
 
 <p><%= link_to "Delete Profile", user_path(current_user), method: :delete, data: { confirm: "Are you sure?" } %></p>
+
+</div>
+
+<div id="profile_side"></div>

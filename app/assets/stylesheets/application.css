@@ -189,7 +189,7 @@ ul li a:hover{
 
 .controls_box {
 	float: right;
-	padding: 150px 100px 0 0;
+	padding: 50px 100px 0 0;
 }
 
 ul {
@@ -229,16 +229,8 @@ ul {
 	clear: both;
 }
 
-
-
-#input_nav{
-
-
-}
-
 .create_form .submit{
 	width:120px;
-
 }
 
 
@@ -276,7 +268,6 @@ ul {
   overflow: hidden;
 }
 
-
 .post-it .header {
   background-color: #c2c25b;
   text-align: right;
@@ -303,9 +294,45 @@ ul {
   outline: none;
 }
 
+#profile_container{
+     width:700px;
+     height: 100%;
+     margin-top: 150px;
+     margin-left: 50px;
+     float:left;
+     border:solid black 1px;
+     padding: 20px;
+}
+
+#profile_side{
+     margin-top: 150px;
+     width: 400px;
+     float:left;
+     height:600px;
+     border:solid black 1px;
+     margin-bottom: 25px;
+     margin-left: 25px;    
+}
+
+#pause{
+	background: url('/assets/pause.png');
+	width: 80px;
+	height: 79px;
+	float:left;
+}
+
+#play{
+	background: url('/assets/play.png');
+	width: 80px;
+	height: 79px;
+	float:right;
+}
+
+
 #progressBar {
   position: relative; 
   background-color: red;
   width: 3px;
   height: 100%; 
 }
+
