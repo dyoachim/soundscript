@@ -222,6 +222,7 @@ ul {
 	margin-left: 100px;
 	background-color: gray;
 	border: 1px solid black;
+	position: relative;
 }
 
 .clearfix {
@@ -261,9 +262,43 @@ ul {
 	background-color: yellow;
 }
 
-#track_divs{
+.track_divs{
 	background-color: yellow;
 	width:100%;
 	overflow:scroll;
+}
 
+.post-it {
+  position: absolute !important;
+  width: 160px;
+  background-color: yellow;
+  box-shadow: -2px 2px 5px #555;
+  overflow: hidden;
+}
+
+
+.post-it .header {
+  background-color: #c2c25b;
+  text-align: right;
+  padding: 2px;
+}
+
+.post-it .header:hover {
+  background-color: #a8a860;
+}
+
+.post-it .header a, .post-it .header a:visited {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+.post-it .header a:hover {
+  color: #eee;
+}
+
+.post-it .content {
+  padding: 10px;
+  min-height: 70px;
+  outline: none;
 }
