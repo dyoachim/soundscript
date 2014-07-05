@@ -23,7 +23,6 @@ $(document).ready( function(){
 		$('#browse').hide();
 	});
 
-
 	$('.appendTrack').on("click",function(){
 		$('.track_divs').append("<div class='language_box'>English</div><div class='tracks_box' style='width:"+ parseInt($('#totalDuration').text()) * 10 + "em;'>1</div>");
 
@@ -33,20 +32,13 @@ $(document).ready( function(){
 		$('#pause').replaceWith( "<a href='javascript:ytplayer.playVideo()'><div id='play'></div></a>");
 		});
 	});
-
-
-
 	});
-
-
 
 	$('.track_divs').on('dblclick', ".tracks_box", function(event){
 	  if (event.target.className == "tracks_box") {
 	    $(this).append( buildPostIt(event) );
 	  }
-
 	  $('.post-it').draggable({ handle: ".header", containment: "parent" });
-
 	  $('.remove_note').on('click', function(){
 	    $(this).parent().parent().remove();
 	  });
