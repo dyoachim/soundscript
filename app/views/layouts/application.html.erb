@@ -23,6 +23,12 @@
 
 					<li class="nav_link"><%= link_to "Log In", new_session_path %></li>
 						<%end%>
+						<li class="nav_link">
+							<form id="form_nav" action='/' method='GET'>
+								<input type='text' name='search_term' placeholder='Search'>
+								<input type='submit', value='Search'>
+							</form><a id="browse" href="#">Browse</a>
+						</li>
 				</ul>
 		</nav><br>
 		<br>

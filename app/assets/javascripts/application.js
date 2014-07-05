@@ -12,5 +12,15 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+
 //= require_tree .
+$(document).ready( function(){
+
+	$('#form_nav').hide();
+
+	$('#browse').on("click", function(){
+		event.preventDefault();
+		$('#form_nav').show();
+		$('#browse').hide();
+	});
+});
