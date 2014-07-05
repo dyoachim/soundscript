@@ -1,4 +1,4 @@
-Sound Script [![Build Status](https://travis-ci.org/dyoachim/soundscript.svg?branch=master)](https://travis-ci.org/dyoachim/soundscript)
+##Sound Script [![Build Status](https://travis-ci.org/dyoachim/soundscript.svg?branch=master)](https://travis-ci.org/dyoachim/soundscript)
 
 ===========
 ## Overview
@@ -45,7 +45,7 @@ Before testing, set the environment variable in your terminal with your google a
 run rspec in the root directory.
 
 All our tests are written in RSPEC. We are using ['capybara'](https://github.com/jnicklas/capybara) for our integration tests. 
-We use [Travis](http://docs.travis-ci.com/) for continuous integration testing and [SimpleCov](https://github.com/colszowka/simplecov) for code coverage.
+[Travis](http://docs.travis-ci.com/) is used for continuous integration testing and [SimpleCov](https://github.com/colszowka/simplecov) for code coverage.
 
 ## Licensing
 
