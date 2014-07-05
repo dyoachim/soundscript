@@ -34,13 +34,13 @@ $(document).ready( function(){
 	    $(this).append( buildPostIt(event) );
 	  }
 
-	  $('.post-it').draggable({ handle: ".header" });
+	  $('.post-it').draggable({ handle: ".header", containment: "parent" });
 
 	  $('.remove_note').on('click', function(){
 	    $(this).parent().parent().remove();
 	  });
 	});	
 
-
+ 	
 
 });
