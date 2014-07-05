@@ -21,6 +21,7 @@ nav{
 	position: fixed;
 	left: 0;
 	top: 0;
+	border-bottom: solid 7px lightgray;
 }
 
 nav ul li {
@@ -52,6 +53,8 @@ padding-left: 35px;
 
 body{
 	margin:0px;
+	background-color: white;
+
 }
 
 ul li a{
@@ -63,7 +66,7 @@ ul li a{
 
 ul li a:hover{
 	text-decoration: none;
-	color: grey;
+	color: white;
 	font-family: 'Muli', sans-serif;
 	/*margin-top: 30px;*/
 }
@@ -84,8 +87,10 @@ ul li a:hover{
 }
 
 .container{
-	margin: 100px auto;
+	margin: 130px auto;
 	margin-left: 5%;
+	background-color: white;
+
 }
 
 .videoShowContainer{
@@ -95,11 +100,12 @@ ul li a:hover{
 #index_page_container{
 	background-color: #bdbec5;
 	margin: 20px auto;
-  width: 900px;
+  width: 950px;
   padding: 0px 20px 20px 20px;
   border-radius: .75em;
   overflow:scroll;
 }
+
 
 #blurb {
 	margin: 20px auto;
@@ -116,6 +122,7 @@ ul li a:hover{
 	padding-top: 20px;
 	width:300px;
 	/*margin: 0 auto;*/
+	padding-bottom: 30px;
 
 }
 
@@ -147,8 +154,8 @@ ul li a:hover{
 }
 
 .login_form {
-	width:350px;
-	height:290px;
+	width:25%;
+	height:100%;
 	margin: auto;
 	padding: 20px;
 	background-color: gray;
@@ -164,7 +171,7 @@ ul li a:hover{
 	border-radius: .30em;
 	font-size: 20px;
 	height:30px; 
-	width:320px;
+	width:100%;
 }
 
 .video_thumbnail .caption{
@@ -221,3 +228,35 @@ ul {
 	clear: both;
 }
 
+
+
+#input_nav{
+
+
+}
+
+.create_form .submit{
+	width:120px;
+
+}
+
+
+.login_form .submit{
+	width:120px;
+}
+.login_form .submit:hover{
+	background-color: #f0a502;
+	color:white;
+}
+
+.input_fields{
+	background-color:lightgray;
+}
+
+.input_fields:hover{
+	background-color: white;
+}
+
+#submit_index:hover{
+	background-color: yellow;
+}
