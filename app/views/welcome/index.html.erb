@@ -1,25 +1,21 @@
 <div class="container">
 	<div id="blurb">
-
 		<p>Learn a language by following along
 		any YouTube video translated by Sound Script
 		users. Annotate a video of your own
-		by clicking any YouTube video. </p>
+		by clicking on any video. </p>
 	</div>
 
 	<div id="index_page_container">
 
 	<div id="search_form">
 		<form action='/' method='GET'>
-			<input type='text' name='search_term' placeholder='Search'>
-			<input id="submit_index" type='submit' style= 'height:90px; width:90px;  font-size:30px;'>
+			<input type='text' name='search_term' placeholder='  Search'>
+			<input class="front_button" id="submit_index" type='submit' style= 'width:90px; background-color:#f0a502; color:white;'>
 		</form>
 	</div>
 
-
-
 	<% if @videos %>
-
 		<% @videos.each do |video| %>
 			<div class="video_thumbnail">
 				<a href="videos/<%= video.id['videoId'] %>"><img src='<%= video.snippet.thumbnails.medium.url %>'></a>
