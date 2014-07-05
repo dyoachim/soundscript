@@ -25,9 +25,22 @@ $(document).ready( function(){
 
 
 	$('.appendTrack').on("click",function(){
-		$('#track_divs').append("<div class='language_box'>English</div><div class='tracks_box' style='width:"+ parseInt($('#totalDuration').text()) * 10 + "em;'>1</div>");
+		$('.track_divs').append("<div class='language_box'>English</div><div class='tracks_box' style='width:"+ parseInt($('#totalDuration').text()) * 10 + "em;'>1</div>");
 
 	});
+
+	$('.track_divs').on('dblclick', ".tracks_box", function(event){
+	  if (event.target.className == "tracks_box") {
+	    $(this).append( buildPostIt(event) );
+	  }
+
+	  $('.post-it').draggable({ handle: ".header" });
+
+	  $('.remove_note').on('click', function(){
+	    $(this).parent().parent().remove();
+	  });
+	});	
+
 
 
 });
