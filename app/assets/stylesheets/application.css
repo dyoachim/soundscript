@@ -229,16 +229,8 @@ ul {
 	clear: both;
 }
 
-
-
-#input_nav{
-
-
-}
-
 .create_form .submit{
 	width:120px;
-
 }
 
 
@@ -276,7 +268,6 @@ ul {
   overflow: hidden;
 }
 
-
 .post-it .header {
   background-color: #c2c25b;
   text-align: right;
@@ -311,7 +302,6 @@ ul {
      float:left;
      border:solid black 1px;
      padding: 20px;
-
 }
 
 #profile_side{
@@ -328,11 +318,14 @@ ul {
 	background: url('/assets/pause.png');
 	width: 80px;
 	height: 79px;
+	float:left;
 }
 
 #play{
 	background: url('/assets/play.png');
 	width: 80px;
 	height: 79px;
-
+	float:right;
 }
+
+
