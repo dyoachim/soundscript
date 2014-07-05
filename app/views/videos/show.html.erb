@@ -6,7 +6,6 @@
 		</div>
 	</div>
 	<div class='controls_box'>
-
 		<button class="appendTrack">Add Track</button>
 
 		<% @video.each do |video| %>
@@ -29,7 +28,7 @@
 
 			  function fillTracks(duration){
 
-				$('.track_divs').append("<div class='language_box'>English</div><div class='tracks_box' style='width:"+ duration * 10 + "em;'>1</div>");
+				$('.track_divs').append("<div class='language_box'>English</div><div class='tracks_box' style='width:"+ duration * 10 + "em;'><button class='timeButton'>Get timestamps</button></div>");
 			}
 
 			function buildPostIt(click_event) {
