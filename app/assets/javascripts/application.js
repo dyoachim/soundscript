@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-
 //= require_tree .
 $(document).ready( function(){
 
@@ -23,4 +22,12 @@ $(document).ready( function(){
 		$('#form_nav').show();
 		$('#browse').hide();
 	});
+
+
+	$('.appendTrack').on("click",function(){
+		$('#track_divs').append("<div class='language_box'>English</div><div class='tracks_box' style='width:"+ parseInt($('#totalDuration').text()) * 10 + "em;'>1</div>");
+
+	});
+
+
 });
