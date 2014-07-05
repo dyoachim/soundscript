@@ -302,3 +302,26 @@ ul {
   min-height: 70px;
   outline: none;
 }
+
+#profile_container{
+
+     width:700px;
+     height: 100%;
+     margin-top: 150px;
+     margin-left: 50px;
+     float:left;
+     border:solid black 1px;
+     padding: 20px;
+
+}
+
+#profile_side{
+     margin-top: 150px;
+     width: 400px;
+     float:left;
+     height:600px;
+     border:solid black 1px;
+     margin-bottom: 25px;
+     margin-left: 25px;    
+}
+
