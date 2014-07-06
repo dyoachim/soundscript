@@ -1,8 +1,7 @@
 
-
-<%=form_for @user,:html => {:class => "create_form"} do |f| %>
+<%=form_for @user,:html => {:class => "loginform"} do |f| %>
 	<%= f.label :username %>
-	<%= f.text_field :username,:class => "input_fields" %><br><br>
+	<%= f.text_field :username, :class => "input_fields" %><br><br>
 
 	<%= f.label :email %>
 	<%= f.text_field :email,:class => "input_fields" %><br><br>
