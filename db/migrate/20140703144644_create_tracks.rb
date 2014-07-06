@@ -4,7 +4,7 @@ class CreateTracks < ActiveRecord::Migration
       t.integer :user_id
       t.string :youtube_id
       t.string :primary_language
-      t.string :transcript
+      t.text :transcript
 
       t.timestamps
     end

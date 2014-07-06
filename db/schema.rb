@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 20140703144644) do
     t.integer  "user_id"
     t.string   "youtube_id"
     t.string   "primary_language"
-    t.string   "transcript"
+    t.text     "transcript"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
