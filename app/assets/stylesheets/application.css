@@ -157,8 +157,12 @@ ul li a:hover{
 	height:220px;
 }
 
-.video_thumbnail p{
+.video_thumbnail p {
 	margin: 0;
+}
+
+.has_tracks {
+	border: 6px solid green;
 }
 
 #index_page_container .video_thumbnail img{
