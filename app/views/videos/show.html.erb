@@ -7,10 +7,6 @@
 	</div>
 	<div class='controls_box'>
 
-		<%if current_user%>
-
-		<button class="appendTrack">Add Track</button>
-		<%end%>
 		<% @video.each do |video| %>
 			<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>    
 
@@ -31,7 +27,20 @@
 
 			  function fillTracks(duration){
 
-			    $('.track_divs').append("<div class='language_box'>English</div><div class='tracks_box' style='width:"+ duration * 10 + "em;'><button class='timeButton'>Get timestamps</button><div id='progressBar'></div></div>");
+			    
+			    var ticks2 = "<div class='language_box'>English</div><div class='tracks_box' style='width:"+ duration * 10 + "em;'><button class='timeButton'>Get timestamps</button><div id='progressBar'></div>"
+
+			      ticks2 += "<div class='tick' id='ticka'></div>";
+				    ticks2 += "<div class='tick' id='tickb'></div>";
+				    ticks2 += "<div class='tick' id='tickc'></div>";
+				    ticks2 += "<div class='tick' id='tickd'></div>";
+				    ticks2 += "<div class='tick' id='ticke'></div>";
+				    ticks2 += "<div class='tick' id='tickf'></div>";
+				    ticks2 += "<div class='tick' id='tickg'></div>";
+				    ticks2 += "<div class='tick' id='tickh'></div>";
+						ticks2 += "</div>";
+
+						$('.track_divs').append(ticks2);
 			}
 
 			function buildPostIt(click_event) {
@@ -60,11 +69,18 @@
 			</script>
 		<% end %>
 		<ul>
-			<a href="javascript:ytplayer.pauseVideo()"><li><span id="pause"></span></li></a>
-			<a href="javascript:ytplayer.playVideo()"><li><span id="play"></span></li></a>
+			<a href="javascript:ytplayer.pauseVideo()"><li id="pause"></li></a>
+			<a href="javascript:ytplayer.playVideo()"><li id="play"></li></a>
+			<a href="javascript:ytplayer.seekTo(0)"><li id="replay"></li></a>
+			<a href="javascript:ytplayer.seekTo(ytplayer.getCurrentTime() - 5)"><li id="rewind"></li></a>
 			<br>
-			<li>current time: <span id="currentTime">--:--</span> / <span id='totalDuration'></span></li>
+			<li style="font-family: 'Quicksand', sans-serif;"><span id="currentTime">--:--</span> / <span id='totalDuration'></span></li>
 		</ul>
+		<%if current_user%>
+		<div id="button_add_track">
+		<button class="appendTrack">Add Track</button>
+		</div>	
+		<%end%>
 	</div>
 	<div class='clearfix'></div>
 	<div class="track_divs">
