@@ -7,10 +7,6 @@
 	</div>
 	<div class='controls_box'>
 
-		<%if current_user%>
-
-		<button class="appendTrack">Add Track</button>
-		<%end%>
 		<% @video.each do |video| %>
 			<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>    
 
@@ -60,11 +56,17 @@
 			</script>
 		<% end %>
 		<ul>
-			<a href="javascript:ytplayer.pauseVideo()"><li><span id="pause"></span></li></a>
-			<a href="javascript:ytplayer.playVideo()"><li><span id="play"></span></li></a>
+			<a href="javascript:ytplayer.pauseVideo()"><li id="pause"></li></a>
+			<a href="javascript:ytplayer.playVideo()"><li id="play"></li></a>
+
 			<br>
-			<li>current time: <span id="currentTime">--:--</span> / <span id='totalDuration'></span></li>
+			<li style="font-family: 'Quicksand', sans-serif;">current time: <span id="currentTime">--:--</span> / <span id='totalDuration'></span></li>
 		</ul>
+		<%if current_user%>
+		<div id="button_add_track">
+		<button class="appendTrack">Add Track</button>
+		</div>	
+		<%end%>
 	</div>
 	<div class='clearfix'></div>
 	<div class="track_divs">

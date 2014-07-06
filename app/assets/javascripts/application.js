@@ -26,12 +26,12 @@ $(document).ready( function(){
 	$('.appendTrack').on("click",function(){
 		$('.track_divs').append("<div class='language_box'>English</div><div class='tracks_box' style='width:"+ parseInt($('#totalDuration').text()) * 10 + "em;'><button class='timeButton'>Get timestamps</button></div>");
 
-		$('#play').on("click", function(){
-		$('#play').replaceWith( "<a href='javascript:ytplayer.pauseVideo()'><div id='pause'></div></a> ");
-		$('#pause').on("click", function(){
-		$('#pause').replaceWith( "<a href='javascript:ytplayer.playVideo()'><div id='play'></div></a>");
-		});
-	});
+	// 	$('#play').on("click", function(){
+	// 	$('#play').replaceWith( "<a href='javascript:ytplayer.pauseVideo()'><div id='pause'></div></a> ");
+	// 	$('#pause').on("click", function(){
+	// 	$('#pause').replaceWith( "<a href='javascript:ytplayer.playVideo()'><div id='play'></div></a>");
+	// 	});
+	// });
 	});
 
 	$('.track_divs').on("click", ".timeButton", function(){
@@ -51,6 +51,21 @@ $(document).ready( function(){
 	  });
 	});	
 
+
+
+
+    var ticks2 = "<div class='tick' id='ticka'></div>"
+    ticks2 += "<div class='tick' id='tickb'></div>";
+    ticks2 += "<div class='tick' id='tickc'></div>";
+    ticks2 += "<div class='tick' id='tickd'></div>";
+    ticks2 += "<div class='tick' id='ticke'></div>";
+    ticks2 += "<div class='tick' id='tickf'></div>";
+    ticks2 += "<div class='tick' id='tickg'></div>";
+    ticks2 += "<div class='tick' id='tickh'></div>";
+
+    $(".track_divs").append(ticks2);
+
+
  		
 
 });
@@ -69,3 +84,5 @@ function getStamps() {
     // console.log(stamps['sentence']);
   });
 }
+
+

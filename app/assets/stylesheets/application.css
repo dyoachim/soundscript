@@ -188,9 +188,13 @@ ul li a:hover{
 }
 
 .controls_box {
-	float: right;
-	padding: 50px 100px 0 0;
+	/*float: right;*/
+	padding: 50px 100px 0 102px;
+	background-color: white;
+	height:271px;
 }
+
+
 
 ul {
 	padding-left: 0;
@@ -212,7 +216,7 @@ ul {
 .language_box {
 	width: 100px;
 	height: 280px;
-	background-color: green;
+	background-color: gray;
 	border: 1px solid black;
 	float: left;
 }
@@ -220,7 +224,7 @@ ul {
 .tracks_box {
 	height: 280px;
 	margin-left: 100px;
-	background-color: gray;
+	background-color: lightgray;
 	border: 1px solid black;
 	position: relative;
 }
@@ -318,21 +322,87 @@ ul {
 	background: url('/assets/pause.png');
 	width: 80px;
 	height: 79px;
-	float:left;
+	display: inline-block;
+	margin-right: 0;
 }
 
 #play{
 	background: url('/assets/play.png');
 	width: 80px;
 	height: 79px;
-	float:right;
+	display: inline-block;
+	margin-right: 0;
 }
 
 
 #progressBar {
   position: relative; 
-  background-color: red;
+  background-color: black;
   width: 3px;
   height: 80%; 
+}
+
+.appendTrack{
+	height:30px;
+	width:95px;
+	font-size: 14px;
+	border-radius: .4em;
+	background-color: #f0a502;
+	font-family: 'Muli', sans-serif;
+	font-weight: bold;
+}
+.appendTrack:hover{
+	background-color: lightgray;
+	font-family: 'Muli', sans-serif;
+	font-weight: bold;
+	color:black;
+	box-shadow: 3px 3px 3px #888888;
+}
+
+
+#button_add_track{
+	padding-left: 16px;
+}
+
+
+
+
+
+.tick {
+    width: 1px;
+    background-color:black;
+    height:100%;
+    position:absolute;
+    bottom:0px;
+}
+
+#ticka{
+    margin-left:11.1%;
+}
+
+#tickb{
+    margin-left:22.2%;
+}
+
+#tickc{
+    margin-left:33.3%;
+}
+#tickd{
+    margin-left:44.4%;
+}
+
+#ticke{
+    margin-left:55.5%;
+}
+
+#tickf{
+    margin-left:66.6%;
+}
+#tickg{
+    margin-left:77.7%;
+}
+
+#tickh{
+    margin-left:88.8%;
 }
 
