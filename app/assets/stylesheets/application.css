@@ -218,7 +218,7 @@ ul {
 .video_box {
 	width: 640px;
 	height: 321px;
-	background-color: red;
+	background-color: white;
 	float: right;
 }
 
@@ -279,6 +279,16 @@ ul {
   position: absolute !important;
   width: 160px;
   background-color: beige;
+  box-shadow: -2px 2px 5px #555;
+  overflow: hidden;
+}
+
+
+/*this is for the read only track css*/
+.track_post_it {
+  position: absolute !important;
+  width: 160px;
+  background-color: white;
   box-shadow: -2px 2px 5px #555;
   overflow: hidden;
 }
