@@ -81,6 +81,12 @@ ul li a:hover{
 	height:93px;
 }
 
+.soundscript_logo:hover{
+	background:url('/assets/logo_hover.png');
+	width:400px;
+	height:93px;
+}
+
 #soundscript_logo{
 	float:left;
 	margin-top: 3px;
@@ -189,7 +195,8 @@ ul li a:hover{
 
 .controls_box {
 	/*float: right;*/
-	padding: 50px 100px 0 102px;
+	padding: 50px 100px 0 120px;
+
 	background-color: white;
 	height:271px;
 }
@@ -395,7 +402,7 @@ ul {
 
 
 #button_add_track{
-	padding-left: 16px;
+	padding-left: 21px;
 }
 
 .tick {
