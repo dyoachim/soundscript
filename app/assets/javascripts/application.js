@@ -35,8 +35,8 @@ $(document).ready( function(){
     });
   });
 
-  var postIts = [];  
   $('.track_divs').on("click", ".timeButton", function(){
+    var postIts = [];  
     $(this).parent().children('.post-it').each(function(){
       postIts.push({ content: $(this).children(".content").text(), position_css: this.style['cssText']})
     });
