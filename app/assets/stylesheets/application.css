@@ -57,6 +57,7 @@ body{
 
 }
 
+
 ul li a{
 	text-decoration: none;
 	color: black;
@@ -204,7 +205,6 @@ ul li a:hover{
 	height:271px;
 }
 
-
 ul {
 	padding-left: 0;
 }
@@ -218,7 +218,7 @@ ul {
 .video_box {
 	width: 640px;
 	height: 321px;
-	background-color: red;
+	background-color: white;
 	float: right;
 }
 
@@ -233,7 +233,8 @@ ul {
 .tracks_box {
 	height: 280px;
 	margin-left: 100px;
-	background-color: lightgray;
+	background-image: url('/assets/tickk.jpg');
+	background-repeat: repeat-z;
 	border: 1px solid black;
 	position: relative;
 }
@@ -245,7 +246,6 @@ ul {
 .create_form .submit{
 	width:120px;
 }
-
 
 .login_form .submit{
 	width:120px;
@@ -278,13 +278,24 @@ ul {
 .post-it {
   position: absolute !important;
   width: 160px;
-  background-color: yellow;
+  background-color: beige;
+  box-shadow: -2px 2px 5px #555;
+  overflow: hidden;
+}
+
+
+/*this is for the read only track css*/
+.track_post_it {
+  position: absolute !important;
+  width: 160px;
+  background-color: white;
   box-shadow: -2px 2px 5px #555;
   overflow: hidden;
 }
 
 .post-it .header {
-  background-color: #c2c25b;
+  /*background-color: #b29966;*/
+  background-color: #DCDCDC;	
   text-align: right;
   padding: 2px;
 }
@@ -307,6 +318,7 @@ ul {
   padding: 10px;
   min-height: 70px;
   outline: none;
+  font-family: 'Droid Sans Mono';
 }
 
 #profile_container{
@@ -383,9 +395,9 @@ ul {
 
 #progressBar {
   position: relative; 
-  background-color: black;
+  background-color: red;
   width: 3px;
-  height: 80%; 
+  height: 100%; 
 }
 
 .appendTrack{
@@ -407,44 +419,5 @@ ul {
 
 #button_add_track{
 	padding-left: 21px;
-}
-
-.tick {
-    width: 1px;
-    border-right: black solid 1px;
-    height:100%;
-    position:absolute;
-    bottom:0px;
-    z-index: 10;
-}
-
-#ticka{
-    width: 10%;
-}
-
-#tickb{
-    width: 20%;
-}
-
-#tickc{
-    width: 30%;
-}
-#tickd{
-    width: 40%;
-}
-
-#ticke{
-    width: 50%;
-}
-
-#tickf{
-    width: 60%;
-}
-#tickg{
-    width: 70%;
-}
-
-#tickh{
-    width: 80%;
 }
 

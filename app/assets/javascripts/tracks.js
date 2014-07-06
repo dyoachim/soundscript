@@ -10,7 +10,6 @@ function VideoPlayer(video_id, logged_in) {
     }
     track += "<div id='progressBar'></div>"
 		track += "</div>";
-
 		$('.track_divs').append(track);
 	}
 
@@ -35,6 +34,6 @@ function VideoPlayer(video_id, logged_in) {
 function buildPostIt(click_event) {
   return ['<div class="post-it" style="top:' + click_event.offsetY + 'px; left:' + click_event.offsetX + 'px">',
             '<header class="header"><span class="remove_note">X</span></header>',
-            '<section class="content" contenteditable="true">Hey post it content</section>',
+            '<section class="content" contenteditable="true"></section>',
           '</div>'].join('\n');
 }
