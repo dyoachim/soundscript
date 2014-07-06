@@ -57,6 +57,7 @@ body{
 
 }
 
+
 ul li a{
 	text-decoration: none;
 	color: black;
@@ -204,7 +205,6 @@ ul li a:hover{
 	height:271px;
 }
 
-
 ul {
 	padding-left: 0;
 }
@@ -246,7 +246,6 @@ ul {
 	width:120px;
 }
 
-
 .login_form .submit{
 	width:120px;
 }
@@ -278,13 +277,14 @@ ul {
 .post-it {
   position: absolute !important;
   width: 160px;
-  background-color: yellow;
+  background-color: beige;
   box-shadow: -2px 2px 5px #555;
   overflow: hidden;
 }
 
 .post-it .header {
-  background-color: #c2c25b;
+  /*background-color: #b29966;*/
+  background-color: #DCDCDC;	
   text-align: right;
   padding: 2px;
 }
@@ -307,6 +307,7 @@ ul {
   padding: 10px;
   min-height: 70px;
   outline: none;
+  font-family: 'Droid Sans Mono';
 }
 
 #profile_container{
@@ -408,7 +409,7 @@ ul {
 #button_add_track{
 	padding-left: 21px;
 }
-
+/*
 .tick {
     width: 1px;
     border-right: black solid 1px;
@@ -448,3 +449,4 @@ ul {
     width: 80%;
 }
 
+*/
