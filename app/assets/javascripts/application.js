@@ -41,7 +41,7 @@ $(document).ready( function(){
     });
 
     var url = '/videos/' + $('.video_id').attr('id') + '/tracks'
-    var data = { data: postIts}
+    var data = { data: postIts }
     $.post(url, data, function( response ) {});
 	});
 
