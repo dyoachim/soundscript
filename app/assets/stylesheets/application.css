@@ -81,6 +81,12 @@ ul li a:hover{
 	height:93px;
 }
 
+/*.soundscript_logo:hover{
+	background:url('/assets/logo_hover.png');
+	width:400px;
+	height:93px;
+}*/
+
 #soundscript_logo{
 	float:left;
 	margin-top: 3px;
@@ -195,9 +201,14 @@ ul li a:hover{
 }
 
 .controls_box {
-	float: right;
-	padding: 50px 100px 0 0;
+	/*float: right;*/
+	padding: 50px 100px 0 120px;
+
+	background-color: white;
+	height:271px;
 }
+
+
 
 ul {
 	padding-left: 0;
@@ -219,7 +230,7 @@ ul {
 .language_box {
 	width: 100px;
 	height: 280px;
-	background-color: green;
+	background-color: gray;
 	border: 1px solid black;
 	float: left;
 }
@@ -227,7 +238,7 @@ ul {
 .tracks_box {
 	height: 280px;
 	margin-left: 100px;
-	background-color: gray;
+	background-color: lightgray;
 	border: 1px solid black;
 	position: relative;
 }
@@ -265,6 +276,8 @@ ul {
 	background-color: yellow;
 	width:100%;
 	overflow:scroll;
+	position: relative;
+	z-index: 2;
 }
 
 .post-it {
@@ -325,21 +338,118 @@ ul {
 	background: url('/assets/pause.png');
 	width: 80px;
 	height: 79px;
-	float:left;
+	display: inline-block;
+	margin-right: 0;
 }
 
 #play{
 	background: url('/assets/play.png');
 	width: 80px;
 	height: 79px;
-	float:right;
+	display: inline-block;
+	margin-right: 0;
+}
+
+#rewind{
+
+	background: url('/assets/rewind.png');
+	width: 80px;
+	height: 79px;
+	display: inline-block;
+	margin-right: 0;
+}
+#replay{
+	background: url('/assets/replay.png');
+	width: 80px;
+	height: 79px;
+	display: inline-block;
+	margin-right: 0;
+
+}
+
+#replay:hover{
+	background: url('/assets/replay2.png');
+
+}
+
+#rewind:hover{
+	background: url('/assets/rewind2.png');
+
+}
+
+#play:hover{
+	background: url('/assets/play2.png');
+}
+
+#pause:hover{
+	background: url('/assets/pause2.png');
 }
 
 
 #progressBar {
   position: relative; 
-  background-color: red;
+  background-color: black;
   width: 3px;
   height: 80%; 
+}
+
+.appendTrack{
+	height:30px;
+	width:95px;
+	font-size: 14px;
+	border-radius: .4em;
+	background-color: #f0a502;
+	font-family: 'Muli', sans-serif;
+	font-weight: bold;
+}
+.appendTrack:hover{
+	background-color: gray;
+	font-family: 'Muli', sans-serif;
+	font-weight: bold;
+	color:white;
+}
+
+
+#button_add_track{
+	padding-left: 21px;
+}
+
+.tick {
+    width: 1px;
+    border-right: black solid 1px;
+    height:100%;
+    position:absolute;
+    bottom:0px;
+    z-index: 10;
+}
+
+#ticka{
+    width: 10%;
+}
+
+#tickb{
+    width: 20%;
+}
+
+#tickc{
+    width: 30%;
+}
+#tickd{
+    width: 40%;
+}
+
+#ticke{
+    width: 50%;
+}
+
+#tickf{
+    width: 60%;
+}
+#tickg{
+    width: 70%;
+}
+
+#tickh{
+    width: 80%;
 }
 
