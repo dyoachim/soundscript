@@ -81,11 +81,11 @@ ul li a:hover{
 	height:93px;
 }
 
-.soundscript_logo:hover{
+/*.soundscript_logo:hover{
 	background:url('/assets/logo_hover.png');
 	width:400px;
 	height:93px;
-}
+}*/
 
 #soundscript_logo{
 	float:left;
@@ -269,6 +269,8 @@ ul {
 	background-color: yellow;
 	width:100%;
 	overflow:scroll;
+	position: relative;
+	z-index: 2;
 }
 
 .post-it {
@@ -407,39 +409,40 @@ ul {
 
 .tick {
     width: 1px;
-    background-color:black;
+    border-right: black solid 1px;
     height:100%;
     position:absolute;
     bottom:0px;
+    z-index: 10;
 }
 
 #ticka{
-    margin-left:11.1%;
+    width: 10%;
 }
 
 #tickb{
-    margin-left:22.2%;
+    width: 20%;
 }
 
 #tickc{
-    margin-left:33.3%;
+    width: 30%;
 }
 #tickd{
-    margin-left:44.4%;
+    width: 40%;
 }
 
 #ticke{
-    margin-left:55.5%;
+    width: 50%;
 }
 
 #tickf{
-    margin-left:66.6%;
+    width: 60%;
 }
 #tickg{
-    margin-left:77.7%;
+    width: 70%;
 }
 
 #tickh{
-    margin-left:88.8%;
+    width: 80%;
 }
 

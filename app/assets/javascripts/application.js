@@ -50,24 +50,6 @@ $(document).ready( function(){
 	    $(this).parent().parent().remove();
 	  });
 	});	
-
-
-
-
-    var ticks2 = "<div class='tick' id='ticka'></div>"
-    ticks2 += "<div class='tick' id='tickb'></div>";
-    ticks2 += "<div class='tick' id='tickc'></div>";
-    ticks2 += "<div class='tick' id='tickd'></div>";
-    ticks2 += "<div class='tick' id='ticke'></div>";
-    ticks2 += "<div class='tick' id='tickf'></div>";
-    ticks2 += "<div class='tick' id='tickg'></div>";
-    ticks2 += "<div class='tick' id='tickh'></div>";
-
-    $(".track_divs").append(ticks2);
-
-
- 		
-
 });
 
 function getStamps() {
