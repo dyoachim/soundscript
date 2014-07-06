@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
 $(document).ready( function(){
 
   $('#form_nav').hide();
@@ -29,7 +30,7 @@ $(document).ready( function(){
     $('#play').on("click", function(){
       $('#play').replaceWith( "<a href='javascript:ytplayer.pauseVideo()'><div id='pause'></div></a> ");
       $('#pause').on("click", function(){
-	$('#pause').replaceWith( "<a href='javascript:ytplayer.playVideo()'><div id='play'></div></a>");
+	      $('#pause').replaceWith( "<a href='javascript:ytplayer.playVideo()'><div id='play'></div></a>");
       });
     });
   });
