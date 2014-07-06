@@ -2,8 +2,9 @@ class CreateTracks < ActiveRecord::Migration
   def change
     create_table :tracks do |t|
       t.integer :user_id
-      t.string :youtube_url
+      t.string :youtube_id
       t.string :primary_language
+      t.string :transcript
 
       t.timestamps
     end

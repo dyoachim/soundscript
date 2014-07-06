@@ -12,6 +12,7 @@
 		<button class="appendTrack">Add Track</button>
 		<%end%>
 		<% @video.each do |video| %>
+			<span class='video_id' id='<%= video.id %>'></span>
 			<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>    
 
 			<script type="text/javascript">

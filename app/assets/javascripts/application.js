@@ -37,13 +37,11 @@ $(document).ready( function(){
   var postIts = [];  
   $('.track_divs').on("click", ".timeButton", function(){
     $(this).parent().children('.post-it').each(function(){
-      var injection_time = this.style["left"];
-      var content = $(this).children(".content").text();
-      postIts.push({ content: content, injection_time: injection_time})
+      postIts.push({ content: $(this).children(".content").text(), position_css: this.style['cssText']})
     });
 
-    var url = '/videos/1/tracks'
-    var data = { data: postIts }
+    var url = '/videos/' + $('.video_id').attr('id') + '/tracks'
+    var data = { data: postIts}
     $.post(url, data, function( response ) {});
   });
 

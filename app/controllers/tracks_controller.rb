@@ -1,11 +1,9 @@
 class TracksController < ApplicationController
 
   def create
-    track = Track.new
-    params[:data].each do |key, val|
-      track.sentences << Sentence.create(val)
-    end
+    track = Track.new(youtube_id: params[:video_id])
+    track.transcript = params[:data].to_s
     track.save
-  redirect_to '/'
+  	redirect_to '/'
   end
 end
