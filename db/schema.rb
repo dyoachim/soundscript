@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 20140703144944) do
   create_table "sentences", force: true do |t|
     t.text     "content"
     t.integer  "track_id"
-    t.integer  "injection_time"
+    t.string   "injection_time"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
