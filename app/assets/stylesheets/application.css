@@ -153,6 +153,7 @@ ul li a:hover{
 	margin-bottom: 5px;
 	float:left;
 	width: 195px;
+	height:220px;
 }
 
 .video_thumbnail p{
@@ -185,10 +186,6 @@ ul li a:hover{
 	width:100%;
 }
 
-.video_thumbnail .caption{
-	width:195px;
-}
-
 
 
 #error_message{
@@ -203,11 +200,9 @@ ul li a:hover{
 .controls_box {
 	/*float: right;*/
 	padding: 50px 100px 0 120px;
-
 	background-color: white;
 	height:271px;
 }
-
 
 
 ul {
