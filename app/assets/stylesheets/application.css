@@ -143,7 +143,6 @@ ul li a:hover{
 	width:500px;
 	height:30px;
 	font-size: 20px;
-	
 }
 
 #index_page_container #search_form{
@@ -152,7 +151,14 @@ ul li a:hover{
 
 #index_page_container .video_thumbnail{
 	margin: 20px;
+	margin-bottom: 5px;
 	float:left;
+	width: 195px;
+	height:220px;
+}
+
+.video_thumbnail p{
+	margin: 0;
 }
 
 #index_page_container .video_thumbnail img{
@@ -181,9 +187,7 @@ ul li a:hover{
 	width:100%;
 }
 
-.video_thumbnail .caption{
-	width:180px;
-}
+
 
 #error_message{
 	margin-top: 30px;
@@ -197,7 +201,6 @@ ul li a:hover{
 .controls_box {
 	/*float: right;*/
 	padding: 50px 100px 0 120px;
-
 	background-color: white;
 	height:271px;
 }
