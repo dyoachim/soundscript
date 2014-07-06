@@ -45,7 +45,7 @@ $(document).ready( function(){
 	  if (event.target.className == "tracks_box") {
 	    $(this).append( buildPostIt(event) );
 	  }
-	  $('.post-it').draggable({ handle: ".header", containment: "parent" });
+	  $('.post-it').draggable({ handle: ".header", containment: "parent" }).resizable({containment: "parent"});
 	  $('.remove_note').on('click', function(){
 	    $(this).parent().parent().remove();
 	  });
