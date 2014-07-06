@@ -239,6 +239,15 @@ ul {
 	position: relative;
 }
 
+.show_tracks_box {
+	height: 280px;
+	margin-left: 100px;
+	background-image: url('/assets/tickk.jpg');
+	background-repeat: repeat-z;
+	border: 1px solid black;
+	position: relative;
+}
+
 .clearfix {
 	clear: both;
 }
