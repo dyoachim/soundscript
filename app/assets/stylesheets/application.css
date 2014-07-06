@@ -334,6 +334,41 @@ ul {
 	margin-right: 0;
 }
 
+#rewind{
+
+	background: url('/assets/rewind.png');
+	width: 80px;
+	height: 79px;
+	display: inline-block;
+	margin-right: 0;
+}
+#replay{
+	background: url('/assets/replay.png');
+	width: 80px;
+	height: 79px;
+	display: inline-block;
+	margin-right: 0;
+
+}
+
+#replay:hover{
+	background: url('/assets/replay2.png');
+
+}
+
+#rewind:hover{
+	background: url('/assets/rewind2.png');
+
+}
+
+#play:hover{
+	background: url('/assets/play2.png');
+}
+
+#pause:hover{
+	background: url('/assets/pause2.png');
+}
+
 
 #progressBar {
   position: relative; 
@@ -352,21 +387,16 @@ ul {
 	font-weight: bold;
 }
 .appendTrack:hover{
-	background-color: lightgray;
+	background-color: gray;
 	font-family: 'Muli', sans-serif;
 	font-weight: bold;
-	color:black;
-	box-shadow: 3px 3px 3px #888888;
+	color:white;
 }
 
 
 #button_add_track{
 	padding-left: 16px;
 }
-
-
-
-
 
 .tick {
     width: 1px;

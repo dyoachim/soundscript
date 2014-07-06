@@ -58,7 +58,8 @@
 		<ul>
 			<a href="javascript:ytplayer.pauseVideo()"><li id="pause"></li></a>
 			<a href="javascript:ytplayer.playVideo()"><li id="play"></li></a>
-
+			<a href="javascript:ytplayer.seekTo(0)"><li id="replay"></li></a>
+			<a href="javascript:ytplayer.seekTo(ytplayer.getCurrentTime() - 5)"><li id="rewind"></li></a>
 			<br>
 			<li style="font-family: 'Quicksand', sans-serif;">current time: <span id="currentTime">--:--</span> / <span id='totalDuration'></span></li>
 		</ul>
