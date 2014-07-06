@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140703144944) do
+ActiveRecord::Schema.define(version: 20140703144644) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,18 +23,11 @@ ActiveRecord::Schema.define(version: 20140703144944) do
     t.datetime "updated_at"
   end
 
-  create_table "sentences", force: true do |t|
-    t.text     "content"
-    t.integer  "track_id"
-    t.integer  "injection_time"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "tracks", force: true do |t|
     t.integer  "user_id"
-    t.string   "youtube_url"
+    t.string   "youtube_id"
     t.string   "primary_language"
+    t.text     "transcript"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -15,56 +15,43 @@
 //= require_tree .
 $(document).ready( function(){
 
-	$('#form_nav').hide();
+  $('#form_nav').hide();
 
-	$('#browse').on("click", function(){
-		event.preventDefault();
-		$('#form_nav').show();
-		$('#browse').hide();
-	});
-
-	$('.appendTrack').on("click",function(){
-		$('.track_divs').append("<div class='language_box'>English</div><div class='tracks_box' style='width:"+ parseInt($('#totalDuration').text()) * 10 + "em;'><button class='timeButton'>Get timestamps</button></div>");
-
-	// 	$('#play').on("click", function(){
-	// 	$('#play').replaceWith( "<a href='javascript:ytplayer.pauseVideo()'><div id='pause'></div></a> ");
-	// 	$('#pause').on("click", function(){
-	// 	$('#pause').replaceWith( "<a href='javascript:ytplayer.playVideo()'><div id='play'></div></a>");
-	// 	});
-	// });
-	});
-
-	$('.track_divs').on("click", ".timeButton", function(){
-		$(this).parent().children('.post-it').each(function(){
-			console.log(this.style.left);
-			console.log($(this).children(".content").text());
-		});
-	});
-
-	$('.track_divs').on('dblclick', ".tracks_box", function(event){
-	  if (event.target.className == "tracks_box") {
-	    $(this).append( buildPostIt(event) );
-	  }
-	  $('.post-it').draggable({ handle: ".header", containment: "parent" });
-	  $('.remove_note').on('click', function(){
-	    $(this).parent().parent().remove();
-	  });
-	});	
-});
-
-function getStamps() {
-  var stamps = {};
-  console.log(this);
-  $($(this).parent().children()).each(function() {
-  	console.log(this);
-    // var leftVal = $(this).css('left');
-    // var sentence = $(this).html();
-    // stamps["time"] = leftVal;
-    // stamps["sentence"] = sentence;
-    
-    // console.log(stamps['time']);
-    // console.log(stamps['sentence']);
+  $('#browse').on("click", function(){
+    event.preventDefault();
+    $('#form_nav').show();
+    $('#browse').hide();
   });
-}
 
+  $('.appendTrack').on("click",function(){
+    $('.track_divs').append("<div class='language_box'>English</div><div class='tracks_box' style='width:"+ parseInt($('#totalDuration').text()) * 10 + "em;'><button class='timeButton'>Get timestamps</button></div>");
 
+    $('#play').on("click", function(){
+      $('#play').replaceWith( "<a href='javascript:ytplayer.pauseVideo()'><div id='pause'></div></a> ");
+      $('#pause').on("click", function(){
+	$('#pause').replaceWith( "<a href='javascript:ytplayer.playVideo()'><div id='play'></div></a>");
+      });
+    });
+  });
+
+  var postIts = [];  
+  $('.track_divs').on("click", ".timeButton", function(){
+    $(this).parent().children('.post-it').each(function(){
+      postIts.push({ content: $(this).children(".content").text(), position_css: this.style['cssText']})
+    });
+
+    var url = '/videos/' + $('.video_id').attr('id') + '/tracks'
+    var data = { data: postIts }
+    $.post(url, data, function( response ) {});
+	});
+
+  $('.track_divs').on('dblclick', ".tracks_box", function(event){
+    if (event.target.className == "tracks_box") {
+      $(this).append( buildPostIt(event) );
+    }
+    $('.post-it').draggable({ handle: ".header", containment: "parent" });
+    $('.remove_note').on('click', function(){
+      $(this).parent().parent().remove();
+    });
+  });	
+});

@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
 
   resources :videos, only: [:show, :index] do
-    resources :tracks, only: [:new, :edit, :destroy]
+    resources :tracks, only: [:new, :edit, :destroy, :create]
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
