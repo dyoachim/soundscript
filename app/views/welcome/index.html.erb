@@ -19,9 +19,9 @@
 		<% @videos.each do |video| %>
 			<div class="video_thumbnail">
 				<a href="videos/<%= video.id['videoId'] %>"><img src='<%= video.snippet.thumbnails.medium.url %>'></a>
-				<div class="caption">
+	
 						<p><a href="videos/<%= video.id['videoId'] %>"><%= video.snippet.title %></a></p>
-					</div>
+	
 		</div>
 		<% end  %>
 	<% end  %>

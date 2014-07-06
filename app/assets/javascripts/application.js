@@ -43,7 +43,7 @@ $(document).ready( function(){
     var url = '/videos/' + $('.video_id').attr('id') + '/tracks'
     var data = { data: postIts}
     $.post(url, data, function( response ) {});
-  });
+	});
 
   $('.track_divs').on('dblclick', ".tracks_box", function(event){
     if (event.target.className == "tracks_box") {
@@ -54,8 +54,4 @@ $(document).ready( function(){
       $(this).parent().parent().remove();
     });
   });	
-
-
-
 });
-

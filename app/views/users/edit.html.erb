@@ -1,15 +1,19 @@
-<%=form_for(@user) do |f| %>
-	<h3>Update <%= @user.username %>'s Profile:</h3>	<br>
+<div class='container'>
+	<div class='login_form'>
+		<%=form_for(@user,:html => {:class => "loginform"}) do |f| %>
+			<%= f.label :email %>
+			<%= f.text_field :email,:class => "input_fields" %><br>
 
-	<%= f.label :email %>
-	<%= f.text_field :email %><br>
+			<%= f.label :password %>
+			<%= f.password_field :password, :class => "input_fields" %><br>
 
-	<%= f.label :password %>
-	<%= f.password_field :password %><br>
+			<%= f.label :password_confirmation %>
+			<%= f.password_field :password_confirmation,:class => "input_fields" %><br><br>
 
-	<%= f.label :password_confirmation %>
-	<%= f.password_field :password_confirmation %><br>
+			<%= f.submit "Update!", :class => "submit" %>
+			<%end%>
 
-	<%= f.submit "Update!" %>
-	<%end%>
+	</div>
+</div>
+
 
