@@ -3,10 +3,12 @@ function VideoPlayer(video_id, logged_in) {
 	this.logged_in = logged_in;
 
 	this.fillTracks = function(duration) {
-		var track = "<div class='language_box'>English</div>"
+		var track = "<div class='language_box'></div>"
     track += "<div class='tracks_box' style='width:"+ duration * 10 + "em;'>"
     if (logged_in) {
-    	track += "<button class='timeButton'>Get timestamps</button>"
+    	track += "<button class='timeButton'>Submit</button>"
+    	track += "<button class ='deleteButton'>Delete</button>"
+    	track += "<button class ='deleteEdit'>Edit</button>"
     }
     track += "<div id='progressBar'></div>"
 		track += "</div>";
