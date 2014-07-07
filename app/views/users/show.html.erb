@@ -5,10 +5,7 @@
      <p>Email: <%=current_user.email%></p>
 
 
-<%current_user.tracks.each do |track|%>
-<%=track.youtube_url%>
 
-<%end%>
 
 <p><%= link_to "Edit Profile", edit_user_path(current_user), id:"edit_profile" %></p>
           <br>

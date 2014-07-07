@@ -23,6 +23,11 @@ $(document).ready( function(){
     $('#browse').hide();
   });
 
+  $('.track_divs').on("click", ".timeButton", function(){
+  	alert('You have successfully submitted your track.');
+  	location.reload();
+  });
+
   $('.appendTrack').on("click",function(){
     $('.track_divs').append("<div class='language_box'>English</div><div class='tracks_box' style='width:"+ parseInt($('#totalDuration').text()) * 10 + "em;'><button class='timeButton'>Get timestamps</button><div class='progressBar'></div></div>");
   });
@@ -48,3 +53,13 @@ $(document).ready( function(){
     });
   }); 
 });
+
+
+
+
+
+
+
+
+
+

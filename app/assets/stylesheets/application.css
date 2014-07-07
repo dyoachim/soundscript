@@ -191,8 +191,6 @@ ul li a:hover{
 	width:100%;
 }
 
-
-
 #error_message{
 	margin-top: 30px;
 	color:red;
@@ -298,7 +296,6 @@ ul {
 
 
 .post-it .header {
-  /*background-color: #b29966;*/
   background-color: #DCDCDC;	
   text-align: right;
   padding: 2px;
@@ -444,4 +441,14 @@ ul {
 #button_add_track{
 	padding-left: 21px;
 }
+
+
+.timeButton, .deleteButton, .deleteEdit {
+	height: 30px;
+	font-size: 15px;
+	border-radius: 5px;
+	background-color: #f0a502;
+	font-family: 'Muli', sans-serif;
+
+	}
 
