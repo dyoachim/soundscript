@@ -6,56 +6,51 @@
 		</div>
 	</div>
 	<div class='controls_box'>
-		<span class='video_id' id='<%= @video.id %>'></span>
-		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>    
-
-		<script type="text/javascript">
-      var videoPlayer = new VideoPlayer('<%= @video.id %>', <%= current_user.present? %>)
-			var params = { allowScriptAccess: "always" };
-			var atts = { id: "myytplayer" };
-			
-			swfobject.embedSWF("http://www.youtube.com/v/<%= @video.id%>?enablejsapi=1&playerapiid=ytplayer&version=3",
-		    "ytapiplayer", "640", "321", "8", null, null, params, atts);
-
-		  function onYouTubePlayerReady(playerId) {
-		    ytplayer = document.getElementById("myytplayer");
-		    <% if @tracks.empty? %> 
-		    	videoPlayer.fillTracks(ytplayer.getDuration());
-		    <% end %>
-		    setInterval(videoPlayer.updatePlayerInfo.bind(videoPlayer), 250);
-		  }		
-		</script>
-
-		<ul>
-			<a href="javascript:ytplayer.pauseVideo()"><li id="pause"></li></a>
-			<a href="javascript:ytplayer.playVideo()"><li id="play"></li></a>
-			<a href="javascript:ytplayer.seekTo(0)"><li id="replay"></li></a>
-			<a href="javascript:ytplayer.seekTo(ytplayer.getCurrentTime() - 5)"><li id="rewind"></li></a>
-			<br>
-			<li style="font-family: 'Quicksand', sans-serif;"><span id="currentTime">--:--</span> / <span id='totalDuration'></span></li>
-		</ul>
-		<%if current_user%>
-			<div id="button_add_track">
-				<button class="appendTrack">Add Track</button>
-			</div>	
-		<%end%>
 	</div>
 	<div class='clearfix'></div>
 	<div class="track_divs">
 
+	<script>
+	var VIDEOAPP = {
+		videoId: '<%= @video.id %>',
+		loggedIn: <%= current_user.present? %>
+	}
+	</script>
 
-		<% @tracks.each do |trackBuild| %>
-			<div class='language_box'></div>
-	    <div class='show_tracks_box' style='width:"+ duration * 10 + "em;'>
-		    <div class='progressBar'></div>
-		    
-				<% transscript = eval(trackBuild.transcript) %>
-		    <% transscript.each do |script| %>
-					<div class="track_post-it" style="<%= script[1]['position_css'] %>">
-	    			<section class="content" contenteditable="true"><%= script[1]['content'] %></section>
-	    		</div>
-				<% end %>
-			</div>
+	<% if @tracks.any? %>
+ 			<script>
+				var tracks = [],
+						track = {},
+						transcriptJson;
+ 			</script>
+ 		<% @tracks.each do |trackBuild| %>
+ 			<script>
+ 				transcriptJson = <%= raw trackBuild.transcript %>;
+ 				track.content = transcriptJson[0].content;
+ 				track.position_css = transcriptJson[0].position_css;
+ 				tracks.push(track);
+ 			</script>
 		<% end %>
+		<script>
+			VIDEOAPP.tracks = tracks;
+		</script>
+	<% else %>
+		<script>
+			VIDEOAPP.tracks = null;
+		</script>
+	<% end %>
 	</div>
-</div>
+</div>    
+		<script type="text/javascript">
+			var params = { allowScriptAccess: "always" };
+			var atts = { id: "myytplayer" };
+			var videoURL = "http://www.youtube.com/v/" + VIDEOAPP.videoId + "?enablejsapi=1&playerapiid=ytplayer&version=3";
+			
+			swfobject.embedSWF(videoURL,"ytapiplayer", "640", "321", "8", null, null, params, atts);
+
+		  function onYouTubePlayerReady(playerId) {
+		    ytplayer = document.getElementById("myytplayer");
+		    VIDEOAPP.duration = ytplayer.getDuration();
+		    var tracksContainer = new TracksContainer(VIDEOAPP.duration, VIDEOAPP.loggedIn, VIDEOAPP.tracks);
+		  }		
+		</script>
