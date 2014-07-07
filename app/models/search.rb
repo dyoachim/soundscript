@@ -23,9 +23,9 @@ class Search
   end
 
   def self.main(search_term)
-    opts = Trollop::options do
+    opts = Trollop.options do
       opt :q, 'Search term', :type => String, :default => search_term
-      opt :max_results, 'Max results', :type => :int, :default => 25
+      opt :max_results, 'Max results', :type => :int, :default => 28
     end
 
     client, youtube = get_service

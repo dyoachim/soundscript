@@ -227,7 +227,9 @@ ul {
 	height: 280px;
 	background-color: gray;
 	border: 1px solid black;
-	float: left;
+	left: 0;
+	top: 0;
+	position: absolute;
 }
 
 .tracks_box {
@@ -236,6 +238,36 @@ ul {
 	background-color: lightgray;
 	border: 1px solid black;
 	position: relative;
+}
+
+.show_tracks_box {
+	height: 280px;
+	margin-left: 100px;
+	background-image: url('/assets/tickk.jpg');
+	background-repeat: repeat-z;
+	border: 1px solid black;
+	position: relative;
+}
+
+.has_tracks {
+	border: 6px solid green;
+}
+
+/*this is for the read only track css*/
+.track_post-it {
+  position: absolute !important;
+  width: 160px;
+  background-color: white;
+  box-shadow: -2px 2px 5px #555;
+  overflow: hidden;
+}
+
+.track_post-it .content {
+  padding: 10px;
+  min-height: 70px;
+  outline: none;
+  color: blue;
+  font-family: 'Droid Sans Mono';
 }
 
 .clearfix {
@@ -408,43 +440,3 @@ ul {
 #button_add_track{
 	padding-left: 21px;
 }
-
-.tick {
-    width: 1px;
-    border-right: black solid 1px;
-    height:100%;
-    position:absolute;
-    bottom:0px;
-    z-index: 10;
-}
-
-#ticka{
-    width: 10%;
-}
-
-#tickb{
-    width: 20%;
-}
-
-#tickc{
-    width: 30%;
-}
-#tickd{
-    width: 40%;
-}
-
-#ticke{
-    width: 50%;
-}
-
-#tickf{
-    width: 60%;
-}
-#tickg{
-    width: 70%;
-}
-
-#tickh{
-    width: 80%;
-}
-

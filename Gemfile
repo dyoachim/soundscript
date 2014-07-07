@@ -41,7 +41,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'database_cleaner'
-
+	gem 'selenium-webdriver'
 	# Table-print allows for formatted tables
 	gem 'table_print'
 end

@@ -24,15 +24,9 @@ $(document).ready( function(){
     $('#browse').hide();
   });
 
+
   $('.appendTrack').on("click",function(){
     $('.track_divs').append("<div class='language_box'>English</div><div class='tracks_box' style='width:"+ parseInt($('#totalDuration').text()) * 10 + "em;'><button class='timeButton'>Get timestamps</button></div>");
-
-    $('#play').on("click", function(){
-      $('#play').replaceWith( "<a href='javascript:ytplayer.pauseVideo()'><div id='pause'></div></a> ");
-      $('#pause').on("click", function(){
-	      $('#pause').replaceWith( "<a href='javascript:ytplayer.playVideo()'><div id='play'></div></a>");
-      });
-    });
   });
 
   $('.track_divs').on("click", ".timeButton", function(){
@@ -43,8 +37,10 @@ $(document).ready( function(){
 
     var url = '/videos/' + $('.video_id').attr('id') + '/tracks'
     var data = { data: postIts }
+    alert(data)
     $.post(url, data, function( response ) {});
-	});
+    location.reload();
+  });
 
   $('.track_divs').on('dblclick', ".tracks_box", function(event){
     if (event.target.className == "tracks_box") {

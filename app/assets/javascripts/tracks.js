@@ -31,10 +31,3 @@ function VideoPlayer(video_id, logged_in) {
 		document.getElementById(elmId).innerHTML = value;
 	}
 }
-
-function buildPostIt(click_event) {
-  return ['<div class="post-it" style="top:' + click_event.offsetY + 'px; left:' + click_event.offsetX + 'px">',
-            '<header class="header"><span class="remove_note">X</span></header>',
-            '<section class="content" contenteditable="true">Hey post it content</section>',
-          '</div>'].join('\n');
-}
