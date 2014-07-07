@@ -10,7 +10,7 @@
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>    
 
 		<script type="text/javascript">
-      var videoPlayer = new VideoPlayer('<%= @video.id %>', <%= current_user.present? %> )
+      var videoPlayer = new VideoPlayer('<%= @video.id %>', <%= current_user.present? %>)
 			var params = { allowScriptAccess: "always" };
 			var atts = { id: "myytplayer" };
 			

@@ -70,10 +70,3 @@ $(document).ready( function(){
 
 
 
-
-
-
-
-
-
-
