@@ -49,8 +49,7 @@ $(document).ready( function(){
     var data = { data: postIts }
     $.post(url, data, function( response ) {});
   });
-  $('.track_divs').on("click", ".deleteButton", function(){
-  });
+
   $('.track_divs').on('dblclick', ".tracks_box", function(event){
     if (event.target.className == "tracks_box") {
       $(this).append( buildPostIt(event) );
@@ -60,10 +59,6 @@ $(document).ready( function(){
       $(this).parent().parent().remove();
     });
   }); 
-
-
-
-
 });
 
 
