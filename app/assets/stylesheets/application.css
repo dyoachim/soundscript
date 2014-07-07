@@ -36,8 +36,6 @@ nav ul li {
 nav ul li a{
 	text-decoration: none;
 	color: black;
-	/*margin-top: 30px;*/
-
 }
 
 nav h1 a {
@@ -464,7 +462,7 @@ ul {
 }
 
 
-.timeButton, .deleteButton, .deleteEdit {
+.timeButton, .deleteButton, .editButton {
 	height: 30px;
 	font-size: 15px;
 	border-radius: 5px;
