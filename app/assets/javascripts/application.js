@@ -25,13 +25,6 @@ $(document).ready( function(){
 
   $('.appendTrack').on("click",function(){
     $('.track_divs').append("<div class='language_box'>English</div><div class='tracks_box' style='width:"+ parseInt($('#totalDuration').text()) * 10 + "em;'><button class='timeButton'>Get timestamps</button><div class='progressBar'></div></div>");
-
-    $('#play').on("click", function(){
-      $('#play').replaceWith( "<a href='javascript:ytplayer.pauseVideo()'><div id='pause'></div></a> ");
-      $('#pause').on("click", function(){
-        $('#pause').replaceWith( "<a href='javascript:ytplayer.playVideo()'><div id='play'></div></a>");
-      });
-    });
   });
 
   var postIts = [];  
