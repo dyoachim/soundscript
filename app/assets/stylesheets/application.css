@@ -414,11 +414,14 @@ ul {
 }
 
 
-#progressBar {
+.progressBar {
   position: relative; 
   background-color: red;
   width: 3px;
-  height: 80%; 
+  height: 100%;
+  float: left;
+  z-index: 11;
+  -webkit-transition: -webkit-transform 2s;
 }
 
 .appendTrack{
