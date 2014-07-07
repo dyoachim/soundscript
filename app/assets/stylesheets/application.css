@@ -157,8 +157,12 @@ ul li a:hover{
 	height:220px;
 }
 
-.video_thumbnail p{
+.video_thumbnail p {
 	margin: 0;
+}
+
+.has_tracks {
+	border: 6px solid green;
 }
 
 #index_page_container .video_thumbnail img{
@@ -186,8 +190,6 @@ ul li a:hover{
 	height:30px; 
 	width:100%;
 }
-
-
 
 #error_message{
 	margin-top: 30px;
@@ -239,6 +241,15 @@ ul {
 	position: relative;
 }
 
+.show_tracks_box {
+	height: 280px;
+	margin-left: 100px;
+	background-image: url('/assets/tickk.jpg');
+	background-repeat: repeat-z;
+	border: 1px solid black;
+	position: relative;
+}
+
 .clearfix {
 	clear: both;
 }
@@ -268,8 +279,8 @@ ul {
 }
 
 .track_divs{
-	background-color: yellow;
 	width:100%;
+	height: 282px;
 	overflow:scroll;
 	position: relative;
 	z-index: 2;
@@ -285,7 +296,6 @@ ul {
 
 
 .post-it .header {
-  /*background-color: #b29966;*/
   background-color: #DCDCDC;	
   text-align: right;
   padding: 2px;
@@ -401,11 +411,14 @@ ul {
 }
 
 
-#progressBar {
+.progressBar {
   position: relative; 
   background-color: red;
   width: 3px;
-  height: 80%; 
+  height: 100%;
+  float: left;
+  z-index: 11;
+  -webkit-transition: -webkit-transform 2s;
 }
 
 .appendTrack{

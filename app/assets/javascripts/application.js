@@ -29,14 +29,13 @@ $(document).ready( function(){
   });
 
   $('.appendTrack').on("click",function(){
-    $('.track_divs').append("<div class='language_box'>English</div><div class='tracks_box' style='width:"+ parseInt($('#totalDuration').text()) * 10 + "em;'><button class='timeButton'>Submit</button><button class ='deleteButton'>Delete</button><button class ='deleteEdit'>Edit</button></div>");
-
-    $('#play').on("click", function(){
-      $('#play').replaceWith( "<a href='javascript:ytplayer.pauseVideo()'><div id='pause'></div></a> ");
-      $('#pause').on("click", function(){
-        $('#pause').replaceWith( "<a href='javascript:ytplayer.playVideo()'><div id='play'></div></a>");
-      });
-    });
+    var track = "<div class='language_box'>English</div>"
+    track += "<div class='tracks_box' style='width:"+ parseInt($('#totalDuration').text()) * 10 + "em;'>"
+    track += "<button class='timeButton'>Submit</button>"
+    track += "<button class ='deleteButton'>Delete</button>"
+    track += "<button class ='deleteEdit'>Edit</button>"
+    track += "<div class='progressBar'></div></div>"
+    $('.track_divs').append(track);
   });
 
   var postIts = [];  
@@ -54,7 +53,7 @@ $(document).ready( function(){
     if (event.target.className == "tracks_box") {
       $(this).append( buildPostIt(event) );
     }
-    $('.post-it').draggable({ handle: ".header", containment: "parent" }).resizable();
+    $('.post-it').draggable({ handle: ".header", containment: "parent" }).resizable({containment: "parent"});
     $('.remove_note').on('click', function(){
       $(this).parent().parent().remove();
     });

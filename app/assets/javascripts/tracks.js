@@ -10,7 +10,7 @@ function VideoPlayer(video_id, logged_in) {
     	track += "<button class ='deleteButton'>Delete</button>"
     	track += "<button class ='deleteEdit'>Edit</button>"
     }
-    track += "<div id='progressBar'></div>"
+    track += "<div class='progressBar'></div>"
 		track += "</div>";
 		$('.track_divs').append(track);
 	}
@@ -24,8 +24,8 @@ function VideoPlayer(video_id, logged_in) {
   }
 
 	this.moveProgressBar = function(input) {
-	  var progressBar = document.getElementById('progressBar'); 
-	  progressBar.style.left = (input * 10) + 'em'; 
+	  var progressBar = $('.progressBar'); 
+	  progressBar.css('left', (input * 10) + 'em'); 
 	}
 
 	this.updateHTML = function(elmId, value) {
