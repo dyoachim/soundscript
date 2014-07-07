@@ -29,7 +29,13 @@ $(document).ready( function(){
   });
 
   $('.appendTrack').on("click",function(){
-    $('.track_divs').append("<div class='language_box'>English</div><div class='tracks_box' style='width:"+ parseInt($('#totalDuration').text()) * 10 + "em;'><button class='timeButton'>Get timestamps</button><div class='progressBar'></div></div>");
+    var track = "<div class='language_box'>English</div>"
+    track += "<div class='tracks_box' style='width:"+ parseInt($('#totalDuration').text()) * 10 + "em;'>"
+    track += "<button class='timeButton'>Submit</button>"
+    track += "<button class ='deleteButton'>Delete</button>"
+    track += "<button class ='deleteEdit'>Edit</button>"
+    track += "<div class='progressBar'></div></div>"
+    $('.track_divs').append(track);
   });
 
   var postIts = [];  
