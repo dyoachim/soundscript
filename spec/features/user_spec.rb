@@ -35,7 +35,7 @@ feature 'User browsing the website' do
     expect(User.find(@user.id).email).to eq 'new@email.com'
   end
 
-  it 'edits user fields' do
+  it 'redirects from edit if logged out' do
     @user = User.create(username: "Dan", email: 'dan@dan.com', password: "password")
     visit edit_user_path(@user)
     expect(current_path).to eq root_path
