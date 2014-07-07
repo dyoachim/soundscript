@@ -4,6 +4,7 @@ require 'rails/all'
 require 'rubygems'
 require 'google/api_client'
 require 'trollop'
+require 'cgi'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.

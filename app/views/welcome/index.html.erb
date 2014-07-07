@@ -7,23 +7,27 @@
 	</div>
 
 	<div id="index_page_container">
-
-	<div id="search_form">
-		<form action='/' method='GET'>
-			<input type='text' name='search_term' placeholder='  Search'>
-			<input class="front_button" id="submit_index" type='submit' style= 'width:90px; background-color:#f0a502; color:white;'>
-		</form>
-	</div>
-
-	<% if @videos %>
-		<% @videos.each do |video| %>
-			<div class="video_thumbnail">
-				<a href="videos/<%= video.id['videoId'] %>"><img src='<%= video.snippet.thumbnails.medium.url %>'></a>
-	
-						<p><a href="videos/<%= video.id['videoId'] %>"><%= video.snippet.title %></a></p>
-	
+		<div id="search_form">
+			<form action='/' method='GET'>
+				<input type='text' name='search_term' placeholder='  Search'>
+				<input class="front_button" id="submit_index" type='submit' style= 'width:90px; background-color:#f0a502; color:white;'>
+			</form>
 		</div>
+
+		<% if @videos %>
+			<% @videos.each do |video| %>
+				<% if Track.find_by_youtube_id(video.id.videoId) %>
+					<div class="video_thumbnail">
+						<a href="videos/<%= video.id['videoId'] %>"><img class='has_tracks' src='<%= video.snippet.thumbnails.medium.url %>'></a>		
+						<p><a href="videos/<%= video.id['videoId'] %>"><%= video.snippet.title %></a></p>
+					</div>
+				<% else %>
+					<div class="video_thumbnail">
+						<a href="videos/<%= video.id['videoId'] %>"><img src='<%= video.snippet.thumbnails.medium.url %>'></a>		
+						<p><a href="videos/<%= video.id['videoId'] %>"><%= video.snippet.title %></a></p>
+					</div>
+				<% end %>
+			<% end  %>
 		<% end  %>
-	<% end  %>
 	</div>
 </div>

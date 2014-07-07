@@ -57,6 +57,7 @@ body{
 
 }
 
+
 ul li a{
 	text-decoration: none;
 	color: black;
@@ -80,12 +81,6 @@ ul li a:hover{
 	width:400px;
 	height:93px;
 }
-
-/*.soundscript_logo:hover{
-	background:url('/assets/logo_hover.png');
-	width:400px;
-	height:93px;
-}*/
 
 #soundscript_logo{
 	float:left;
@@ -112,7 +107,6 @@ ul li a:hover{
   overflow:scroll;
 }
 
-
 #blurb {
 	margin: 20px auto;
 	font-family: 'Quicksand', sans-serif;
@@ -127,14 +121,12 @@ ul li a:hover{
 #search_form{
 	padding-top: 20px;
 	width:300px;
-	/*margin: 0 auto;*/
 	padding-bottom: 30px;
 
 }
 
 #search_form form {
 	width:700px;
-	/*margin: 0 auto;*/
 	padding-top: 30px;
 }
 
@@ -156,8 +148,12 @@ ul li a:hover{
 	height:220px;
 }
 
-.video_thumbnail p{
+.video_thumbnail p {
 	margin: 0;
+}
+
+.has_tracks {
+	border: 6px solid green;
 }
 
 #index_page_container .video_thumbnail img{
@@ -186,8 +182,6 @@ ul li a:hover{
 	width:100%;
 }
 
-
-
 #error_message{
 	margin-top: 30px;
 	color:red;
@@ -204,7 +198,6 @@ ul li a:hover{
 	height:271px;
 }
 
-
 ul {
 	padding-left: 0;
 }
@@ -218,7 +211,7 @@ ul {
 .video_box {
 	width: 640px;
 	height: 321px;
-	background-color: red;
+	background-color: white;
 	float: right;
 }
 
@@ -235,7 +228,17 @@ ul {
 .tracks_box {
 	height: 280px;
 	margin-left: 100px;
-	background-color: lightgray;
+	background-image: url('/assets/tickk.jpg');
+	background-repeat: repeat-z;
+	border: 1px solid black;
+	position: relative;
+}
+
+.show_tracks_box {
+	height: 280px;
+	margin-left: 100px;
+	background-image: url('/assets/tickk.jpg');
+	background-repeat: repeat-z;
 	border: 1px solid black;
 	position: relative;
 }
@@ -278,7 +281,6 @@ ul {
 	width:120px;
 }
 
-
 .login_form .submit{
 	width:120px;
 }
@@ -300,8 +302,8 @@ ul {
 }
 
 .track_divs{
-	background-color: yellow;
 	width:100%;
+	height: 282px;
 	overflow:scroll;
 	position: relative;
 	z-index: 2;
@@ -310,13 +312,14 @@ ul {
 .post-it {
   position: absolute !important;
   width: 160px;
-  background-color: yellow;
+  background-color: beige;
   box-shadow: -2px 2px 5px #555;
   overflow: hidden;
 }
 
+
 .post-it .header {
-  background-color: #c2c25b;
+  background-color: #DCDCDC;	
   text-align: right;
   padding: 2px;
 }
@@ -339,6 +342,24 @@ ul {
   padding: 10px;
   min-height: 70px;
   outline: none;
+  font-family: 'Droid Sans Mono';
+}
+
+/*this is for the read only track css*/
+.track_post-it {
+  position: absolute !important;
+  width: 160px;
+  background-color: white;
+  box-shadow: -2px 2px 5px #555;
+  overflow: hidden;
+}
+
+.track_post-it .content {
+  padding: 10px;
+  min-height: 70px;
+  outline: none;
+  color: blue;
+  font-family: 'Droid Sans Mono';
 }
 
 #profile_container{
@@ -413,11 +434,14 @@ ul {
 }
 
 
-#progressBar {
+.progressBar {
   position: relative; 
-  background-color: black;
+  background-color: red;
   width: 3px;
-  height: 80%; 
+  height: 100%;
+  float: left;
+  z-index: 11;
+  -webkit-transition: -webkit-transform 2s;
 }
 
 .appendTrack{
@@ -439,4 +463,14 @@ ul {
 
 #button_add_track{
 	padding-left: 21px;
+}
+
+
+.timeButton, .deleteButton, .deleteEdit {
+	height: 30px;
+	font-size: 15px;
+	border-radius: 5px;
+	background-color: #f0a502;
+	font-family: 'Muli', sans-serif;
+
 }

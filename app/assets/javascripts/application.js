@@ -13,7 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
-
 $(document).ready( function(){
 
   $('#form_nav').hide();
@@ -26,7 +25,13 @@ $(document).ready( function(){
 
 
   $('.appendTrack').on("click",function(){
-    $('.track_divs').append("<div class='language_box'>English</div><div class='tracks_box' style='width:"+ parseInt($('#totalDuration').text()) * 10 + "em;'><button class='timeButton'>Get timestamps</button></div>");
+    var track = "<div class='language_box'>English</div>"
+    track += "<div class='tracks_box' style='width:"+ parseInt($('#totalDuration').text()) * 10 + "em;'>"
+    track += "<button class='timeButton'>Submit</button>"
+    track += "<button class ='deleteButton'>Delete</button>"
+    track += "<button class ='deleteEdit'>Edit</button>"
+    track += "<div class='progressBar'></div></div>"
+    $('.track_divs').append(track);
   });
 
   $('.track_divs').on("click", ".timeButton", function(){
@@ -46,9 +51,9 @@ $(document).ready( function(){
     if (event.target.className == "tracks_box") {
       $(this).append( buildPostIt(event) );
     }
-    $('.post-it').draggable({ handle: ".header", containment: "parent" });
+    $('.post-it').draggable({ handle: ".header", containment: "parent" }).resizable({containment: "parent"});
     $('.remove_note').on('click', function(){
       $(this).parent().parent().remove();
     });
-  });	
+  }); 
 });
