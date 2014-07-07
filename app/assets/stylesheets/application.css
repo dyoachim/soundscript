@@ -429,3 +429,13 @@ ul {
 	padding-left: 21px;
 }
 
+
+.timeButton, .deleteButton, .deleteEdit {
+	height: 30px;
+	font-size: 15px;
+	border-radius: 5px;
+	background-color: #f0a502;
+	font-family: 'Muli', sans-serif;
+
+	}
+
