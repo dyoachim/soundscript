@@ -19,38 +19,13 @@
 
 		  function onYouTubePlayerReady(playerId) {
 		    ytplayer = document.getElementById("myytplayer");
-		    <% if @tracks.any? %> 
-		    	buildTracks(ytplayer.getDuration());
-		    <% else %>
+		    <% if @tracks.empty? %> 
 		    	videoPlayer.fillTracks(ytplayer.getDuration());
 		    <% end %>
 		    setInterval(videoPlayer.updatePlayerInfo.bind(videoPlayer), 250);
-		  }
-
-
-		  function buildTracks(duration) {
-			  <% @tracks.each do |trackBuild| %>
-					var script = <%= eval(trackBuild.transcript).to_json.html_safe %>
-	    		var size = 0, key;
-					
-			  	var track = "<div class='language_box'>English</div>"
-	    		track += "<div class='show_tracks_box' style='width:"+ duration * 10 + "em;'>"
-	    		track += "<div class='progressBar'></div>"
-    		
-	    		for (key in script) { if (script.hasOwnProperty(key)) {size++;}}    			
-					for(var i = 0; i < size; i++) {	
-						track += ['<div class="track_post-it" style="' + script[i]['position_css'] + '">',
-	            '<section class="content" contenteditable="true">' + script[i]['content'] + '</section>',
-	          '</div>'].join('\n');
-					}
-					
-					track += "</div>";
-					$('.track_divs').append(track);
-				<% end %>
-			}
-			
-			
+		  }		
 		</script>
+
 		<ul>
 			<a href="javascript:ytplayer.pauseVideo()"><li id="pause"></li></a>
 			<a href="javascript:ytplayer.playVideo()"><li id="play"></li></a>
@@ -66,5 +41,21 @@
 		<%end%>
 	</div>
 	<div class='clearfix'></div>
-	<div class="track_divs"></div>
+	<div class="track_divs">
+
+
+		<% @tracks.each do |trackBuild| %>
+			<div class='language_box'></div>
+	    <div class='show_tracks_box' style='width:"+ duration * 10 + "em;'>
+		    <div class='progressBar'></div>
+		    
+				<% transscript = eval(trackBuild.transcript) %>
+		    <% transscript.each do |script| %>
+					<div class="track_post-it" style="<%= script[1]['position_css'] %>">
+	    			<section class="content" contenteditable="true"><%= script[1]['content'] %></section>
+	    		</div>
+				<% end %>
+			</div>
+		<% end %>
+	</div>
 </div>

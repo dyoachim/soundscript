@@ -1,18 +1,17 @@
-// var PostIt = function(obj) {
-//   this.content = obj['content'];
-//   this.css_position = obj['position']['left'];
+var PostIt = function(event) {
+  this.css_position = "top:" + event.offsetY + "px; left:" + event.offsetX + "px"
 
-//   this.buildPostIt = function() {
-//   return ['<div class="post-it" style="top:' + this.y_position + 'px; left:' + this.x_position + 'px">',
-//             '<header class="header"><span class="remove_note">X</span></header>',
-//             '<section class="content" contenteditable="true">'+ this.content +'</section>',
-//           '</div>'].join('\n');
-//   };
-// };
+  this.buildPostIt = function(element) {
+  	var post_it = ['<div class="post-it" style="' + this.css_position + '">',
+     				        '<header class="header"><span class="remove_note">X</span></header>',
+            				'<section class="content" contenteditable="true"></section>',
+          				'</div>'].join('\n');
+	
+		element.append(post_it)
 
-function buildPostIt(click_event) {
-  return ['<div class="post-it" style="top:' + click_event.offsetY + 'px; left:' + click_event.offsetX + 'px">',
-            '<header class="header"><span class="remove_note">X</span></header>',
-            '<section class="content" contenteditable="true">Hey post it content</section>',
-          '</div>'].join('\n');
-}
+	  $('.post-it').draggable({ handle: ".header", containment: "parent" }).resizable({containment: "parent"});
+	  $('.remove_note').on('click', function(){
+	    $(this).parent().parent().remove();
+	  });
+  };
+};

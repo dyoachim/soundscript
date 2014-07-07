@@ -33,9 +33,12 @@ function VideoPlayer(video_id, logged_in) {
 	}
 }
 
-function buildPostIt(click_event) {
-  return ['<div class="post-it" style="top:' + click_event.offsetY + 'px; left:' + click_event.offsetX + 'px">',
-            '<header class="header"><span class="remove_note">X</span></header>',
-            '<section class="content" contenteditable="true"></section>',
-          '</div>'].join('\n');
+function appendNewTrack() {
+  var track = "<div class='language_box'>English</div>"
+  track += "<div class='tracks_box' style='width:"+ parseInt($('#totalDuration').text()) * 10 + "em;'>"
+  track += "<button class='timeButton'>Submit</button>"
+  track += "<button class ='deleteButton'>Delete</button>"
+  track += "<button class ='deleteEdit'>Edit</button>"
+  track += "<div class='progressBar'></div></div>"
+  $('.track_divs').append(track);
 }

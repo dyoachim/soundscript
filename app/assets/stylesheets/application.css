@@ -220,9 +220,7 @@ ul {
 	height: 280px;
 	background-color: gray;
 	border: 1px solid black;
-	left: 0;
-	top: 0;
-	position: absolute;
+	float:left;
 }
 
 .tracks_box {
