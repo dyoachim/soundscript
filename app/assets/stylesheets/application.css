@@ -429,7 +429,6 @@ ul {
 	background: url('/assets/pause2.png');
 }
 
-
 .progressBar {
   position: relative; 
   background-color: red;
@@ -449,6 +448,7 @@ ul {
 	font-family: 'Muli', sans-serif;
 	font-weight: bold;
 }
+
 .appendTrack:hover{
 	background-color: gray;
 	font-family: 'Muli', sans-serif;
@@ -456,11 +456,9 @@ ul {
 	color:white;
 }
 
-
 #button_add_track{
 	padding-left: 21px;
 }
-
 
 .timeButton, .deleteButton, .editButton {
 	height: 30px;
@@ -468,5 +466,4 @@ ul {
 	border-radius: 5px;
 	background-color: #f0a502;
 	font-family: 'Muli', sans-serif;
-
 }

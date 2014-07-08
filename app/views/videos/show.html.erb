@@ -45,7 +45,7 @@
 
 		<% @tracks.each do |trackBuild| %>
 			<div class='language_box'> <% if trackBuild.user_id == current_user.id %>
-		    	<%= button_to "Edit", edit_video_track_path( @video.id, trackBuild.id ), class: 'editButton'%>
+		    	<%= button_to "Edit", edit_video_track_path( @video.id, trackBuild.id ), :method=>:get, class: 'editButton'%>
 
 					<%= button_to "Delete", video_track_path( @video.id, trackBuild.id ), class: 'deleteButton', :method=>:delete, data: {confirm: "are you sure?"} %>
 		    <%end%></div>
