@@ -11,16 +11,9 @@ function TracksContainer(duration, loggedIn, tracks, userId, languages) {
 
 TracksContainer.prototype.constructElement = function() {
 console.log(languages);
-// console.log(languages[0]['title']);
-
-
-// var wanted = languages.filter( function(language){return (language.title== "English");} );
-
-// console.log(wanted);
-
 	var track = ""
 	track += "<div class='language_box'>";
-	track += "<select name = 'Language'>";
+	track += "<select name = 'language'>";
 
 		for(var i = 0; i < this.languages.length; i++){
 			track += "<option>" + this.languages[i]['title'] + "</option>";
@@ -30,7 +23,6 @@ console.log(languages);
 		  	track += "<button class='timeButton'>Submit</button>"
 		  }
 	track += "</div><div class='tracks_box' style='width:"+ this.duration * 10 + "em;'>";
-
   track += "<div class='progressBar'></div></div>";
 	$('.track_divs').html(track);
 };
