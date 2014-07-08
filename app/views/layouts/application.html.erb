@@ -10,30 +10,32 @@
   <link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/themes/smoothness/jquery-ui.css" />
   <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/jquery-ui.min.js"></script>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
 
 </head>
 		
 <body>
 		<nav>
-				<ul>
-					<a href="/"><li id="soundscript_logo"><div class="soundscript_logo"></div></li></a>
-						<%if current_user%>
-					<li class="nav_link"><%= link_to "Logout", session_path(current_user), data: { confirm: "Are you sure?" }, method: "delete" %>	</li>
+			<ul>
+				<a href="/"><li id="soundscript_logo"><div class="soundscript_logo"></div></li></a>
+					<%if current_user%>
+				<li class="nav_link"><%= link_to "Logout", session_path(current_user), data: { confirm: "Are you sure?" }, method: "delete" %>	</li>
 
-					<li class="nav_link"><%= link_to "Profile", user_path(current_user) %></li>	
-					<%else%>
-					<li class="nav_link"><%= link_to "Sign Up", new_user_path %></li>
+				<li class="nav_link"><%= link_to "Profile", user_path(current_user) %></li>	
+				<%else%>
+				<li class="nav_link"><%= link_to "Sign Up", new_user_path %></li>
 
-					<li class="nav_link"><%= link_to "Log In", new_session_path %></li>
-						<%end%>
-						<li class="nav_link">
-							<form id="form_nav" action='/' method='GET'>
-								<input type='text' name='search_term' placeholder='Search'>
-								<input type='submit', value='Search'>
-							</form><a id="browse" href="#">Browse</a>
-						</li>
-				</ul>
-		</nav><br>
+				<li class="nav_link"><%= link_to "Log In", new_session_path %></li>
+					<%end%>
+					<li class="nav_link">
+						<form id="form_nav" action='/' method='GET'>
+							<input type='text' name='search_term' placeholder='Search'>
+							<input type='submit', value='Search'>
+						</form><a id="browse" href="#">Browse</a>
+					</li>
+			</ul>
+		</nav>
+		<br>
 		<br>
 		<br>
 		<%= yield %>

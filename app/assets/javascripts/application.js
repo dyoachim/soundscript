@@ -17,19 +17,19 @@ $(document).ready( function(){
 
   $('#form_nav').hide();
 
-  $('#browse').on("click", function(){
+  $('#browse').on("click", function(event){
     event.preventDefault();
     $('#form_nav').show();
     $('#browse').hide();
   });
 
-  $('.appendTrack').on("click",function(){
+  $('.controls_box').on("click", '.appendTrack',function(){
     appendNewTrack();
   });
 
   $('.track_divs').on("click", ".timeButton", function(){
     var postIts = [];  
-    var url = '/videos/' + $('.video_id').attr('id') + '/tracks'
+    var url = '/videos/' + VIDEOAPP.videoId + '/tracks'
  
     $(this).parent().children('.post-it').each(function(){
       postIts.push({ content: $(this).children(".content").text(), position_css: this.style['cssText']})
