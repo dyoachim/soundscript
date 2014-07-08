@@ -14,9 +14,9 @@
 <script>
 	var VIDEOAPP = {
 		videoId: '<%= @video.id %>',
-		loggedIn: <%= current_user.present? %>
+		loggedIn: <%= current_user.present? %>,
+	  languages: <%= raw @languages.to_json %>
 	}
-	var languages = <%= raw @languages.to_json %>;
 </script>
 
 <% if @tracks.any? %>
@@ -72,7 +72,7 @@
     ytplayer = document.getElementById("myytplayer");
     VIDEOAPP.duration = ytplayer.getDuration();
 
-  	tracksContainer = new TracksContainer(VIDEOAPP.duration, VIDEOAPP.loggedIn, VIDEOAPP.tracks, <%= current_user.id %>, languages);
+  	tracksContainer = new TracksContainer(VIDEOAPP.duration, VIDEOAPP.loggedIn, VIDEOAPP.tracks, <%= current_user.id %>);
     setInterval(updatePlayerInfo, 250);
   }
 

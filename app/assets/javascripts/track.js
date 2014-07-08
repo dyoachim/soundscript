@@ -54,9 +54,16 @@ Track.prototype.construct = function() {
 
 Track.prototype.constructNew = function() {
 
-	var transcript = "<div class='language_box'><button class='timeButton'>Submit</button>"
-		  transcript +="<button class ='deleteButton' onclick='javascript:removeEditTrack();'>Delete</button></div>"
-			transcript += "<div class='tracks_box' style='width:"+ this.duration + "em;'>"
+	var transcript = "<div class='language_box'><button class='timeButton'>Submit</button>";
+		  transcript +="<button class ='deleteButton' onclick='javascript:removeEditTrack();'>Delete</button>";
+		  transcript += "<select name = 'language'>";
+
+			for(var i = 0; i < VIDEOAPP.languages.length; i++){
+				transcript += "<option>" + VIDEOAPP.languages[i]['title'] + "</option>";
+			}
+			transcript += "</select>";
+		  transcript += "</div>";
+			transcript += "<div class='tracks_box' style='width:"+ this.duration + "em;'>";
 			transcript += "<div class='progressBar'></div>";
 			transcript += "<div class='snapLine ui-widget-header'></div>";
 			transcript += "<div class='snapLine'></div>";
