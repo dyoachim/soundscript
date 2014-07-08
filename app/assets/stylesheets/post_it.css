@@ -1,0 +1,53 @@
+.post-it {
+  position: absolute !important;
+  width: 160px;
+  background-color: beige;
+  box-shadow: -2px 2px 5px #555;
+  overflow: hidden;
+}
+
+
+.post-it .header {
+  background-color: #DCDCDC;  
+  text-align: right;
+  padding: 2px;
+}
+
+.post-it .header:hover {
+  background-color: #a8a860;
+}
+
+.post-it .header a, .post-it .header a:visited {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+.post-it .header a:hover {
+  color: #eee;
+}
+
+.post-it .content {
+  padding: 10px;
+  min-height: 70px;
+  outline: none;
+  font-family: 'Droid Sans Mono';
+}
+
+
+/*this is for the read only track css*/
+.track_post-it {
+  position: absolute !important;
+  width: 160px;
+  background-color: white;
+  box-shadow: -2px 2px 5px #555;
+  overflow: hidden;
+}
+
+.track_post-it .content {
+  padding: 10px;
+  min-height: 70px;
+  outline: none;
+  color: blue;
+  font-family: 'Droid Sans Mono';
+}

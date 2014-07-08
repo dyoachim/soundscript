@@ -1,0 +1,30 @@
+
+.language_box {
+	width: 100px;
+	height: 280px;
+	background-color: gray;
+	border: 1px solid black;
+	float:left;
+}
+
+.tracks_box {
+	height: 280px;
+	margin-left: 100px;
+	background-image: url('/assets/tickk.jpg');
+	background-repeat: repeat-z;
+	border: 1px solid black;
+	position: relative;
+}
+
+.show_tracks_box {
+	height: 280px;
+	margin-left: 100px;
+	background-image: url('/assets/tickk.jpg');
+	background-repeat: repeat-z;
+	border: 1px solid black;
+	position: relative;
+}
+
+.has_tracks {
+	border: 6px solid green;
+}
