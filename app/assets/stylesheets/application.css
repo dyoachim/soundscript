@@ -197,6 +197,53 @@ ul {
 	float: right;
 }
 
+.language_box {
+	width: 100px;
+	height: 220px;
+	background-color: gray;
+	border: 1px solid black;
+	float: left;
+}
+
+.tracks_box {
+	height: 220px;
+	margin-left: 100px;
+	background-image: url('/assets/tickk.jpg');
+	background-repeat: repeat-z;
+	border: 1px solid black;
+	position: relative;
+}
+
+.show_tracks_box {
+	height: 220px;
+	margin-left: 100px;
+	background-image: url('/assets/tickk.jpg');
+	background-repeat: repeat-z;
+	border: 1px solid black;
+	position: relative;
+}
+
+.has_tracks {
+	border: 6px solid green;
+}
+
+/*this is for the read only track css*/
+.track_post-it {
+  position: absolute !important;
+  width: 160px;
+  background-color: white;
+  box-shadow: -2px 2px 5px #555;
+  overflow: hidden;
+}
+
+.track_post-it .content {
+  padding: 10px;
+  min-height: 70px;
+  outline: none;
+  color: blue;
+  font-family: 'Droid Sans Mono';
+}
+
 .clearfix {
 	clear: both;
 }
@@ -227,11 +274,83 @@ ul {
 
 .track_divs{
 	width:100%;
-	height: 282px;
+	height: 100%;
 	overflow:scroll;
 	position: relative;
 	z-index: 2;
 }
+
+.snapLine {
+	background-color: #cccccc;
+	margin: 46px;
+	height: 3px;
+	width: 100%;
+}
+
+.removeNote {
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+
+.post-it {
+  position: absolute !important;
+  width: 660px;
+  height: 44px;
+  background-color: beige;
+  box-shadow: -2px 2px 5px #555;
+  border-top-left-radius:8em;
+	border-bottom-left-radius:8em;
+  overflow: hidden;
+}
+
+.post-it .header {
+  background-color: #DCDCDC;
+  height: 100%;	
+  width: 35px;
+  text-align: right;
+  display: inline-block;
+}
+
+.post-it .header:hover {
+  background-color: #a8a860;
+}
+
+.post-it .header a, .post-it .header a:visited {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+.post-it .header a:hover {
+  color: #eee;
+}
+
+.post-it .content {
+  vertical-align: middle;
+  min-height: 70px;
+  outline: none;
+  font-family: 'Droid Sans Mono';
+  display: inline-block;
+}
+
+/*this is for the read only track css*/
+.track_post-it {
+  position: absolute !important;
+  width: 160px;
+  background-color: white;
+  box-shadow: -2px 2px 5px #555;
+  overflow: hidden;
+}
+
+.track_post-it .content {
+  padding: 10px;
+  min-height: 70px;
+  outline: none;
+  color: blue;
+  font-family: 'Droid Sans Mono';
+}
+
 
 #profile_container{
      width:700px;
