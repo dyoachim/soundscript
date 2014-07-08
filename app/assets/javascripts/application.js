@@ -17,55 +17,31 @@ $(document).ready( function(){
 
   $('#form_nav').hide();
 
-  $('#browse').on("click", function(){
+  $('#browse').on("click", function(event){
     event.preventDefault();
     $('#form_nav').show();
     $('#browse').hide();
   });
 
-  $('.track_divs').on("click", ".timeButton", function(){
-  	alert('You have successfully submitted your track.');
-  	location.reload();
+  $('.controls_box').on("click", '.appendTrack',function(){
+    appendNewTrack();
   });
 
-  $('.appendTrack').on("click",function(){
-    var track = "<div class='language_box'>English</div>"
-    track += "<div class='tracks_box' style='width:"+ parseInt($('#totalDuration').text()) * 10 + "em;'>"
-    track += "<button class='timeButton'>Submit</button>"
-    track += "<button class ='deleteButton'>Delete</button>"
-    track += "<button class ='deleteEdit'>Edit</button>"
-    track += "<div class='progressBar'></div></div>"
-    $('.track_divs').append(track);
-  });
-
-  var postIts = [];  
   $('.track_divs').on("click", ".timeButton", function(){
+    var postIts = [];  
+    var url = '/videos/' + VIDEOAPP.videoId + '/tracks'
+ 
     $(this).parent().children('.post-it').each(function(){
       postIts.push({ content: $(this).children(".content").text(), position_css: this.style['cssText']})
     });
 
-    var url = '/videos/' + $('.video_id').attr('id') + '/tracks'
-    var data = { data: postIts }
-    $.post(url, data, function( response ) {});
+    $.post(url, { data: postIts }, function( response ) {});
+    location.reload();
   });
 
   $('.track_divs').on('dblclick', ".tracks_box", function(event){
     if (event.target.className == "tracks_box") {
-      $(this).append( buildPostIt(event) );
+      new PostIt(event).buildPostIt($(this));
     }
-    $('.post-it').draggable({ handle: ".header", containment: "parent" }).resizable({containment: "parent"});
-    $('.remove_note').on('click', function(){
-      $(this).parent().parent().remove();
-    });
   }); 
 });
-
-
-
-
-
-
-
-
-
-

@@ -41,7 +41,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'database_cleaner'
-
+	gem 'selenium-webdriver'
 	# Table-print allows for formatted tables
 	gem 'table_print'
 end
@@ -49,6 +49,9 @@ end
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
+
+## Gemfile for Rails 3, Rails 4, Sinatra, and Merb
+gem 'will_paginate', '~> 3.0'
 
 # Use unicorn as the app server
 # gem 'unicorn'

@@ -6,4 +6,6 @@ class VideosController < ApplicationController
     @languages = Language.all
   end
 
+  
+
 end
