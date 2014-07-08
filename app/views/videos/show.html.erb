@@ -45,7 +45,6 @@
 	<% end %>
 	</div>
 </div>
-
 <script type="text/javascript">
 	var params = { allowScriptAccess: "always" };
 	var atts = { id: "myytplayer" };
@@ -53,10 +52,22 @@
 	
 	swfobject.embedSWF(videoURL,"ytapiplayer", "640", "321", "8", null, null, params, atts);
 
+	<% if current_user%>
+		var currentUserId = <%=current_user.id%>;
+	<%else%>
+		var currentUserId = 0;
+	<%end%>
+
   function onYouTubePlayerReady(playerId) {
     ytplayer = document.getElementById("myytplayer");
     VIDEOAPP.duration = ytplayer.getDuration();
-    var tracksContainer = new TracksContainer(VIDEOAPP.duration, VIDEOAPP.loggedIn, VIDEOAPP.tracks, <%= current_user.id %>);
+    var tracksContainer = new TracksContainer(VIDEOAPP.duration, VIDEOAPP.loggedIn, VIDEOAPP.tracks, currentUserId );
     setInterval(updatePlayerInfo, 250);
   }		
 </script>
+
+
+
+
+
+
