@@ -13,5 +13,3 @@ function moveProgressBar(input) {
 function updateHTML(elmId, value) {
 	document.getElementById(elmId).innerHTML = value;
 }
-
-
