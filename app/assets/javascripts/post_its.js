@@ -3,16 +3,16 @@ var PostIt = function(event) {
 
   this.buildPostIt = function(element) {
   	var post_it = ['<div class="post-it" style="' + this.css_position + '">',
-     				        '<header class="header"><span class="remove_note">X</span></header>',
-            				'<section class="content" contenteditable="true"></section>',
+     				        '<section class="header"></section>',
+            				'<section class="content" contenteditable="true">Click here to edit</section>',
+            				'<span class="removeNote">X</span>',
           				'</div>'].join('\n');
 	
 		element.append(post_it)
 
-	  $('.post-it').draggable({ handle: ".header", containment: "parent" }).resizable({containment: "parent"});
-	  $('.post-it').draggable({ snap: ".ui-widget-header", snapMode: "outer" })
-	  $('.remove_note').on('click', function(){
-	    $(this).parent().parent().remove();
+	  $('.post-it').draggable({ handle: ".header", containment: "parent", snap: ".ui-widget-header", snapMode: "outer" }).resizable({containment: "parent"});
+	  $('.removeNote').on('click', function(){
+	    $(this).parent().remove();
 	  });
   };
 };

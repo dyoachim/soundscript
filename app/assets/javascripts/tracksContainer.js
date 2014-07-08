@@ -25,7 +25,7 @@ TracksContainer.prototype.showExistingTranscript = function() {
 		var transcript = ["<div class='language_box'>English</div>",
 	  									"<div class='show_tracks_box' style='width:"+ this.duration * 10 + "em;'>",
 	  									"<div class='progressBar'></div>"];
-			
+
 		for(var i = 0; i < this.trackNum; i++) {	
 			transcript.push('<div class="track_post-it" style="' + this.tracks[i]['position_css'] + '">' +
 	      '<section class="content">' + this.tracks[i]['content'] + '</section></div>');
@@ -66,7 +66,9 @@ function appendNewTrack() {
   	"<div class='tracks_box' style='width:"+ parseFloat($('#totalDuration').text()) * 10 + "em;'>" +
   	"<button class='timeButton'>Submit</button>" +
   	"<button class ='deleteButton'>Delete</button>" +
-  	"<button class ='deleteEdit'>Edit</button>" +
-  	"<div class='progressBar'></div></div>"
+  	"<div class='progressBar'></div>" +
+		"<div class='snapLine ui-widget-header'></div>" +
+		"<div class='snapLine'></div>" +
+		"<div class='snapLine ui-widget-header'></div></div>"
   $('.track_divs').append(track);
 }
