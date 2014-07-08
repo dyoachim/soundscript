@@ -291,6 +291,11 @@ ul {
 	font-family: 'Muli', sans-serif;
 }
 
+.video_thumbnail a:link {
+	text-decoration: none;
+	font-family: 'Roboto';
+}
+
 .flickr_pagination {
   text-align: center;
   padding: 0.3em;
