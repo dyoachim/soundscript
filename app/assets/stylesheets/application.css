@@ -32,7 +32,6 @@ nav ul li {
 	font-family: 'Muli', sans-serif;
 }
 
-
 nav ul li a{
 	text-decoration: none;
 	color: black;
@@ -42,8 +41,8 @@ nav h1 a {
 	color: black;
 	text-decoration: none;
 	font-size: 40px;
-
 }
+
 nav h1 {
 margin-top: 0px;
 padding-left: 35px;
@@ -52,23 +51,18 @@ padding-left: 35px;
 body{
 	margin:0px;
 	background-color: white;
-
 }
-
 
 ul li a{
 	text-decoration: none;
 	color: black;
 	font-family: 'Muli', sans-serif;
-	/*margin-top: 30px;*/
 }
 
 ul li a:hover{
-	text-decoration: none;
 	color: white;
-	font-family: 'Muli', sans-serif;
-	/*margin-top: 30px;*/
 }
+
 .nav_link{
 	margin-top: 60px;
 	margin-right: 20px;
@@ -89,7 +83,6 @@ ul li a:hover{
 	margin: 130px auto;
 	margin-left: 5%;
 	background-color: white;
-
 }
 
 .videoShowContainer{
@@ -120,7 +113,6 @@ ul li a:hover{
 	padding-top: 20px;
 	width:300px;
 	padding-bottom: 30px;
-
 }
 
 #search_form form {
@@ -150,10 +142,6 @@ ul li a:hover{
 	margin: 0;
 }
 
-.has_tracks {
-	border: 6px solid green;
-}
-
 #index_page_container .video_thumbnail img{
 	width: 180px;
 	height: 101px;
@@ -167,6 +155,7 @@ ul li a:hover{
 	background-color: gray;
 	border-radius: .75em;
 }
+
 .login_form form label{
 	padding-top: 12px;
 	font-family: 'Quicksand', sans-serif;
@@ -189,88 +178,18 @@ ul li a:hover{
 	width:300px;
 }
 
-.controls_box {
-	/*float: right;*/
-	padding: 50px 100px 0 120px;
-	background-color: white;
-	height:271px;
-}
-
 ul {
 	padding-left: 0;
-}
-
-.controls_box li {
-	display: inline;
-	margin:20px;
-	font-size: 32px; 
-}
-
-.video_box {
-	width: 640px;
-	height: 321px;
-	background-color: white;
-	float: right;
-}
-
-.language_box {
-	width: 100px;
-	height: 220px;
-	background-color: gray;
-	border: 1px solid black;
-	float: left;
-}
-
-.tracks_box {
-	height: 220px;
-	margin-left: 100px;
-	background-image: url('/assets/tickk.jpg');
-	background-repeat: repeat-z;
-	border: 1px solid black;
-	position: relative;
-}
-
-.show_tracks_box {
-	height: 220px;
-	margin-left: 100px;
-	background-image: url('/assets/tickk.jpg');
-	background-repeat: repeat-z;
-	border: 1px solid black;
-	position: relative;
-}
-
-.has_tracks {
-	border: 6px solid green;
-}
-
-/*this is for the read only track css*/
-.track_post-it {
-  position: absolute !important;
-  width: 160px;
-  background-color: white;
-  box-shadow: -2px 2px 5px #555;
-  overflow: hidden;
-}
-
-.track_post-it .content {
-  padding: 10px;
-  min-height: 70px;
-  outline: none;
-  color: blue;
-  font-family: 'Droid Sans Mono';
 }
 
 .clearfix {
 	clear: both;
 }
 
-.create_form .submit{
+.create_form .submit, .login_form .submit{
 	width:120px;
 }
 
-.login_form .submit{
-	width:120px;
-}
 .login_form .submit:hover{
 	background-color: #f0a502;
 	color:white;
@@ -286,85 +205,6 @@ ul {
 
 #submit_index:hover{
 	background-color: yellow;
-}
-
-.track_divs{
-	width:100%;
-	height: 100%;
-	overflow:scroll;
-	position: relative;
-	z-index: 2;
-}
-
-.snapLine {
-	background-color: #cccccc;
-	margin: 46px;
-	height: 3px;
-	width: 100%;
-}
-
-.removeNote {
-	position: absolute;
-	right: 0;
-	top: 0;
-}
-
-.post-it {
-  position: absolute !important;
-  width: 660px;
-  height: 44px;
-  background-color: beige;
-  box-shadow: -2px 2px 5px #555;
-  border-top-left-radius:8em;
-	border-bottom-left-radius:8em;
-  overflow: hidden;
-}
-
-.post-it .header {
-  background-color: #DCDCDC;
-  height: 100%;	
-  width: 35px;
-  text-align: right;
-  display: inline-block;
-}
-
-.post-it .header:hover {
-  background-color: #a8a860;
-}
-
-.post-it .header a, .post-it .header a:visited {
-  text-decoration: none;
-  color: black;
-  font-weight: bold;
-}
-
-.post-it .header a:hover {
-  color: #eee;
-}
-
-.post-it .content {
-  vertical-align: middle;
-  min-height: 70px;
-  outline: none;
-  font-family: 'Droid Sans Mono';
-  display: inline-block;
-}
-
-/*this is for the read only track css*/
-.track_post-it {
-  position: absolute !important;
-  width: 160px;
-  background-color: white;
-  box-shadow: -2px 2px 5px #555;
-  overflow: hidden;
-}
-
-.track_post-it .content {
-  padding: 10px;
-  min-height: 70px;
-  outline: none;
-  color: blue;
-  font-family: 'Droid Sans Mono';
 }
 
 #profile_container{
@@ -387,83 +227,6 @@ ul {
      margin-left: 25px;    
 }
 
-#pause{
-	background: url('/assets/pause.png');
-	width: 80px;
-	height: 79px;
-	display: inline-block;
-	margin-right: 0;
-}
-
-#play{
-	background: url('/assets/play.png');
-	width: 80px;
-	height: 79px;
-	display: inline-block;
-	margin-right: 0;
-}
-
-#rewind{
-
-	background: url('/assets/rewind.png');
-	width: 80px;
-	height: 79px;
-	display: inline-block;
-	margin-right: 0;
-}
-#replay{
-	background: url('/assets/replay.png');
-	width: 80px;
-	height: 79px;
-	display: inline-block;
-	margin-right: 0;
-
-}
-
-#replay:hover{
-	background: url('/assets/replay2.png');
-
-}
-
-#rewind:hover{
-	background: url('/assets/rewind2.png');
-
-}
-
-#play:hover{
-	background: url('/assets/play2.png');
-}
-
-#pause:hover{
-	background: url('/assets/pause2.png');
-}
-
-.progressBar {
-  position: relative; 
-  background-color: red;
-  width: 3px;
-  height: 100%;
-  float: left;
-  z-index: 11;
-}
-
-.appendTrack{
-	height:30px;
-	width:95px;
-	font-size: 14px;
-	border-radius: .4em;
-	background-color: #f0a502;
-	font-family: 'Muli', sans-serif;
-	font-weight: bold;
-}
-
-.appendTrack:hover{
-	background-color: gray;
-	font-family: 'Muli', sans-serif;
-	font-weight: bold;
-	color:white;
-}
-
 #button_add_track{
 	padding-left: 21px;
 }
@@ -479,29 +242,48 @@ ul {
 .flickr_pagination {
   text-align: center;
   padding: 0.3em;
-  cursor: default; }
-  .flickr_pagination a, .flickr_pagination span, .flickr_pagination em {
-    padding: 0.2em 0.5em; }
-  .flickr_pagination .disabled {
-    color: #aaaaaa; }
-  .flickr_pagination .current {
-    font-style: normal;
-    font-weight: bold;
-    color: #ff0084; }
-  .flickr_pagination a {
-    border: 1px solid #dddddd;
-    color: #0063dc;
-    text-decoration: none; }
-    .flickr_pagination a:hover, .flickr_pagination a:focus {
-      border-color: #003366;
-      background: #0063dc;
-      color: white; }
-  .flickr_pagination .page_info {
-    color: #aaaaaa;
-    padding-top: 0.8em; }
-  .flickr_pagination .previous_page, .flickr_pagination .next_page {
-    border-width: 2px; }
-  .flickr_pagination .previous_page {
-    margin-right: 1em; }
-  .flickr_pagination .next_page {
-    margin-left: 1em; }
+  cursor: default;
+}
+
+.flickr_pagination a, .flickr_pagination span, .flickr_pagination em {
+  padding: 0.2em 0.5em;
+}
+
+.flickr_pagination .disabled {
+  color: #aaaaaa;
+}
+
+.flickr_pagination .current {
+  font-style: normal;
+  font-weight: bold;
+  color: #ff0084;
+}
+
+.flickr_pagination a {
+  border: 1px solid #dddddd;
+  color: #0063dc;
+  text-decoration: none;
+}
+
+.flickr_pagination a:hover, .flickr_pagination a:focus {
+  border-color: #003366;
+  background: #0063dc;
+  color: white;
+}
+
+.flickr_pagination .page_info {
+color: #aaaaaa;
+padding-top: 0.8em;
+}
+
+.flickr_pagination .previous_page, .flickr_pagination .next_page {
+border-width: 2px;
+}
+
+.flickr_pagination .previous_page {
+margin-right: 1em;
+}
+
+.flickr_pagination .next_page {
+margin-left: 1em;
+}
