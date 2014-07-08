@@ -12,10 +12,11 @@
 </div>
 
 <script>
-var VIDEOAPP = {
-	videoId: '<%= @video.id %>',
-	loggedIn: <%= current_user.present? %>
-}
+	var VIDEOAPP = {
+		videoId: '<%= @video.id %>',
+		loggedIn: <%= current_user.present? %>
+	}
+	var languages = <%= raw @languages.to_json %>;
 </script>
 
 <% if @tracks.any? %>
@@ -61,10 +62,17 @@ var VIDEOAPP = {
 	
 	swfobject.embedSWF(videoURL,"ytapiplayer", "640", "321", "8", null, null, params, atts);
 
+	<% if current_user%>
+		var currentUserId = <%=current_user.id%>;
+	<%else%>
+		var currentUserId = 0;
+	<%end%>
+
   function onYouTubePlayerReady(playerId) {
     ytplayer = document.getElementById("myytplayer");
     VIDEOAPP.duration = ytplayer.getDuration();
-  	tracksContainer = new TracksContainer(VIDEOAPP.duration, VIDEOAPP.loggedIn, VIDEOAPP.tracks, <%= current_user.id %>);
+
+  	tracksContainer = new TracksContainer(VIDEOAPP.duration, VIDEOAPP.loggedIn, VIDEOAPP.tracks, <%= current_user.id %>, languages);
     setInterval(updatePlayerInfo, 250);
   }
 
@@ -76,3 +84,9 @@ var VIDEOAPP = {
 	  }
 	}
 </script>
+
+
+
+
+
+

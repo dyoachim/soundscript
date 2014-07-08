@@ -1,19 +1,27 @@
-function TracksContainer(duration, loggedIn, tracks, userId) {
+function TracksContainer(duration, loggedIn, tracks, userId, languages) {
 	this.duration = duration;
 	this.loggedIn = loggedIn;
 	this.tracks = tracks;
 	this.trackNum = tracks.length;
 	this.userId = userId;
+	this.languages = languages;
 
 	this.initialize();
 }
 
 TracksContainer.prototype.constructElement = function() {
-	var track = "<div class='language_box'></div><div class='tracks_box' style='width:"+ this.duration * 10 + "em;'>"
+	var track = ""
+	track += "<div class='language_box'>";
+	track += "<select name = 'language'>";
 
-  if (this.loggedIn) {
-  	track += "<button class='timeButton'>Submit</button>"
-  }
+		for(var i = 0; i < this.languages.length; i++){
+			track += "<option>" + this.languages[i]['title'] + "</option>";
+		}
+			track += "</select>";
+			if (this.loggedIn) {
+		  	track += "<button class='timeButton'>Submit</button>"
+		  }
+	track += "</div><div class='tracks_box' style='width:"+ this.duration * 10 + "em;'>";
   track += "<div class='progressBar'></div></div>";
 	$('.track_divs').html(track);
 };
