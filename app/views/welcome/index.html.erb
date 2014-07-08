@@ -14,9 +14,9 @@
 			</form>
 		</div>
 
-		<% if @videos %>
+		<% if @videos.any? %>
 			<% @videos.each do |video| %>
-				<% if Track.find_by_youtube_id(video.id.videoId) %>
+				<% if Track.any? && Track.find_by_youtube_id(video.id.videoId) %>
 					<div class="video_thumbnail">
 						<a href="videos/<%= video.id['videoId'] %>"><img class='has_tracks' src='<%= video.snippet.thumbnails.medium.url %>'></a>		
 						<p><a href="videos/<%= video.id['videoId'] %>"><%= video.snippet.title %></a></p>
