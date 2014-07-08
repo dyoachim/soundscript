@@ -8,52 +8,57 @@
 	</div>
 	<div class='clearfix'></div>
 	<div class="track_divs">
-
-
-	<script>
-	var VIDEOAPP = {
-		videoId: '<%= @video.id %>',
-		loggedIn: <%= current_user.present? %>
-	}
-	</script>
-
-	<script>
-		var languages = <%= raw @languages.to_json %>;
-	</script>
-
-	<% if @tracks.any? %>
- 			<script>
-				var tracks = [],
-					transcriptJson;
- 			</script>
- 		<% @tracks.each do |trackBuild| %>
- 			<script>
- 				transcriptJson = <%= raw trackBuild.transcript %>;
- 				for(var i in transcriptJson) {
-					track = {};
-					track.creatorId = <%= trackBuild.user_id %>;
-					track.trackId = <%= trackBuild.id %>;
-					track.videoId = '<%= @video.id %>';
-	 				track.content = transcriptJson[i].content;
-	 				track.position_css = transcriptJson[i].position_css;
-	 				tracks.push(track);
-	 			}
- 			</script>
-		<% end %>
-		<script>
-			VIDEOAPP.tracks = tracks;
-		</script>
-	<% else %>
-		<script>
-			VIDEOAPP.tracks = "";
-		</script>
-	<% end %>
 	</div>
 </div>
+
+<script>
+	var VIDEOAPP = {
+		videoId: '<%= @video.id %>',
+		loggedIn: <%= current_user.present? %>,
+	  languages: <%= raw @languages.to_json %>
+	}
+</script>
+
+<% if @tracks.any? %>
+			<script>
+			var tracks = [],
+				transcriptJson;
+			</script>
+		<% @tracks.each do |trackBuild| %>
+			<script>
+			var track = {};
+			var notes = [];
+				transcriptJson = <%= raw trackBuild.transcript %>;
+			track.creatorId = <%= trackBuild.user_id %>;
+			track.trackId = <%= trackBuild.id %>;
+			track.videoId = '<%= @video.id %>';
+
+			if (transcriptJson) {
+				$.each(transcriptJson, function(key, value) {	
+					var note = {};
+	 				note.content = value.content;
+	 				note.position_css = value.position_css;
+	 				notes.push(note);
+				});
+			}
+ 			track.transcriptions = notes;
+ 			tracks.push(track)
+			</script>
+	<% end %>
+	<script>
+		VIDEOAPP.tracks = tracks;
+	</script>
+<% else %>
+	<script>
+		VIDEOAPP.tracks = "";
+	</script>
+<% end %>
+
 <script type="text/javascript">
 	var params = { allowScriptAccess: "always" };
 	var atts = { id: "myytplayer" };
 	var videoURL = "http://www.youtube.com/v/" + VIDEOAPP.videoId + "?enablejsapi=1&playerapiid=ytplayer&version=3";
+  var tracksContainer;
 	
 	swfobject.embedSWF(videoURL,"ytapiplayer", "640", "321", "8", null, null, params, atts);
 
@@ -66,9 +71,18 @@
   function onYouTubePlayerReady(playerId) {
     ytplayer = document.getElementById("myytplayer");
     VIDEOAPP.duration = ytplayer.getDuration();
-    var tracksContainer = new TracksContainer(VIDEOAPP.duration, VIDEOAPP.loggedIn, VIDEOAPP.tracks, currentUserId, languages );
+
+  	tracksContainer = new TracksContainer(VIDEOAPP.duration, VIDEOAPP.loggedIn, VIDEOAPP.tracks, <%= current_user.id %>);
     setInterval(updatePlayerInfo, 250);
-  }		
+  }
+
+  function updatePlayerInfo() {
+	  if (ytplayer) {
+	    tracksContainer.updateHTML("currentTime", Number(ytplayer.getCurrentTime()).toFixed(2));   
+	    tracksContainer.updateHTML("totalDuration", Number(ytplayer.getDuration()).toFixed(2));   
+	    moveProgressBar(ytplayer.getCurrentTime()); 
+	  }
+	}
 </script>
 
 

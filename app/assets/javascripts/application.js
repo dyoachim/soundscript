@@ -23,44 +23,16 @@ $(document).ready( function(){
     $('#browse').hide();
   });
 
-  $('.controls_box').on("click", '.appendTrack',function(){
-    appendNewTrack();
-  });
-
   $('.track_divs').on("click", ".timeButton", function(){
     var postIts = [];  
     var languageName = $('select').val();
     var url = '/videos/' + VIDEOAPP.videoId + '/tracks'
  
-    $(this).parent().children('.post-it').each(function(){
+    $(this).parent('.language_box').next('.tracks_box').find('.post-it').each(function(){
       postIts.push({ content: $(this).children(".content").text(), position_css: this.style['cssText']})
     });
 
-    console.log(languageName);
     $.post(url, { data: postIts, languagename: languageName }, function( response ) {});
     location.reload();
   });
-
-  $('.track_divs').on("click", ".editButton", function(){
-   
-
-    $.post(url, { data: postIts }, function( response ) {});
-    location.reload();
-  });
-
-
-
-  $('.track_divs').on("click", ".deleteButton", function(){
-    
-
-    $.post(url, { data: postIts }, function( response ) {});
-    location.reload();
-  });
-
-
-  $('.track_divs').on('dblclick', ".tracks_box", function(event){
-    if (event.target.className == "tracks_box") {
-      new PostIt(event).buildPostIt($(this));
-    }
-  }); 
 });
