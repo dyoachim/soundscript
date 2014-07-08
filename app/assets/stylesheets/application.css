@@ -436,7 +436,6 @@ ul {
   height: 100%;
   float: left;
   z-index: 11;
-  -webkit-transition: -webkit-transform 2s;
 }
 
 .appendTrack{

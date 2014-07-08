@@ -10,6 +10,7 @@ var PostIt = function(event) {
 		element.append(post_it)
 
 	  $('.post-it').draggable({ handle: ".header", containment: "parent" }).resizable({containment: "parent"});
+	  $('.post-it').draggable({ snap: ".ui-widget-header", snapMode: "outer" })
 	  $('.remove_note').on('click', function(){
 	    $(this).parent().parent().remove();
 	  });
