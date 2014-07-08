@@ -287,3 +287,8 @@ margin-right: 1em;
 .flickr_pagination .next_page {
 margin-left: 1em;
 }
+
+.video_thumbnail a {
+	font-family: 'Roboto';
+	text-decoration: none;
+}
