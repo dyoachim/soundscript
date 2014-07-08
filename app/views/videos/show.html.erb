@@ -9,11 +9,16 @@
 	<div class='clearfix'></div>
 	<div class="track_divs">
 
+
 	<script>
 	var VIDEOAPP = {
 		videoId: '<%= @video.id %>',
 		loggedIn: <%= current_user.present? %>
 	}
+	</script>
+
+	<script>
+		var languages = <%= raw @languages.to_json %>;
 	</script>
 
 	<% if @tracks.any? %>
@@ -61,7 +66,7 @@
   function onYouTubePlayerReady(playerId) {
     ytplayer = document.getElementById("myytplayer");
     VIDEOAPP.duration = ytplayer.getDuration();
-    var tracksContainer = new TracksContainer(VIDEOAPP.duration, VIDEOAPP.loggedIn, VIDEOAPP.tracks, currentUserId );
+    var tracksContainer = new TracksContainer(VIDEOAPP.duration, VIDEOAPP.loggedIn, VIDEOAPP.tracks, currentUserId, languages );
     setInterval(updatePlayerInfo, 250);
   }		
 </script>
