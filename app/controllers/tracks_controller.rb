@@ -7,7 +7,6 @@ class TracksController < ApplicationController
   	redirect_to '/'
   end
 
-
   def destroy
   	@track = Track.find(params[:id])
   	@track.destroy
