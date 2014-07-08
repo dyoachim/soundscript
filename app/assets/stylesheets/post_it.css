@@ -1,16 +1,20 @@
 .post-it {
   position: absolute !important;
-  width: 160px;
+  width: 660px;
+  height: 44px;
   background-color: beige;
   box-shadow: -2px 2px 5px #555;
+  border-top-left-radius:8em;
+  border-bottom-left-radius:8em;
   overflow: hidden;
 }
 
-
 .post-it .header {
-  background-color: #DCDCDC;  
+  background-color: #DCDCDC;
+  height: 100%; 
+  width: 35px;
   text-align: right;
-  padding: 2px;
+  display: inline-block;
 }
 
 .post-it .header:hover {
@@ -28,12 +32,25 @@
 }
 
 .post-it .content {
-  padding: 10px;
+  vertical-align: middle;
   min-height: 70px;
   outline: none;
   font-family: 'Droid Sans Mono';
+  display: inline-block;
 }
 
+.snapLine {
+  background-color: #cccccc;
+  margin: 46px;
+  height: 3px;
+  width: 100%;
+}
+
+.removeNote {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
 
 /*this is for the read only track css*/
 .track_post-it {

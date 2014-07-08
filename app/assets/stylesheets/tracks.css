@@ -1,14 +1,13 @@
-
 .language_box {
 	width: 100px;
-	height: 280px;
+	height: 220px;
 	background-color: gray;
 	border: 1px solid black;
-	float:left;
+	float: left;
 }
 
 .tracks_box {
-	height: 280px;
+	height: 220px;
 	margin-left: 100px;
 	background-image: url('/assets/tickk.jpg');
 	background-repeat: repeat-z;
@@ -17,7 +16,7 @@
 }
 
 .show_tracks_box {
-	height: 280px;
+	height: 220px;
 	margin-left: 100px;
 	background-image: url('/assets/tickk.jpg');
 	background-repeat: repeat-z;
@@ -27,4 +26,38 @@
 
 .has_tracks {
 	border: 6px solid green;
+}
+
+.track_divs{
+	width:100%;
+	height: 100%;
+	overflow:scroll;
+	position: relative;
+	z-index: 2;
+}
+
+.progressBar {
+  position: relative; 
+  background-color: red;
+  width: 3px;
+  height: 100%;
+  float: left;
+  z-index: 11;
+}
+
+.appendTrack{
+	height:30px;
+	width:95px;
+	font-size: 14px;
+	border-radius: .4em;
+	background-color: #f0a502;
+	font-family: 'Muli', sans-serif;
+	font-weight: bold;
+}
+
+.appendTrack:hover{
+	background-color: gray;
+	font-family: 'Muli', sans-serif;
+	font-weight: bold;
+	color:white;
 }

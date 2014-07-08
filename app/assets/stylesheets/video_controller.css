@@ -59,3 +59,10 @@
 	margin:20px;
 	font-size: 32px; 
 }
+
+.video_box {
+	width: 640px;
+	height: 321px;
+	background-color: white;
+	float: right;
+}

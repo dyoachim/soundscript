@@ -39,6 +39,25 @@ $(document).ready( function(){
     location.reload();
   });
 
+
+
+  $('.track_divs').on("click", ".editButton", function(){
+   
+
+    $.post(url, { data: postIts }, function( response ) {});
+    location.reload();
+  });
+
+
+
+  $('.track_divs').on("click", ".deleteButton", function(){
+    
+
+    $.post(url, { data: postIts }, function( response ) {});
+    location.reload();
+  });
+
+
   $('.track_divs').on('dblclick', ".tracks_box", function(event){
     if (event.target.className == "tracks_box") {
       new PostIt(event).buildPostIt($(this));
