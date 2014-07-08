@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-	has_many :languages, dependent: :destroy
 	has_many :tracks, dependent: :destroy
 
 	validates :username, presence: true

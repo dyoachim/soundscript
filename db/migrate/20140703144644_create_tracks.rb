@@ -3,7 +3,7 @@ class CreateTracks < ActiveRecord::Migration
     create_table :tracks do |t|
       t.integer :user_id
       t.string :youtube_id
-      t.string :primary_language
+      t.integer :language_id
       t.text :transcript
 
       t.timestamps
