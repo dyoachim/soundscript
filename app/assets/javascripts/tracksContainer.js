@@ -26,6 +26,7 @@ TracksContainer.prototype.showExistingTranscript = function() {
 		var transcript = ""
 
 		for(var i = 0; i < this.trackNum; i++) {	
+
 			transcript += "<div class='language_box'>";
     	if (true){
     		transcript += "<form action='/videos/" + this.tracks[i]['videoId'] + "/tracks/" + this.tracks[i]['trackId'] + "' method='POST'>";
