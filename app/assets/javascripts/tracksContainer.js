@@ -19,17 +19,23 @@ TracksContainer.prototype.constructElement = function() {
 };
 
 TracksContainer.prototype.showExistingTranscript = function() {
+	var AUTH_TOKEN = $('meta[name=csrf-token]').attr('content');
+
 	if (this.tracks == "") {
 		this.constructElement();
 	}
 	else {
 		var transcript = ""
+		
 
 		for(var i = 0; i < this.trackNum; i++) {	
 
 			transcript += "<div class='language_box'>";
     	if (true){
     		transcript += "<form action='/videos/" + this.tracks[i]['videoId'] + "/tracks/" + this.tracks[i]['trackId'] + "' method='POST'>";
+   
+
+    		transcript += "<input name='authenticity_token' type='hidden' value ='" + AUTH_TOKEN +"'/>";
     		transcript += "<input name='_method' type='hidden' value='delete' /><input type='submit' class ='deleteButton' value='Delete'></form>";
     		transcript += "<form action='/videos/" + this.tracks[i]['videoId'] + "/tracks/" + this.tracks[i]['trackId'] + "/edit' method='POST'>";
     		transcript += "<input name='_method' type='hidden' value='patch' /><input type='submit' class ='editButton' value='Edit'></form>";
