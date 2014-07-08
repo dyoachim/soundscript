@@ -26,10 +26,12 @@
  				transcriptJson = <%= raw trackBuild.transcript %>;
  				for(var i in transcriptJson) {
 					track = {};
+					track.creatorId = <%= trackBuild.user_id %>;
+					track.trackId = <%= trackBuild.id %>;
+					track.videoId = '<%= @video.id %>';
 	 				track.content = transcriptJson[i].content;
 	 				track.position_css = transcriptJson[i].position_css;
 	 				tracks.push(track);
-	 				console.log(tracks);
 	 			}
  			</script>
 		<% end %>
@@ -54,7 +56,7 @@
   function onYouTubePlayerReady(playerId) {
     ytplayer = document.getElementById("myytplayer");
     VIDEOAPP.duration = ytplayer.getDuration();
-    var tracksContainer = new TracksContainer(VIDEOAPP.duration, VIDEOAPP.loggedIn, VIDEOAPP.tracks);
+    var tracksContainer = new TracksContainer(VIDEOAPP.duration, VIDEOAPP.loggedIn, VIDEOAPP.tracks, <%= current_user.id %>);
     setInterval(updatePlayerInfo, 250);
   }		
 </script>

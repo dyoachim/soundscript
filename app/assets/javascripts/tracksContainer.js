@@ -1,8 +1,9 @@
-function TracksContainer(duration, loggedIn, tracks) {
+function TracksContainer(duration, loggedIn, tracks, userId) {
 	this.duration = duration;
 	this.loggedIn = loggedIn;
 	this.tracks = tracks;
 	this.trackNum = tracks.length;
+	this.userId = userId;
 
 	this.initialize();
 }
@@ -22,17 +23,25 @@ TracksContainer.prototype.showExistingTranscript = function() {
 		this.constructElement();
 	}
 	else {
-		var transcript = ["<div class='language_box'>English</div>",
-	  									"<div class='show_tracks_box' style='width:"+ this.duration * 10 + "em;'>",
-	  									"<div class='progressBar'></div>"];
-			
+		var transcript = ""
+
 		for(var i = 0; i < this.trackNum; i++) {	
-			transcript.push('<div class="track_post-it" style="' + this.tracks[i]['position_css'] + '">' +
-	      '<section class="content">' + this.tracks[i]['content'] + '</section></div>');
+
+			transcript += "<div class='language_box'>";
+    	if (true){
+    		transcript += "<form action='/videos/" + this.tracks[i]['videoId'] + "/tracks/" + this.tracks[i]['trackId'] + "' method='POST'>";
+    		transcript += "<input name='_method' type='hidden' value='delete' /><input type='submit' class ='deleteButton' value='Delete'></form>";
+    		transcript += "<form action='/videos/" + this.tracks[i]['videoId'] + "/tracks/" + this.tracks[i]['trackId'] + "/edit' method='POST'>";
+    		transcript += "<input name='_method' type='hidden' value='patch' /><input type='submit' class ='editButton' value='Edit'></form>";
+    	}
+    	transcript += "</div>"
+	  	transcript += "<div class='show_tracks_box' style='width:"+ this.duration * 10 + "em;'>";
+	  	transcript += "<div class='progressBar'></div>";
+			transcript += "<div class='track_post-it' style='" + this.tracks[i]['position_css'] + "'>";
+	    transcript += "<section class='content'>" + this.tracks[i]['content'] + "</section></div></div>";
 		}
 
-		transcript.push("</div>");
-		$('.track_divs').html(transcript.join(''));
+		$('.track_divs').html(transcript);
 	}
 };
 
@@ -66,7 +75,9 @@ function appendNewTrack() {
   	"<div class='tracks_box' style='width:"+ parseFloat($('#totalDuration').text()) * 10 + "em;'>" +
   	"<button class='timeButton'>Submit</button>" +
   	"<button class ='deleteButton'>Delete</button>" +
-  	"<button class ='deleteEdit'>Edit</button>" +
-  	"<div class='progressBar'></div></div>"
+  	"<div class='progressBar'></div>" +
+		"<div class='snapLine ui-widget-header'></div>" +
+		"<div class='snapLine'></div>" +
+		"<div class='snapLine ui-widget-header'></div></div>"
   $('.track_divs').append(track);
 }

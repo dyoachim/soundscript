@@ -215,14 +215,14 @@ ul {
 
 .language_box {
 	width: 100px;
-	height: 280px;
+	height: 220px;
 	background-color: gray;
 	border: 1px solid black;
-	float:left;
+	float: left;
 }
 
 .tracks_box {
-	height: 280px;
+	height: 220px;
 	margin-left: 100px;
 	background-image: url('/assets/tickk.jpg');
 	background-repeat: repeat-z;
@@ -231,16 +231,7 @@ ul {
 }
 
 .show_tracks_box {
-	height: 280px;
-	margin-left: 100px;
-	background-image: url('/assets/tickk.jpg');
-	background-repeat: repeat-z;
-	border: 1px solid black;
-	position: relative;
-}
-
-.show_tracks_box {
-	height: 280px;
+	height: 220px;
 	margin-left: 100px;
 	background-image: url('/assets/tickk.jpg');
 	background-repeat: repeat-z;
@@ -299,25 +290,42 @@ ul {
 
 .track_divs{
 	width:100%;
-	height: 282px;
+	height: 100%;
 	overflow:scroll;
 	position: relative;
 	z-index: 2;
 }
 
+.snapLine {
+	background-color: #cccccc;
+	margin: 46px;
+	height: 3px;
+	width: 100%;
+}
+
+.removeNote {
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+
 .post-it {
   position: absolute !important;
-  width: 160px;
+  width: 660px;
+  height: 44px;
   background-color: beige;
   box-shadow: -2px 2px 5px #555;
+  border-top-left-radius:8em;
+	border-bottom-left-radius:8em;
   overflow: hidden;
 }
 
-
 .post-it .header {
-  background-color: #DCDCDC;	
+  background-color: #DCDCDC;
+  height: 100%;	
+  width: 35px;
   text-align: right;
-  padding: 2px;
+  display: inline-block;
 }
 
 .post-it .header:hover {
@@ -335,10 +343,11 @@ ul {
 }
 
 .post-it .content {
-  padding: 10px;
+  vertical-align: middle;
   min-height: 70px;
   outline: none;
   font-family: 'Droid Sans Mono';
+  display: inline-block;
 }
 
 /*this is for the read only track css*/
