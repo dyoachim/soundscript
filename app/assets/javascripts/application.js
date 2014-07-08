@@ -29,17 +29,17 @@ $(document).ready( function(){
 
   $('.track_divs').on("click", ".timeButton", function(){
     var postIts = [];  
+    var languageName = $('select').val();
     var url = '/videos/' + VIDEOAPP.videoId + '/tracks'
  
     $(this).parent().children('.post-it').each(function(){
       postIts.push({ content: $(this).children(".content").text(), position_css: this.style['cssText']})
     });
 
-    $.post(url, { data: postIts }, function( response ) {});
+    console.log(languageName);
+    $.post(url, { data: postIts, languagename: languageName }, function( response ) {});
     location.reload();
   });
-
-
 
   $('.track_divs').on("click", ".editButton", function(){
    

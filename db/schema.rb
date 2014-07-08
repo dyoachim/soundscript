@@ -17,8 +17,7 @@ ActiveRecord::Schema.define(version: 20140703144644) do
   enable_extension "plpgsql"
 
   create_table "languages", force: true do |t|
-    t.string   "type"
-    t.integer  "user_id"
+    t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -26,7 +25,7 @@ ActiveRecord::Schema.define(version: 20140703144644) do
   create_table "tracks", force: true do |t|
     t.integer  "user_id"
     t.string   "youtube_id"
-    t.string   "primary_language"
+    t.integer  "language_id"
     t.text     "transcript"
     t.datetime "created_at"
     t.datetime "updated_at"
