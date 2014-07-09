@@ -26,7 +26,7 @@ TracksContainer.prototype.constructTransportControls = function() {
 	if (this.loggedIn) {
 		transportControls += '<div id="button_add_track"><button class="appendTrack">Add Track</button></div>'
 	}
-	$('.controls_box').html(transportControls);
+	$('.controls_box').append(transportControls);
 };
 
 
