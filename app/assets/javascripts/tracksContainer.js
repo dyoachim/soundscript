@@ -63,3 +63,8 @@ TracksContainer.prototype.attachAddNewTrack = function() {
     new Track(null, duration, false);
   });
 }
+
+
+function rotateButton(button) {
+	$(button).parent().parent().css('z-index',"3");
+}

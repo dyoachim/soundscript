@@ -26,32 +26,30 @@
 			</script>
 		<% @tracks.each do |trackBuild| %>
 			<script>
-			var track = {};
-			var notes = [];
-				transcriptJson = <%= raw trackBuild.transcript %>;
-			track.creatorId = <%= trackBuild.user_id %>;
-			track.trackId = <%= trackBuild.id %>;
-			track.videoId = '<%= @video.id %>';
+				var track = {};
+				var notes = [];
+					transcriptJson = <%= raw trackBuild.transcript %>;
+				track.creatorId = <%= trackBuild.user_id %>;
+				track.trackId = <%= trackBuild.id %>;
+				track.videoId = '<%= @video.id %>';
 
-			if (transcriptJson) {
-				$.each(transcriptJson, function(key, value) {	
-					var note = {};
-	 				note.content = value.content;
-	 				note.position_css = value.position_css;
-	 				notes.push(note);
-				});
-			}
- 			track.transcriptions = notes;
- 			tracks.push(track)
+				if (transcriptJson) {
+					$.each(transcriptJson, function(key, value) {	
+						var note = {};
+		 				note.content = value.content;
+		 				note.position_css = value.position_css;
+		 				notes.push(note);
+					});
+				}
+	 			track.transcriptions = notes;
+	 			tracks.push(track)
 			</script>
 	<% end %>
-	<script>
-		VIDEOAPP.tracks = tracks;
-	</script>
+	
+	<script>VIDEOAPP.tracks = tracks;</script>
+
 <% else %>
-	<script>
-		VIDEOAPP.tracks = "";
-	</script>
+	<script>VIDEOAPP.tracks = "";</script>
 <% end %>
 
 <script type="text/javascript">
@@ -72,7 +70,7 @@
     ytplayer = document.getElementById("myytplayer");
     VIDEOAPP.duration = ytplayer.getDuration();
 
-  	tracksContainer = new TracksContainer(VIDEOAPP.duration, VIDEOAPP.loggedIn, VIDEOAPP.tracks, <%= current_user.id %>);
+  	tracksContainer = new TracksContainer(VIDEOAPP.duration, VIDEOAPP.loggedIn, VIDEOAPP.tracks, currentUserId);
     setInterval(updatePlayerInfo, 250);
   }
 

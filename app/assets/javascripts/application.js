@@ -28,7 +28,7 @@ $(document).ready( function(){
     var languageName = $('select').val();
     var url = '/videos/' + VIDEOAPP.videoId + '/tracks'
  
-    $(this).parent('.language_box').next('.tracks_box').find('.post-it').each(function(){
+    $(this).parent('.language_box').next().children('.tracks_box').find('.post-it').each(function(){
       postIts.push({ content: $(this).children(".content").text(), position_css: this.style['cssText']})
     });
 
