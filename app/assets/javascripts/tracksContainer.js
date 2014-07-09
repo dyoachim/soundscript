@@ -37,6 +37,8 @@ TracksContainer.prototype.initialize = function() {
 };
 
 TracksContainer.prototype.updateHTML = function(elmId, value) {
+	// TODO: minor gripe - if you're using jquery anyway, might as well keep all your DOM querying
+	//	code similar
 	document.getElementById(elmId).innerHTML = value;
 }
 

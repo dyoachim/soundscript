@@ -13,6 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+// TODO: if you move all your script references to the bottom of your page layout, the document.ready
+//  portion is no longer necessary:
+//  http://stackoverflow.com/a/4644026
 $(document).ready( function(){
 
   $('#form_nav').hide();
@@ -32,6 +36,8 @@ $(document).ready( function(){
       postIts.push({ content: $(this).children(".content").text(), position_css: this.style['cssText']})
     });
 
+    // TODO: recommend using $.ajax universally in all instances where you're making AJAX calls; it's more
+    //  flexible and requires you to really think about the way your calls are structured
     $.post(url, { data: postIts, languagename: languageName }, function( response ) {});
     location.reload();
   });

@@ -1,5 +1,5 @@
 
-
+// TODO: you should be able to move this into the Track functionality pretty easily at this point
 function moveProgressBar(input) {
   $('.progressBar').css('left', (input * 10) + 'em'); 
 }
@@ -39,6 +39,7 @@ Track.prototype.construct = function() {
 	var transcript = "<div class='trackLine'>";
 	transcript += "<div class='forward'>";
 	transcript += "<div class='language_box'>";
+    // TODO: didn't notice this before. what's the purpose of this?
 	if (true){
 		transcript += "<form action='/videos/" + this.videoId + "/tracks/" + this.trackId + "' method='POST'>";
 		transcript += "<input name='authenticity_token' type='hidden' value ='" + AUTH_TOKEN +"'/>";
@@ -109,6 +110,9 @@ Track.prototype.fillPostIts = function() {
 };
 
 function removeEditTrack(element) {
+    // TODO: again, the key here would be to either have unique IDs/attributes on all DOM elements
+    //  that require retrieval, or pass the necessary elements to this Track object when each track
+    //  is instantiated
 	$(element).parent().parent().parent().remove();
 }
 
@@ -116,6 +120,8 @@ Track.prototype.attachDblClick = function() {
 	$('.tracks_box').each(function() {
 		if (!$(this).attr('data-dblclick')) {
 		  $(this).on('dblclick',function(event){
+            // TODO: don't forget the difference between double- and triple-equals in JS:
+            //  http://stackoverflow.com/a/523647
 	    	if (event.target.className == "tracks_box") {
 	      	new PostIt(null, this.trackId, false, $(this),event);
 	    	}
@@ -131,6 +137,8 @@ Track.prototype.attachScroll = function() {
 		if (!$(this).attr('data-scroll')) {
 			$(this).on('scroll',function(event){
 				var xPosition = $(this).scrollLeft();
+                // TODO: you can use the .not method or :not selector in jquery to exclude changing
+                //  the scrollLeft on the user-scrolled element, which will boost performance a bit
 				$('.trackWrapper').each(function() {
 					$(this).scrollLeft(xPosition);
 				});
@@ -140,6 +148,7 @@ Track.prototype.attachScroll = function() {
 	});
 };
 
+// TODO: this should also be attached to the Track object if possible
 var attachSubmitEdit = function(element, trackId) {
 	element.on("click", function(){
     var postIts = [];  

@@ -17,6 +17,8 @@
 //   };
 // };
 
+// TODO: as mentioned previously, would recommend moving to function expressions vs declarations:
+//  http://stackoverflow.com/questions/1013385/what-is-the-difference-between-a-function-expression-vs-declaration-in-javascrip
 function PostIt(entry, trackId, existing, element,eventData) {
   this.content = entry ? entry.content : null;
   this.positionCss = entry ? entry.position_css : null;
@@ -29,6 +31,10 @@ function PostIt(entry, trackId, existing, element,eventData) {
 }
 
 PostIt.prototype.initialize = function() {
+  // TODO: just a note - while this expresses a loosely polymorphed mindset for this object, we could
+  //  take this much further to achieve true polymorphism. just keep in mind that polymorphism in JS
+  //  involves prototypal inheritance, as demonstrated here:
+  //  https://developer.mozilla.org/en-US/docs/Web/JavaScript/Introduction_to_Object-Oriented_JavaScript
   if (this.existing)
     this.construct();
   else
@@ -36,6 +42,8 @@ PostIt.prototype.initialize = function() {
 };
 
 PostIt.prototype.construct = function() {
+  // TODO: this is obviously done a lot in your current code; as mentioned previously, would definitely
+  //  recommend moving to a JS-based templating engine to clean this up
  var postIt = ['<div class="track_post-it" style="' + this.positionCss + '">',
                    '<section class="header"></section>',
                 '<section class="content">' + this.content + '</section>',
