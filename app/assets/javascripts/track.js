@@ -35,7 +35,6 @@ Track.prototype.initialize = function() {
 	this.attachScroll();
 };
 
-
 Track.prototype.construct = function() {
 	var AUTH_TOKEN = $('meta[name=csrf-token]').attr('content');
 	var transcript = "<div class='trackLine'>";
@@ -44,7 +43,6 @@ Track.prototype.construct = function() {
 	if (true){
 		transcript += "<button class='editButton' onclick='javascript:showEditForm(this);'>Edit</button>"
 	}
-	console.log(this)
 	transcript += "<div id='lang" + this.trackId + "'>" + this.language + "</div>";
 	transcript += "</div>";
 	transcript += "<div class='trackWrapper'>";
