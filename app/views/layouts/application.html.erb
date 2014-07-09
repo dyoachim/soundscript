@@ -39,6 +39,37 @@
 							<input type='submit', value='Search'>
 						</form><a id="browse" href="#">Browse</a>
 					</li>
+
+
+
+					<li class="language_link">
+
+					<form action="/languages/show" method="get">
+						<select name = 'language'>
+							<% @languages.each do |lang| %>
+								<option><%=lang.title %> </	option>
+							<%end%>
+						</select>
+					<input type='submit', value='search tracks by language'>
+					</form>
+
+
+
+
+					</li>
+
+
+
+					
+					<!-- 	<form id="form_nav" action='/' method='GET'>
+							<input type='text' name='search_term' placeholder='Search'>
+							
+						</form><a id="browse" href="#">Browse</a>
+					 -->
+
+
+
+
 			</ul>
 		</nav>
 		<br>

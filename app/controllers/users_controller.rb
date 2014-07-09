@@ -25,6 +25,7 @@ include SessionsHelper
 	end
 
 	def show
+		@languages = Language.all
 		if current_user == User.find(params[:id])
 			@user = current_user
 			render 'show'
