@@ -2,7 +2,6 @@ require 'rails_helper'
 
 feature 'User browsing the website' do
 
-
   it "creates new user" do
     visit new_user_url
     fill_in 'user[username]',   with: "Dan"

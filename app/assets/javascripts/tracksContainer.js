@@ -33,7 +33,7 @@ TracksContainer.prototype.constructTracks = function() {
 
 TracksContainer.prototype.constructTransportControls = function() {
 	var transportControls = "<ul>" +
-		'<a href="javascript:ytplayer.pauseVideo()"><li id="pause"></li></a>' +
+		'<a id="pause_link" href="javascript:ytplayer.pauseVideo()"><li id="pause"></li></a>' +
 		'<a href="javascript:ytplayer.playVideo()"><li id="play"></li></a>' +
 		'<a href="javascript:ytplayer.seekTo(0)"><li id="replay"></li></a>' +
 		'<a href="javascript:ytplayer.seekTo(ytplayer.getCurrentTime() - 5)">' +

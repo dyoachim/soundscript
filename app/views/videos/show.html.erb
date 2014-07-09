@@ -72,7 +72,7 @@
     ytplayer = document.getElementById("myytplayer");
     VIDEOAPP.duration = ytplayer.getDuration();
 
-  	tracksContainer = new TracksContainer(VIDEOAPP.duration, VIDEOAPP.loggedIn, VIDEOAPP.tracks, <%= current_user.id %>);
+  	tracksContainer = new TracksContainer(VIDEOAPP.duration, VIDEOAPP.loggedIn, VIDEOAPP.tracks, currentUserId );
     setInterval(updatePlayerInfo, 250);
   }
 

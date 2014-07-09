@@ -70,7 +70,7 @@ class Search
       search_response = client.execute!(
 	:api_method => youtube.videos.list,
 	:parameters => {
-	  :part => 'contentDetails',
+	  :part => 'snippet',
 	  :id => opts[:id]
 	}
       )

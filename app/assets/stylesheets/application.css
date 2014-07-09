@@ -57,10 +57,14 @@ ul li a{
 	text-decoration: none;
 	color: black;
 	font-family: 'Muli', sans-serif;
+	padding: 4px;
 }
 
 ul li a:hover{
 	color: white;
+	padding: 4px;
+	border-radius: .3em;
+	background-color: grey;
 }
 
 .nav_link{
@@ -210,11 +214,9 @@ ul {
 #profile_container{
      width:700px;
      height: 100%;
-     margin-top: 150px;
-     margin-left: 50px;
-     float:left;
+     margin: 150px auto;
      border:solid black 1px;
-     padding: 20px;
+     padding: 50px;
 }
 
 #profile_side{

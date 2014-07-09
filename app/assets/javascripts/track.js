@@ -1,4 +1,16 @@
+// document.addEventListener('keyup', function(e)
+// {
+//   switch(e.keyCode)
 
+//   // console.log(javascript:ytplayer.getPlayerState())
+//  { 
+//   	// case 32: javascript:ytplayer.pauseVideo();
+//   	// break;
+
+//   	//if double click, 
+//   	case 32: javascript:ytplayer.playVideo();
+//   }
+// }, false);
 
 function moveProgressBar(input) {
   $('.progressBar').css('left', (input * 10) + 'em'); 
@@ -31,7 +43,6 @@ Track.prototype.initialize = function() {
 		this.attachDblClick();
 	}
 };
-
 
 Track.prototype.construct = function() {
 	var AUTH_TOKEN = $('meta[name=csrf-token]').attr('content');

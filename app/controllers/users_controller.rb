@@ -10,7 +10,6 @@ include SessionsHelper
 			session[:user_id] = @user.id
 			redirect_to root_path
 		else
-			@error = "Invalid shit.  Try again."
 			render 'new'
 		end
 	end

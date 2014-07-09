@@ -1,11 +1,26 @@
 <div id="profile_container">
 
 <h1>Profile</h1>
-     <p>Username: <%=current_user.username%></p>
+     <p>Hello <%=current_user.username%>!</p>
      <p>Email: <%=current_user.email%></p>
 
+<h2>Videos Transcribed</h2>
+	<ul>
+		<%count = 0%>
+		<% current_user.tracks.each do |track|%>
+		<% video = track.youtube_id %>
+		<% videos = Search.video_by_id(video) %>
+		<%videos.each do |vid|%>
+			<li><a href="/videos/<%=track.youtube_id%>"><%=vid.snippet.title%></a></li>
+			<li>Track #<%=count += 1%></li>
+				<ul>
+					<li><a href="/videos/<%=track.youtube_id%>"><%=track.language.title%></a></li>
+					<img src='<%=vid.snippet.thumbnails.default.url%>'>
 
-
+				</ul>
+			<%end%>
+		<%end%>
+	</ul>
 
 <p><%= link_to "Edit Profile", edit_user_path(current_user), id:"edit_profile" %></p>
           <br>
@@ -14,4 +29,4 @@
 
 </div>
 
-<div id="profile_side"></div>
+<!-- <div id="profile_side"></div> -->
