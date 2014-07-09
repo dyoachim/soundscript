@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20140703144644) do
     t.string   "youtube_id"
     t.integer  "language_id"
     t.text     "transcript"
+    t.integer  "vote_count",  default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
