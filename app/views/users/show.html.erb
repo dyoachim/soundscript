@@ -5,6 +5,11 @@
      <p>Email: <%=current_user.email%></p>
 
 <h2>Videos Transcribed</h2>
+
+
+
+
+
 	<ul>
 		<%count = 0%>
 		<% current_user.tracks.each do |track|%>
@@ -12,6 +17,7 @@
 		<% videos = Search.video_by_id(video) %>
 		<%videos.each do |vid|%>
 			<li><a href="/videos/<%=track.youtube_id%>"><%=vid.snippet.title%></a></li>
+			<%=link_to "Delete Track", video_track_path(vid.id, track.id), method: :delete, data: {confirm: "are you sure?"}%>
 			<li>Track #<%=count += 1%></li>
 				<ul>
 					<li><a href="/videos/<%=track.youtube_id%>"><%=track.language.title%></a></li>
