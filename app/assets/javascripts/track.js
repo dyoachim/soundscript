@@ -14,7 +14,7 @@
 
 function moveProgressBar(input) {
   $('.progressBar').css('position', 'fixed');
-  $('.trackWrapper').scrollLeft(input * 160)
+  $('.trackWrapper').animate({scrollLeft: input * 160},249);
 }
 
 
@@ -22,7 +22,7 @@ function Track(track, duration,existing) {
 	this.creatorId = track ?track.creatorId : null;
 	this.trackId = track ? track.trackId : null;
 	this.videoId = track ? track.videoId : null;
-	this.language = track.language
+	this.language = track ? track.language : null;
 	this.transcriptions = [];
 	this.duration = duration * 10;
 	this.existing = existing;
