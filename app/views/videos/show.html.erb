@@ -31,6 +31,7 @@
 					transcriptJson = <%= raw trackBuild.transcript %>;
 				track.creatorId = <%= trackBuild.user_id %>;
 				track.trackId = <%= trackBuild.id %>;
+				track.language = '<%= Language.find(trackBuild.language_id).title %>';
 				track.videoId = '<%= @video.id %>';
 
 				if (transcriptJson) {
@@ -76,7 +77,7 @@
   }
 
   function updatePlayerInfo() {
-	  if (ytplayer) {
+	  if (ytplayer && ytplayer.getPlayerState() === 1) {
 	    tracksContainer.updateHTML("currentTime", Number(ytplayer.getCurrentTime()).toFixed(2));   
 	    tracksContainer.updateHTML("totalDuration", Number(ytplayer.getDuration()).toFixed(2));   
 	    moveProgressBar(ytplayer.getCurrentTime()); 
