@@ -46,8 +46,8 @@ feature 'User browsing the website' do
     fill_in 'session[email]', with: @user.email
     fill_in 'session[password]', with: "password"
     click_on 'Sign In'
-    visit user_path(@user)
-    click_link 'Delete'
+    visit edit_user_path(@user)
+    click_button 'Delete'
     expect(User.all.count).to eq(0)
   end
 end

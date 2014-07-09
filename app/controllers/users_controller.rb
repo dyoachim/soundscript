@@ -6,6 +6,7 @@ include SessionsHelper
 	end
 
 	def create
+		@languages = Language.all
 		@user = User.new(user_params)
 		if @user.save
 			session[:user_id] = @user.id
@@ -16,6 +17,7 @@ include SessionsHelper
 	end
 
 	def edit
+		@languages = Language.all
 		if current_user == User.find(params[:id])
 			@user = current_user
 			render 'edit'
@@ -45,6 +47,7 @@ include SessionsHelper
 	end
 
 	def destroy
+
 		User.find(params[:id]).destroy
 		session.clear
 		redirect_to root_path
