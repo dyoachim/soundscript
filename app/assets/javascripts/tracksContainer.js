@@ -8,23 +8,6 @@ function TracksContainer(duration, loggedIn, tracks, userId) {
 	this.initialize();
 }
 
-// TracksContainer.prototype.constructElement = function() {
-// 	var track = ""
-// 	track += "<div class='language_box'>";
-// 	track += "<select name = 'language'>";
-
-// 		for(var i = 0; i < this.languages.length; i++){
-// 			track += "<option>" + this.languages[i]['title'] + "</option>";
-// 		}
-// 			track += "</select>";
-// 			if (this.loggedIn) {
-// 		  	track += "<button class='timeButton'>Submit</button>"
-// 		  }
-// 	track += "</div><div class='tracks_box' style='width:"+ this.duration * 10 + "em;'>";
-//   track += "<div class='progressBar'></div></div>";
-// 	$('.track_divs').append(track);
-// };
-
 TracksContainer.prototype.constructTracks = function() {
 	for (var i = 0; i < this.trackNum; i++) {
 		this.tracks[i] = new Track(this.tracks[i], this.duration, true);
@@ -65,6 +48,11 @@ TracksContainer.prototype.attachAddNewTrack = function() {
 }
 
 
-function rotateButton(button) {
+function showEditForm(button) {
 	$(button).parent().parent().css('z-index',"3");
 }
+
+function hideEditForm(button) {
+	$(button).parent().parent().prev().css('z-index',"4");
+}
+

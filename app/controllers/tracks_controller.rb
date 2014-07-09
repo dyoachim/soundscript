@@ -16,14 +16,9 @@ class TracksController < ApplicationController
     redirect_to root_path
   end
 
-  def edit
-		@track = Track.find(params[:id])
-
-    if @track
-      render :edit
-    else
-      redirect_to root_path
-    end
-	end
+  def update
+    Track.find(params[:id]).update_attributes(language_id: params[:languagename], transcript: params[:data].to_json)
+    redirect_to '/'
+  end
 
 end
