@@ -8,6 +8,8 @@ function TracksContainer(duration, loggedIn, tracks, userId) {
 	this.initialize();
 }
 
+// some sort of comment
+
 // TracksContainer.prototype.constructElement = function() {
 // 	var track = ""
 // 	track += "<div class='language_box'>";
