@@ -1,7 +1,8 @@
 
 // TODO: you should be able to move this into the Track functionality pretty easily at this point
 function moveProgressBar(input) {
-  $('.progressBar').css('left', (input * 10) + 'em'); 
+  $('.progressBar').css('position', 'fixed');
+  $('.trackWrapper').scrollLeft(input * 160)
 }
 
 
