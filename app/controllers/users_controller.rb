@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 include SessionsHelper
 	def new
+		@languages = Language.all
 		@user = User.new
 	end
 
