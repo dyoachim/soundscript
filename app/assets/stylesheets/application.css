@@ -56,10 +56,14 @@ ul li a{
 	text-decoration: none;
 	color: black;
 	font-family: 'Muli', sans-serif;
+	padding: 4px;
 }
 
 ul li a:hover{
 	color: white;
+	padding: 4px;
+	border-radius: .3em;
+	background-color: grey;
 }
 
 .nav_link{
@@ -209,11 +213,12 @@ ul {
 #profile_container{
      width:700px;
      height: 100%;
-     margin-top: 150px;
-     margin-left: 50px;
-     float:left;
-     border:solid black 1px;
-     padding: 20px;
+     margin: 150px auto;
+     /*border:solid black 1px;*/
+     padding: 50px;
+     border-radius: 1em;
+     background-color: lightgray;
+     font-family: 'Roboto';
 }
 
 #profile_side{
@@ -290,4 +295,45 @@ margin-left: 1em;
 .video_thumbnail a {
 	font-family: 'Roboto';
 	text-decoration: none;
+}
+
+table,th,td
+{
+border:1px solid black;
+border-collapse:collapse;
+border-radius: 5px;
+
+}
+
+
+
+td, td{
+	padding-left: 12px;
+	padding-right: 12px;
+	padding-top: 8px;
+	padding-bottom: 8px;
+}
+
+td a{
+	text-decoration: none;
+	color: black;
+
+}
+td a:hover{
+	text-decoration: none;
+	color: gray;
+
+}
+
+td{
+	text-decoration: none;
+	color:black;
+}
+
+
+
+.container_language{
+
+width: 800px;
+	margin: 200px auto;
 }

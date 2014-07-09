@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :tracks, only: [:new, :edit, :destroy, :create, :update]
   end
 
+  resources :languages, only: [:show] 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

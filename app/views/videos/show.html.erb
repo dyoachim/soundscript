@@ -72,6 +72,7 @@
     VIDEOAPP.duration = ytplayer.getDuration();
 
   	tracksContainer = new TracksContainer(VIDEOAPP.duration, VIDEOAPP.loggedIn, VIDEOAPP.tracks, currentUserId);
+
     setInterval(updatePlayerInfo, 250);
   }
 
