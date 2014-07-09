@@ -17,17 +17,22 @@ class TracksController < ApplicationController
   end
 
   def update
-    puts "# HEre are your magical params : #{params[:data]}"
-    if params[:vote].include?('up')
-      track = Track.find(params[:id])
-      track.upVote
-    elsif params[:vote].include?('down')
-      track = Track.find(params[:id])
-      track.downVote
+
+    if params[:vote]
+      if params[:vote].include?('up')
+	track = Track.find(params[:id])
+	track.upVote
+      elsif params[:vote].include?('down')
+	track = Track.find(params[:id])
+	track.downVote
+      end
     end
 
-    Track.find(params[:id]).update_attributes(language_id: params[:languagename], transcript: params[:data].to_json)
+    if params[:languagename]
+      language_id = Language.find_by_title(params[:languagename]).id
+      Track.find(params[:id]).update_attributes(language_id: language_id, transcript: params[:data].to_json)
+    end
     redirect_to '/'
-  
+
   end
 end

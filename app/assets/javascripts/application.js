@@ -25,7 +25,8 @@ $(document).ready( function(){
 
   $('.track_divs').on("click", ".timeButton", function(){
     var postIts = [];  
-    var languageName = $('select').val();
+    console.log($(this).next().next());
+    var languageName = $(this).next().next().val();
     var url = '/videos/' + VIDEOAPP.videoId + '/tracks'
  
     $(this).parent('.language_box').next().children('.tracks_box').find('.post-it').each(function(){
