@@ -35,5 +35,6 @@ $(document).ready( function(){
 
     $.post(url, { data: postIts, languagename: languageName }, function( response ) {});
     location.reload();
+    
   });
 });

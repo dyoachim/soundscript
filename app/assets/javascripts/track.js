@@ -39,6 +39,8 @@ Track.prototype.initialize = function() {
 	if (this.existing) {
 		this.construct();
 		this.fillPostIts();
+		this.upVote(); 
+		this.downVote();
 	}
 	else {
 		this.constructNew();
@@ -54,6 +56,8 @@ Track.prototype.construct = function() {
 	transcript += "<div class='language_box'>";
 	if (true){
 		transcript += "<button class='editButton' onclick='javascript:showEditForm(this);'>Edit</button>"
+		transcript += "<button class='editButton upVote' data-trackId='" + this.trackId  +"'>Up Vote</button>"
+		transcript += "<button class='editButton downVote' data-trackId='" + this.trackId  +"'>Down Vote</button>"
 	}
 	transcript += "<div id='lang" + this.trackId + "'>" + this.language + "</div>";
 	transcript += "</div>";
@@ -140,6 +144,50 @@ Track.prototype.attachDblClick = function() {
 	});
 };
 
+
+Track.prototype.upVote = function() {
+  var videoId = this.videoId; 
+	$('.upVote').each(function() {
+		if (!$(this).attr('data-upVoteClick')) {
+		  $(this).on('click',function(event){
+		    var trackId = parseInt($(this).attr('data-trackId'), 10); 
+		    var url  = '/videos/' + videoId + '/tracks/' + trackId ; 
+		    var data = trackId;
+		    var that = this;
+		    $.ajax({
+			url: url,
+			data: { vote: "up", _method: 'put'}, 
+			method: "post"   
+		      }).done(function() {
+			$(that).hide(); 
+		      }); 
+	  	});
+	  	$(this).attr('data-upVoteClick', true);
+		}
+	});
+};
+
+Track.prototype.downVote = function() {
+  var videoId = this.videoId; 
+	$('.downVote').each(function() {
+		if (!$(this).attr('data-downVoteClick')) {
+		  $(this).on('click',function(event){
+		    var trackId = parseInt($(this).attr('data-trackId'), 10); 
+		    var url  = '/videos/' + videoId + '/tracks/' + trackId ; 
+		    var data = trackId;
+		    var that = this;
+		    $.ajax({
+			url: url,
+			data: { vote: 'down',  _method: 'put'}, 
+			method: "post"   
+		      }).done(function() {
+			$(that).hide(); 
+		      }); 
+	  	});
+	  	$(this).attr('data-downVoteClick', true);
+		}
+	});
+};
 
 Track.prototype.attachScroll = function() {
 	$('.trackWrapper').each(function() {
