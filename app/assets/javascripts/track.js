@@ -36,45 +36,47 @@ Track.prototype.initialize = function() {
 
 Track.prototype.construct = function() {
 	var AUTH_TOKEN = $('meta[name=csrf-token]').attr('content');
-		var transcript = "<div class='trackLine'>";
-		transcript += "<div class='forward'>";
-		transcript += "<div class='language_box'>";
-  	if (true){
-  		transcript += "<form action='/videos/" + this.videoId + "/tracks/" + this.trackId + "' method='POST'>";
-  		transcript += "<input name='authenticity_token' type='hidden' value ='" + AUTH_TOKEN +"'/>";
-  		transcript += "<input name='_method' type='hidden' value='delete' /><input type='submit' class ='deleteButton' value='Delete'></form>";
-  		//transcript += "<form action='/videos/" + this.videoId + "/tracks/" + this.trackId + "/edit' method='POST'>";
-  		//transcript += "<input name='_method' type='hidden' value='patch' /><input type='submit' class ='editButton' value='Edit'></form>";
-  		transcript += "<button onclick='javascript:rotateButton(this);'>Edit</button>"
-  	}
-  	transcript += "</div>";
-  	transcript += "<div class='trackWrapper'>";
-  	transcript += "<div class='show_tracks_box' id='" + this.trackId + "'style='width:"+ this.duration + "em;'>";
-  	transcript += "<div class='progressBar'></div>";
-    transcript += "</div>";
-    transcript += "</div>";
-    transcript += "</div>";
-    
+	var transcript = "<div class='trackLine'>";
+	transcript += "<div class='forward'>";
+	transcript += "<div class='language_box'>";
+	if (true){
+		transcript += "<form action='/videos/" + this.videoId + "/tracks/" + this.trackId + "' method='POST'>";
+		transcript += "<input name='authenticity_token' type='hidden' value ='" + AUTH_TOKEN +"'/>";
+		transcript += "<input name='_method' type='hidden' value='delete' /><input type='submit' class ='deleteButton' value='Delete'></form>";
+		//transcript += "<form action='/videos/" + this.videoId + "/tracks/" + this.trackId + "/edit' method='POST'>";
+		//transcript += "<input name='_method' type='hidden' value='patch' /><input type='submit' class ='editButton' value='Edit'></form>";
+		transcript += "<button class='editButton' onclick='javascript:showEditForm(this);'>Edit</button>"
+	}
+	transcript += "</div>";
+	transcript += "<div class='trackWrapper'>";
+	transcript += "<div class='show_tracks_box' id='" + this.trackId + "'style='width:"+ this.duration + "em;'>";
+	transcript += "<div class='progressBar'></div>";
+	transcript += "<div class='snapLine'></div>";
+	transcript += "<div class='snapLine'></div>";
+	transcript += "<div class='snapLine'></div>";
+  transcript += "</div>";
+  transcript += "</div>";
+  transcript += "</div>";
+  
 
-    transcript += "<div class='reversed'>";
-		transcript += "<div class='language_box'>";
-  	if (true){
-  		transcript += "<form action='/videos/" + this.videoId + "/tracks/" + this.trackId + "' method='POST'>";
-  		transcript += "<input name='authenticity_token' type='hidden' value ='" + AUTH_TOKEN +"'/>";
-  		transcript += "<input name='_method' type='hidden' value='delete' /><input type='submit' class ='deleteButton' value='Delete'></form>";
-  		transcript += "<button onclick='javascript:rotateButton(this);'>Edit</button>"
-  	}
-  	transcript += "</div>"
-  	transcript += "<div class='trackWrapper'>"
-  	transcript += "<div class='tracks_box' id='" + this.trackId + "edit'style='width:"+ this.duration + "em;'>";
-  	transcript += "<div class='progressBar'></div>";
-  	transcript += "<div class='snapLine ui-widget-header'></div>";
-		transcript += "<div class='snapLine'></div>";
-		transcript += "<div class='snapLine ui-widget-header'></div></div>"
-    transcript += "</div>";
-    transcript += "</div>";
+  transcript += "<div class='reversed'>";
+	transcript += "<div class='language_box'>";
+	if (true){
+		transcript += "<button id='submitEdit" + this.trackId + "'>Submit</button>";
+		transcript += "<button class='editButton' onclick='javascript:hideEditForm(this);'>Cancel</button>"
+	}
+	transcript += "</div>"
+	transcript += "<div class='trackWrapper'>"
+	transcript += "<div class='tracks_box' id='" + this.trackId + "edit'style='width:"+ this.duration + "em;'>";
+	transcript += "<div class='progressBar'></div>";
+	transcript += "<div class='snapLine ui-widget-header'></div>";
+	transcript += "<div class='snapLine'></div>";
+	transcript += "<div class='snapLine ui-widget-header'></div></div>"
+  transcript += "</div>";
+  transcript += "</div>";
 
-		$('.track_divs').append(transcript);
+	$('.track_divs').append(transcript);
+	attachSubmitEdit($('#submitEdit' + this.trackId), this.trackId);
 };
 
 Track.prototype.constructNew = function() {
@@ -82,7 +84,7 @@ Track.prototype.constructNew = function() {
 	var transcript = "<div class='trackLine'>";
 	    transcript += "<div class='forward'>";
 	    transcript += "<div class='language_box'><button class='timeButton'>Submit</button>";
-		  transcript +="<button class ='deleteButton' onclick='javascript:removeEditTrack();'>Delete</button>";
+		  transcript +="<button class ='deleteButton' onclick='javascript:removeEditTrack(this);'>Delete</button>";
 		  transcript += "<select name = 'language'>";
 
 			for(var i = 0; i < VIDEOAPP.languages.length; i++){
@@ -106,8 +108,8 @@ Track.prototype.fillPostIts = function() {
 	}
 };
 
-function removeEditTrack() {
-	
+function removeEditTrack(element) {
+	$(element).parent().parent().parent().remove();
 }
 
 Track.prototype.attachDblClick = function() {
@@ -123,18 +125,42 @@ Track.prototype.attachDblClick = function() {
 	});
 };
 
+
 Track.prototype.attachScroll = function() {
 	$('.trackWrapper').each(function() {
 		if (!$(this).attr('data-scroll')) {
-			console.log("attached");
 			$(this).on('scroll',function(event){
 				var xPosition = $(this).scrollLeft();
-				console.log(xPosition);
 				$('.trackWrapper').each(function() {
 					$(this).scrollLeft(xPosition);
 				});
 	  	});
 	  	$(this).attr('data-scroll', true);
 		}
+	});
+};
+
+var attachSubmitEdit = function(element, trackId) {
+	element.on("click", function(){
+    var postIts = [];  
+    //var languageName = $('select').val();
+    var languageName = 2000;
+    var url = '/videos/' + VIDEOAPP.videoId + '/tracks/' + trackId;
+ 
+    element.parent('.language_box').next().children('.tracks_box').find('.post-it').each(function(){
+      postIts.push({ content: $(this).children(".content").text(), position_css: this.style['cssText']})
+    });
+    console.log(url);
+
+    $.post(url, { _method: "put", data: postIts, languagename: languageName }, function( response ) {
+
+    }).done(function() {		
+
+ 		for (var i = 0; i < postIts.length; i++) {	
+ 			new PostIt(postIts[i], trackId, true);
+ 		}
+    });
+    
+  	hideEditForm(element);
 	});
 };

@@ -15,7 +15,6 @@
 .tracks_box {
 	height: 196px;
 	background-image: url('/assets/tickk.jpg');
-	background-repeat: repeat-z;
 	border: 1px solid black;
 	position: relative;
 }
