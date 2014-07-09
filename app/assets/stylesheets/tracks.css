@@ -3,23 +3,25 @@
 	height: 196px;
 	background-color: gray;
 	border: 1px solid black;
-	float: left;
+	position: absolute;
 }
+
+.trackWrapper {
+	overflow: scroll;
+	margin-left: 100px;
+}
+
 
 .tracks_box {
 	height: 196px;
-	margin-left: 100px;
 	background-image: url('/assets/tickk.jpg');
-	background-repeat: repeat-z;
 	border: 1px solid black;
 	position: relative;
 }
 
 .show_tracks_box {
 	height: 196px;
-	margin-left: 100px;
 	background-image: url('/assets/tickk.jpg');
-	background-repeat: repeat-z;
 	border: 1px solid black;
 	position: relative;
 }
@@ -30,9 +32,7 @@
 
 .track_divs{
 	width:100%;
-	height: 100%;
-	overflow:scroll;
-	z-index: 2;
+	position: relative;
 }
 
 .progressBar {
@@ -41,7 +41,8 @@
   width: 3px;
   height: 100%;
   float: left;
-  z-index: 11;
+  margin-left: 40px;  
+ 
 }
 
 .appendTrack{
@@ -59,4 +60,20 @@
 	font-family: 'Muli', sans-serif;
 	font-weight: bold;
 	color:white;
+}
+
+.trackLine {
+	height: 196px;
+}
+
+.forward {
+	position: absolute;
+	width: 100%;
+	z-index: 10;
+}
+
+.reversed {
+	position: absolute;
+	width: 100%;
+	z-index: 3;
 }
