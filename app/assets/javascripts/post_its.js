@@ -36,12 +36,19 @@ PostIt.prototype.initialize = function() {
 };
 
 PostIt.prototype.construct = function() {
- var post_it = ['<div class="track_post-it" style="' + this.positionCss + '">',
+ var postIt = ['<div class="track_post-it" style="' + this.positionCss + '">',
                    '<section class="header"></section>',
                 '<section class="content">' + this.content + '</section>',
                 '</div>'].join('\n');
 
- $('#' + this.trackId).append(post_it);
+  var editPostIt = ['<div class="post-it" style="' + this.positionCss + '">',
+                   '<section class="header"></section>',
+                '<section class="content" contenteditable="true">' + this.content + '</section>',
+                '<span class="removeNote">X</span>',
+                '</div>'].join('\n');
+
+ $('#' + this.trackId).append(postIt);
+ $('#' + this.trackId + 'edit').append(editPostIt);
 
  $('.post-it').draggable({ handle: ".header", containment: "parent", snap: ".ui-widget-header", snapMode: "outer" }).resizable({containment: "parent"});
  $('.removeNote').on('click', function(){
