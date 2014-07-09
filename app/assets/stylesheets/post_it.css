@@ -3,6 +3,7 @@
   width: 660px;
   height: 44px;
   background-color: beige;
+  font-size: 24px;
   box-shadow: -2px 2px 5px #555;
   border-top-left-radius:8em;
   border-bottom-left-radius:8em;
@@ -40,7 +41,7 @@
 }
 
 .snapLine {
-  background-color: #cccccc;
+  background-color: #bbb;
   margin: 46px;
   height: 3px;
 }
@@ -54,16 +55,13 @@
 /*this is for the read only track css*/
 .track_post-it {
   position: absolute !important;
-  width: 160px;
-  background-color: white;
-  box-shadow: -2px 2px 5px #555;
-  overflow: hidden;
+  font-size: 24px;
 }
 
 .track_post-it .content {
   padding: 10px;
   min-height: 70px;
   outline: none;
-  color: blue;
+  color: #eee;
   font-family: 'Droid Sans Mono';
 }
