@@ -17,7 +17,8 @@ class TracksController < ApplicationController
   end
 
   def update
-    Track.find(params[:id]).update_attributes(language_id: params[:languagename], transcript: params[:data].to_json)
+    language_id = Language.find_by_title(params[:languagename]).id
+    Track.find(params[:id]).update_attributes(language_id: language_id, transcript: params[:data].to_json)
     redirect_to '/'
   end
 
