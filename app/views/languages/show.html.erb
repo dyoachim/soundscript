@@ -1,26 +1,19 @@
-<div id="profile_container">
+<h1>hi</h1>
 
-<h1>Profile </h1>
-  <%= link_to "Edit Profile", edit_user_path(current_user), id:"edit_profile" %>
-     <p>Hello <%=current_user.username%>!</p>
-     <p>Email: <%=current_user.email%></p>
-
-<h2>Videos Transcribed</h2>
+<div class="container_language">
 <table style="width:710px">
-
+<h1><%=@language.title%></h1>
 		<thead>
       <tr>
         <th>Title</th>
         <th>Track Num</th>
         <th>Created On</th>
         <th>Video</th>
-        <th>Language</th>
-        <th>Edit/Delete</th>
       </tr>
     <thead>
   	<tbody>
 			<%count = 0%>
-			<% current_user.tracks.each do |track|%>
+			<% @tracks.each do |track|%>
 			<% video = track.youtube_id %>
 			<% videos = Search.video_by_id(video) %>
       <tr>
@@ -29,15 +22,10 @@
 	        <td><%=count += 1%></td> 
 	        <td><%=track.created_at.in_time_zone("Central Time (US & Canada)").strftime("%m/%d/%Y %I:%M%p")%></td>
 	     		<td><img src='<%=vid.snippet.thumbnails.default.url%>'></td>
-	        <td><%=track.language.title%></td>
-	        <td><%=button_to "Delete Track", video_track_path(vid.id, track.id), method: :delete, data: {confirm: "are you sure?"}%></td>
+	        
 				<%end%>
 			<%end%>
         </tr>
     </tbody>
   </table>
 </div>
-
-
-
-   

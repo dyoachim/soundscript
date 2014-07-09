@@ -1,10 +1,12 @@
 class SessionsController < ApplicationController
 
 	def new
+		@languages = Language.all
 	end
 
 
 	def create
+		@languages = Language.all
 		@user = User.find_by_email(params[:session][:email])
 		if @user && @user.authenticate(params[:session][:password])
 			@error = "Logged in Successfully"
