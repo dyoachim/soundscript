@@ -214,8 +214,11 @@ ul {
      width:700px;
      height: 100%;
      margin: 150px auto;
-     border:solid black 1px;
+     /*border:solid black 1px;*/
      padding: 50px;
+     border-radius: 1em;
+     background-color: lightgray;
+     font-family: 'Roboto';
 }
 
 #profile_side{
@@ -293,3 +296,37 @@ margin-left: 1em;
 	font-family: 'Roboto';
 	text-decoration: none;
 }
+
+table,th,td
+{
+border:1px solid black;
+border-collapse:collapse;
+border-radius: 5px;
+
+}
+
+
+
+td, td{
+	padding-left: 12px;
+	padding-right: 12px;
+	padding-top: 8px;
+	padding-bottom: 8px;
+}
+
+td a{
+	text-decoration: none;
+	color: black;
+
+}
+td a:hover{
+	text-decoration: none;
+	color: gray;
+
+}
+
+td{
+	text-decoration: none;
+	color:black;
+}
+

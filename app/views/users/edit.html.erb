@@ -13,7 +13,10 @@
 			<%= f.submit "Update!", :class => "submit" %>
 			<%end%>
 
+			<p><%= button_to "Delete Profile", user_path(current_user), method: :delete, data: { confirm: "Are you sure?" } %></p>
 	</div>
 </div>
+
+
 
 
