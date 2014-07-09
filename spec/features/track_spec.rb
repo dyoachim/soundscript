@@ -1,3 +1,5 @@
+# WHY IS THIS COMMENTED OUT??  If you aren't going to end up using this, delete it.
+
 # require 'rails_helper'
 
 # feature 'User browsing the website' do
@@ -35,7 +37,7 @@
 #     @user = User.create(username: "Dan", email: 'dan@dan.com', password: "password")
 #     @track = Track.create(user_id: @user.id, youtube_id: "Yt1vu0Izc68", primary_language: "English", transcript: "{\"0\"=>{\"content\"=>\"Track content\", \"position_css\"=>\"top: 81px; left: 346px; width: 476px; height: 106px;\"}}")
 #     visit "/videos/Yt1vu0Izc68"
-#     wait_until{ page.has_content?('Track content')} 
+#     wait_until{ page.has_content?('Track content')}
 #     expect(page).to have_content "Track content"
 #   end
 # end
