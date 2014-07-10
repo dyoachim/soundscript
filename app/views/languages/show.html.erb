@@ -22,7 +22,7 @@
 	        <td><a href="/videos/<%=track.youtube_id%>"><%=vid.snippet.title%></a></td> 
 	        
 	        <td><%=track.created_at.strftime("%m/%d/%Y")%></td>
-	     		<td><img src='<%=vid.snippet.thumbnails.default.url%>'></td>
+	     		<td><a href="/videos/<%=track.youtube_id%>"><img src='<%=vid.snippet.thumbnails.default.url%>'></a></td>
 	        
 				<%end%>
 			<%end%>
