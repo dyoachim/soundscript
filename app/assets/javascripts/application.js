@@ -16,9 +16,11 @@
 $(document).ready( function(){
 
   $('#form_nav').hide();
+  $('#search_language_form').hide();
 
   $('#browse').on("click", function(event){
     event.preventDefault();
+    $('#search_language_form').show();
     $('#form_nav').show();
     $('#browse').hide();
   });

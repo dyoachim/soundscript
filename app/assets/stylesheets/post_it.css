@@ -37,8 +37,9 @@
   min-height: 70px;
   outline: none;
   height: 44px;
-  font-family: 'Droid Sans Mono';
+  font-family: 'Lato', sans-serif;
   display: inline-block;
+
 }
 
 .snapLine {
@@ -63,6 +64,7 @@
 .track_post-it .content {
   height: 44px;
   outline: none;
-  color: #eee;
-  font-family: 'Droid Sans Mono';
+  color: black;
+  font-size: 30px;
+  font-family: 'Lato', sans-serif;
 }
