@@ -333,8 +333,8 @@ th{
 }
 
 td a:hover{
-	text-decoration: none;
-	color: gray;
+	text-decoration: underline;
+	color: black;
 }
 
 td{
@@ -380,7 +380,6 @@ td{
 	list-style: none;
 }
 
-
 #edit_profile:hover{
 	background-color: black;
 	color:white;
@@ -392,5 +391,4 @@ td{
 	background-color: lightgray;
 	font-family: 'Lato', sans-serif;
 }
-
 
