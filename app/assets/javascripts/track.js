@@ -23,6 +23,7 @@ function Track(track, duration,existing) {
 	this.trackId = track ? track.trackId : null;
 	this.videoId = track ? track.videoId : null;
 	this.language = track ? track.language : null;
+	this.voteCount = track ? track.voteCount : null; 
 	this.transcriptions = [];
 	this.duration = duration * 10;
 	this.existing = existing;
@@ -56,8 +57,9 @@ Track.prototype.construct = function() {
 	transcript += "<div class='language_box'>";
 	if (true){
 		transcript += "<button class='editButton' onclick='javascript:showEditForm(this);'>Edit</button>"
-		transcript += "<button class='editButton upVote' data-trackId='" + this.trackId  +"'>Up Vote</button>"
-		transcript += "<button class='editButton downVote' data-trackId='" + this.trackId  +"'>Down Vote</button>"
+		transcript += "<div class='voteGroup'><button class='editButton upVote' data-trackId='" + this.trackId  +"'>&#9650;</button>"
+		transcript += "<div class='voteCount' data-trackid='"+ this.trackId +"'>" + this.voteCount + "</div>"
+		transcript += "<button class='editButton downVote' data-trackId='" + this.trackId  +"'>&#9660;</button></div>"
 	}
 	transcript += "<div id='lang" + this.trackId + "'>" + this.language + "</div>";
 	transcript += "</div>";
@@ -158,8 +160,9 @@ Track.prototype.upVote = function() {
 			url: url,
 			data: { vote: "up", _method: 'put'}, 
 			method: "post"   
-		      }).done(function() {
-			$(that).hide(); 
+		      }).done(function( response ) {
+			$('.voteCount').html(response.vote_count)
+			$(that).hide();
 		      }); 
 	  	});
 	  	$(this).attr('data-upVoteClick', true);
@@ -180,8 +183,14 @@ Track.prototype.downVote = function() {
 			url: url,
 			data: { vote: 'down',  _method: 'put'}, 
 			method: "post"   
-		      }).done(function() {
-			$(that).hide(); 
+		      }).done(function(response){
+			$('.voteCount').html(response.vote_count)
+			$('.downVote').hide(); 
+			$('.downVote, .upVote').each(function(){
+			  if (parseInt($(this).attr('data-trackid'), 10) === trackId){
+			    $(that).hide()
+			  }
+			}) 
 		      }); 
 	  	});
 	  	$(this).attr('data-downVoteClick', true);

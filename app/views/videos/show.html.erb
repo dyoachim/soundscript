@@ -33,7 +33,7 @@
 				track.trackId = <%= trackBuild.id %>;
 				track.language = '<%= Language.find(trackBuild.language_id).title %>';
 				track.videoId = '<%= @video.id %>';
-
+				track.voteCount = <%= trackBuild.vote_count %>;
 				if (transcriptJson) {
 					$.each(transcriptJson, function(key, value) {	
 						var note = {};
@@ -46,7 +46,7 @@
 	 			tracks.push(track)
 			</script>
 	<% end %>
-
+				    
 	<script>VIDEOAPP.tracks = tracks;</script>
 
 <% else %>

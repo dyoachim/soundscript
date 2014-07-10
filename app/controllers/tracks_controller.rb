@@ -19,21 +19,23 @@ class TracksController < ApplicationController
 
   def update
 
-    if params[:vote]
+    if request.xhr?
       if params[:vote].include?('up')
 	track = Track.find(params[:id])
 	track.upVote
+	render json: track
       elsif params[:vote].include?('down')
 	track = Track.find(params[:id])
 	track.downVote
+	render json: track
       end
     end
 
     if params[:languagename]
       language_id = Language.find_by_title(params[:languagename]).id
       Track.find(params[:id]).update_attributes(language_id: language_id, transcript: params[:data].to_json)
+      redirect_to '/'
     end
-    redirect_to '/'
 
   end
 end
