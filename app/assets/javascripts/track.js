@@ -18,7 +18,7 @@ function moveProgressBar(input) {
 }
 
 
-function Track(track, duration,existing) {
+function Track(track, duration, existing) {
 	this.creatorId = track ?track.creatorId : null;
 	this.trackId = track ? track.trackId : null;
 	this.videoId = track ? track.videoId : null;
