@@ -36,6 +36,7 @@
   vertical-align: middle;
   min-height: 70px;
   outline: none;
+  height: 44px;
   font-family: 'Droid Sans Mono';
   display: inline-block;
 }
@@ -56,11 +57,11 @@
 .track_post-it {
   position: absolute !important;
   font-size: 24px;
+  height: 44px;
 }
 
 .track_post-it .content {
-  padding: 10px;
-  min-height: 70px;
+  height: 44px;
   outline: none;
   color: #eee;
   font-family: 'Droid Sans Mono';
