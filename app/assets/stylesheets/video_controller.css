@@ -48,10 +48,10 @@
 }
 
 .controls_box {
-	/*float: right;*/
 	padding: 50px 100px 0 120px;
 	background-color: white;
 	height:271px;
+	
 }
 
 .controls_box li {

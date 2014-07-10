@@ -1,26 +1,27 @@
 <h1>hi</h1>
 
 <div class="container_language">
+
+	<div id="search_language">
 <table style="width:710px">
 <h1><%=@language.title%></h1>
 		<thead>
       <tr>
         <th>Title</th>
-        <th>Track Num</th>
         <th>Created On</th>
         <th>Video</th>
       </tr>
     <thead>
   	<tbody>
-			<%count = 0%>
+			
 			<% @tracks.each do |track|%>
 			<% video = track.youtube_id %>
 			<% videos = Search.video_by_id(video) %>
       <tr>
 				<%videos.each do |vid|%>
 	        <td><a href="/videos/<%=track.youtube_id%>"><%=vid.snippet.title%></a></td> 
-	        <td><%=count += 1%></td> 
-	        <td><%=track.created_at.in_time_zone("Central Time (US & Canada)").strftime("%m/%d/%Y %I:%M%p")%></td>
+	        
+	        <td><%=track.created_at.strftime("%m/%d/%Y")%></td>
 	     		<td><img src='<%=vid.snippet.thumbnails.default.url%>'></td>
 	        
 				<%end%>
@@ -28,4 +29,5 @@
         </tr>
     </tbody>
   </table>
+	</div>
 </div>

@@ -36,8 +36,9 @@
   vertical-align: middle;
   min-height: 70px;
   outline: none;
-  font-family: 'Droid Sans Mono';
+  font-family: 'Lato', sans-serif;
   display: inline-block;
+
 }
 
 .snapLine {
@@ -62,6 +63,7 @@
   padding: 10px;
   min-height: 70px;
   outline: none;
-  color: #eee;
-  font-family: 'Droid Sans Mono';
+  color: black;
+  font-size: 30px;
+  font-family: 'Lato', sans-serif;
 }
