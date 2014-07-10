@@ -59,7 +59,7 @@ Track.prototype.construct = function() {
 		transcript += "<button class='editButton upVote' data-trackId='" + this.trackId  +"'>Up Vote</button>"
 		transcript += "<button class='editButton downVote' data-trackId='" + this.trackId  +"'>Down Vote</button>"
 	}
-	transcript += "<div id='lang" + this.trackId + "'>" + this.language + "</div>";
+	transcript += "<div class='langDisplay' id='lang" + this.trackId + "'>" + this.language + "</div>";
 	transcript += "</div>";
 	transcript += "<div class='trackWrapper'>";
 	transcript += "<div class='show_tracks_box' id='" + this.trackId + "'style='width:"+ this.duration + "em;'>";
@@ -79,7 +79,7 @@ Track.prototype.construct = function() {
 	transcript += "<form action='/videos/" + this.videoId + "/tracks/" + this.trackId + "' method='POST'>";
 	transcript += "<input name='authenticity_token' type='hidden' value ='" + AUTH_TOKEN +"'/>";
 	transcript += "<input name='_method' type='hidden' value='delete' /><input type='submit' class ='deleteButton' value='Delete'></form>";
-	transcript += "<select id='select" + this.trackId + "' name = 'language'>";
+	transcript += "<select class='langSelect' id='select" + this.trackId + "' name = 'language'>";
 	for(var i = 0; i < VIDEOAPP.languages.length; i++){
 		transcript += "<option>" + VIDEOAPP.languages[i]['title'] + "</option>";
 	}

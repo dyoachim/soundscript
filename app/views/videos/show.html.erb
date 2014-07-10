@@ -78,8 +78,7 @@
 
   function updatePlayerInfo() {
 	  if (ytplayer && ytplayer.getPlayerState() === 1) {
-	    tracksContainer.updateHTML("currentTime", Number(ytplayer.getCurrentTime()).toFixed(2));   
-	    tracksContainer.updateHTML("totalDuration", Number(ytplayer.getDuration()).toFixed(2));   
+	    tracksContainer.updateHTML("totalDuration", Number(ytplayer.getCurrentTime()).toFixed(2), Number(ytplayer.getDuration()).toFixed(2));   
 	    moveProgressBar(ytplayer.getCurrentTime()); 
 	  }
 	}
