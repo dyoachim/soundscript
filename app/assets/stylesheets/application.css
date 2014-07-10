@@ -50,7 +50,7 @@ padding-left: 35px;
 }
 
 body{
-	margin:0px;
+	margin:0;
 	background-color: white;
 }
 
@@ -65,7 +65,7 @@ ul li a:hover{
 	color: white;
 	padding: 4px;
 	border-radius: .3em;
-	background-color: grey;
+	background-color: gray;
 }
 
 .nav_link{
@@ -93,6 +93,7 @@ margin-left: 20px;
 
 .videoShowContainer{
 	margin: 75px 0 0 0;
+	min-width: 1050px;
 }
 
 #index_page_container{
@@ -100,7 +101,6 @@ margin-left: 20px;
 	margin: 20px auto;
   width: 950px;
   padding: 0px 20px 20px 20px;
-  /*border-radius: .75em;*/
   overflow:scroll;
 }
 
@@ -221,17 +221,24 @@ ul {
      font-family: 'Lato', sans-serif;
 }
 
-
 #button_add_track{
 	padding-left: 21px;
 }
 
-.timeButton, .deleteButton, .editButton {
-	height: 30px;
-	font-size: 15px;
-	border-radius: 5px;
-	background-color: #f0a502;
-	font-family: 'Muli', sans-serif;
+.timeButton, .deleteButton, .editButton, .appendTrack, .buttonDisplay {
+	color: white;
+	font-size: 1.1em;
+	padding: 4px;
+	width: 100%;
+	border: 0;
+	margin: 0;
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+	background-color: blue;
+}
+
+.timeButton:hover, .deleteButton:hover, .editButton:hover, .appendTrack:hover {
+	background-color: green;
 }
 
 .flickr_pagination {
@@ -291,7 +298,6 @@ margin-left: 1em;
 
 table,td
 {
-/*border:1px solid black;*/
 border-collapse:collapse;
 border-radius: 5px;
 background-color: white;
@@ -307,21 +313,28 @@ td, td{
 td a{
 	text-decoration: none;
 	color: black;
-
 }
 
 th{
 	border-bottom: black solid 1px;
 }
+
 td a:hover{
 	text-decoration: none;
 	color: gray;
-
 }
 
 td{
 	text-decoration: none;
 	color:black;
+}
+
+.langSelect {
+	font-size: 1em;
+	margin-top: 32px;
+	width: 100%;
+	border: 0;
+	border-radius: 0;
 }
 
 .container_language{

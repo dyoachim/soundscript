@@ -1,5 +1,5 @@
 .language_box {
-	width: 100px;
+	width: 130px;
 	height: 196px;
 	background-color: gray;
 	border: 1px solid black;
@@ -11,7 +11,7 @@
 
 .trackWrapper {
 	overflow: scroll;
-	margin-left: 100px;
+	margin-left: 130px;
 	margin-top: 10px;
 }
 
@@ -46,28 +46,10 @@
   height: 100%;
   float: left;
   margin-left: 40px;  
- 
-}
-
-.appendTrack{
-	height:30px;
-	width:95px;
-	font-size: 14px;
-	border-radius: .4em;
-	background-color: #f0a502;
-	font-family: 'Muli', sans-serif;
-	font-weight: bold;
-}
-
-.appendTrack:hover{
-	background-color: gray;
-	font-family: 'Muli', sans-serif;
-	font-weight: bold;
-	color:white;
 }
 
 .trackLine {
-	height: 196px;
+	height: 198px;
 }
 
 .forward {
@@ -80,4 +62,9 @@
 	position: absolute;
 	width: 100%;
 	z-index: 3;
+}
+
+.langDisplay {
+	font-size: 1.1em;
+	margin: 32px 0 10px 28px;
 }

@@ -48,10 +48,10 @@
 }
 
 .controls_box {
-	padding: 50px 100px 0 120px;
+	padding-top: 20px;
 	background-color: white;
 	height:271px;
-	
+	width: 400px;
 }
 
 .controls_box li {
@@ -65,5 +65,10 @@
 	height: 321px;
 	background-color: white;
 	float: right;
+}
+
+#totalDuration {
+	font-size: 2em;
+	margin: 0 0 0 36px;
 }
 
