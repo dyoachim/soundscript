@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>Soundscript</title>
+	<link rel="shortcut icon" href="assets/logo_tab.png" />
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -38,6 +39,37 @@
 							<input type='submit', value='Search'>
 						</form><a id="browse" href="#">Browse</a>
 					</li>
+
+
+
+					<li class="nav_link">
+
+					<form action="/languages/show" method="get">
+						<select name = 'language'>
+							<% @languages.each do |lang| %>
+								<option><%=lang.title %> </	option>
+							<%end%>
+						</select>
+					<input type='submit', value='search tracks by language'>
+					</form>
+
+
+
+
+					</li>
+
+
+
+					
+					<!-- 	<form id="form_nav" action='/' method='GET'>
+							<input type='text' name='search_term' placeholder='Search'>
+							
+						</form><a id="browse" href="#">Browse</a>
+					 -->
+
+
+
+
 			</ul>
 		</nav>
 		<br>

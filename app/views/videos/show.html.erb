@@ -31,6 +31,7 @@
 					transcriptJson = <%= raw trackBuild.transcript %>;
 				track.creatorId = <%= trackBuild.user_id %>;
 				track.trackId = <%= trackBuild.id %>;
+				track.language = '<%= Language.find(trackBuild.language_id).title %>';
 				track.videoId = '<%= @video.id %>';
 
 				if (transcriptJson) {
@@ -71,6 +72,7 @@
     VIDEOAPP.duration = ytplayer.getDuration();
 
   	tracksContainer = new TracksContainer(VIDEOAPP.duration, VIDEOAPP.loggedIn, VIDEOAPP.tracks, currentUserId);
+
     setInterval(updatePlayerInfo, 250);
   }
 

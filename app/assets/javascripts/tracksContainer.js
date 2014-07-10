@@ -16,7 +16,7 @@ TracksContainer.prototype.constructTracks = function() {
 
 TracksContainer.prototype.constructTransportControls = function() {
 	var transportControls = "<ul>" +
-		'<a href="javascript:ytplayer.pauseVideo()"><li id="pause"></li></a>' +
+		'<a id="pause_link" href="javascript:ytplayer.pauseVideo()"><li id="pause"></li></a>' +
 		'<a href="javascript:ytplayer.playVideo()"><li id="play"></li></a>' +
 		'<a href="javascript:ytplayer.seekTo(0)"><li id="replay"></li></a>' +
 		'<a href="javascript:ytplayer.seekTo(ytplayer.getCurrentTime() - 5)">' +
@@ -26,7 +26,7 @@ TracksContainer.prototype.constructTransportControls = function() {
 	if (this.loggedIn) {
 		transportControls += '<div id="button_add_track"><button class="appendTrack">Add Track</button></div>'
 	}
-	$('.controls_box').html(transportControls);
+	$('.controls_box').append(transportControls);
 };
 
 
@@ -55,3 +55,4 @@ function showEditForm(button) {
 function hideEditForm(button) {
 	$(button).parent().parent().prev().css('z-index',"4");
 }
+
