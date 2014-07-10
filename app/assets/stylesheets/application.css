@@ -217,20 +217,10 @@ ul {
      height: 100%;
      margin: 150px auto;
      padding: 50px;
-     /*border-radius: 1em;*/
      background-color: lightgray;
      font-family: 'Lato', sans-serif;
 }
 
-#profile_side{
-     margin-top: 150px;
-     width: 400px;
-     float:left;
-     height:600px;
-     border:solid black 1px;
-     margin-bottom: 25px;
-     margin-left: 25px;    
-}
 
 #button_add_track{
 	padding-left: 21px;
@@ -299,7 +289,7 @@ margin-left: 1em;
 	text-decoration: none;
 }
 
-table,th,td
+table,td
 {
 /*border:1px solid black;*/
 border-collapse:collapse;
@@ -319,6 +309,10 @@ td a{
 	color: black;
 
 }
+
+th{
+	border-bottom: black solid 1px;
+}
 td a:hover{
 	text-decoration: none;
 	color: gray;
@@ -331,19 +325,47 @@ td{
 }
 
 .container_language{
-width: 800px;
+	width: 800px;
 	margin: 200px auto;
-}
-
-.has_tracks_for{
-	border: solid red 1px;
+	font-family: 'Lato', sans-serif;
 }
 
 #myytplayer{
 	margin-top: 10px;
 }
 
-
 #edit_profile_span{
 	float: right
 }
+
+#edit_profile{
+	background-color: white;
+	color:black;
+	text-decoration: none;
+	list-style: none;
+	padding: 3px 3px 3px 3px;
+	border-radius: .2em;
+}
+
+#edit_profile a{
+	background-color: white;
+	color:black;
+	text-decoration: none;
+	list-style: none;
+}
+
+
+#edit_profile:hover{
+	background-color: black;
+	color:white;
+}
+
+#search_language{
+	width:700px;
+	padding:50px;
+	background-color: lightgray;
+	font-family: 'Lato', sans-serif;
+	
+}
+
+

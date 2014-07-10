@@ -1,8 +1,7 @@
 <div id="profile_container">
 
-<h1>Profile </h1>
+<h1>Hello, <%=current_user.username%>! </h1>
   <span id="edit_profile_span"><%= link_to "Edit Profile", edit_user_path(current_user), id:"edit_profile" %></span>
-     <p>Hello <%=current_user.username%>!</p>
      <p>Email: <%=current_user.email%></p>
 <h2>Videos Transcribed</h2>
 <table style="width:710px">
