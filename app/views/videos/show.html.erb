@@ -5,6 +5,7 @@
 		</div>
 	</div>
 	<div class='controls_box'>
+		<p style="font-family: 'Lato', sans-serif; margin-left: 30px; font-size:23px; text-decoration:underline;"><%= @video.snippet.title%><p>
 	</div>
 	<div class='clearfix'></div>
 	<div class="track_divs">
@@ -17,8 +18,8 @@
 		loggedIn: <%= current_user.present? %>,
 	  languages: <%= raw @languages.to_json %>
 	}
-</script>
 
+</script>
 <% if @tracks.any? %>
 			<script>
 			var tracks = [],
@@ -28,12 +29,11 @@
 			<script>
 				var track = {};
 				var notes = [];
-					transcriptJson = <%= raw trackBuild.transcript %>;
+				transcriptJson = <%= raw trackBuild.transcript %>;
 				track.creatorId = <%= trackBuild.user_id %>;
 				track.trackId = <%= trackBuild.id %>;
 				track.language = '<%= Language.find(trackBuild.language_id).title %>';
 				track.videoId = '<%= @video.id %>';
-
 				if (transcriptJson) {
 					$.each(transcriptJson, function(key, value) {	
 						var note = {};
@@ -46,13 +46,10 @@
 	 			tracks.push(track)
 			</script>
 	<% end %>
-
 	<script>VIDEOAPP.tracks = tracks;</script>
-
 <% else %>
 	<script>VIDEOAPP.tracks = "";</script>
 <% end %>
-
 <script type="text/javascript">
 	var params = { allowScriptAccess: "always" };
 	var atts = { id: "myytplayer" };

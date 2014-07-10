@@ -300,8 +300,13 @@ margin-left: 1em;
 
 .video_thumbnail a {
 	font-family: 'Lato', sans-serif;
-
 	text-decoration: none;
+	color: black;
+}
+.video_thumbnail a:hover {
+	font-family: 'Lato', sans-serif;
+	text-decoration: none;
+	text-decoration: underline;
 }
 
 table,td

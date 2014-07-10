@@ -4,9 +4,7 @@
 	background-color: gray;
 	border: 1px solid black;
 	position: absolute;
-		margin-top: 10px;
-
-
+	margin-top: 10px;
 }
 
 .trackWrapper {
@@ -14,7 +12,6 @@
 	margin-left: 130px;
 	margin-top: 10px;
 }
-
 
 .tracks_box {
 	height: 196px;
