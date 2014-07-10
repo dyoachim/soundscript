@@ -1,17 +1,3 @@
-// document.addEventListener('keyup', function(e)
-// {
-//   switch(e.keyCode)
-
-//   // console.log(javascript:ytplayer.getPlayerState())
-//  { 
-//   	// case 32: javascript:ytplayer.pauseVideo();
-//   	// break;
-
-//   	//if double click, 
-//   	case 32: javascript:ytplayer.playVideo();
-//   }
-// }, false);
-
 function moveProgressBar(input) {
   $('.progressBar').css('position', 'fixed');
   $('.trackWrapper').animate({scrollLeft: input * 160},249);
