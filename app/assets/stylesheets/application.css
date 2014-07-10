@@ -16,7 +16,7 @@
 nav{
 	background-color: white;
 	width: 100%;
-	height: 115px;
+	height: 100px;
 	position: absolute;
 	left: 0;
 	top: 0;
@@ -110,7 +110,7 @@ margin-left: 20px;
 	text-align: center;
 	color: #323338;	
 	font-size: 1.4em;
-	height: 100px;
+	height: 90px;
   width: 500px;
 }
 
@@ -333,4 +333,17 @@ td{
 .container_language{
 width: 800px;
 	margin: 200px auto;
+}
+
+.has_tracks_for{
+	border: solid red 1px;
+}
+
+#myytplayer{
+	margin-top: 10px;
+}
+
+
+#edit_profile_span{
+	float: right
 }

@@ -1,17 +1,14 @@
 <div id="profile_container">
 
 <h1>Profile </h1>
-  <%= link_to "Edit Profile", edit_user_path(current_user), id:"edit_profile" %>
+  <span id="edit_profile_span"><%= link_to "Edit Profile", edit_user_path(current_user), id:"edit_profile" %></span>
      <p>Hello <%=current_user.username%>!</p>
      <p>Email: <%=current_user.email%></p>
-
 <h2>Videos Transcribed</h2>
 <table style="width:710px">
-
 		<thead>
       <tr>
-        <th>Title</th>
-    
+        <th>Title</th>  
         <th>Created On</th>
         <th>Video</th>
         <th>Language</th>
@@ -19,14 +16,12 @@
       </tr>
     <thead>
   	<tbody>
-		
 			<% current_user.tracks.each do |track|%>
 			<% video = track.youtube_id %>
 			<% videos = Search.video_by_id(video) %>
       <tr>
 				<%videos.each do |vid|%>
-	        <td><a href="/videos/<%=track.youtube_id%>"><%=vid.snippet.title%></a></td> 
-	     
+	        <td><a href="/videos/<%=track.youtube_id%>"><%=vid.snippet.title%></a></td>    
 	        <td><%=track.created_at.strftime("%m/%d/%Y")%></td>
 	     		<td><img src='<%=vid.snippet.thumbnails.default.url%>'></td>
 	        <td><%=track.language.title%></td>
