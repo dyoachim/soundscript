@@ -13,8 +13,12 @@
  *= require_tree .
  *= require_self
  */
-nav{
-	background-color: white;
+body {
+	margin:0;
+	font-size: 20px;
+}
+
+nav {
 	width: 100%;
 	height: 100px;
 	position: absolute;
@@ -23,133 +27,101 @@ nav{
 	border-bottom: solid 7px black;
 }
 
-nav ul li {
-	display: inline-block;
+a {
+	text-decoration: none;
+	color: black;
+}
+
+a:hover{
+	color: white;
+	background-color: gray;
+	border-radius: .3em;
+}
+
+ul {
+	height: 100%;
+	margin: 0;
+	padding-left: 0;
+	list-style: none;
+}
+
+li {
 	float: right;
-	padding-right: 15px;
-	text-decoration: none;
-	font-family: 'Lato', sans-serif;
+	margin: 0 15px;
 }
 
-nav ul li a{
-	text-decoration: none;
-	color: black;
-		font-family: 'Lato', sans-serif;
-
+table,td {
+	border-collapse:collapse;
+	border-radius: 5px;
 }
 
-nav h1 a {
-	color: black;
-	text-decoration: none;
-	font-size: 40px;
+td {
+	padding: 8px 12px;
 }
 
-nav h1 {
-margin-top: 0px;
-padding-left: 35px;
+th{
+	border-bottom: black solid 1px;
 }
 
-body{
-	margin:0;
-	background-color: white;
-}
-
-ul li a{
-	text-decoration: none;
-	color: black;
-	font-family: 'Muli', sans-serif;
-	padding: 4px;
-}
-
-ul li a:hover{
+button {
 	color: white;
 	padding: 4px;
-	border-radius: .3em;
-	background-color: gray;
+	width: 100%;
+	border: 1px 0 solid black;
+	background-color: #667799;
 }
 
-.nav_link{
-	margin-top: 60px;
-	margin-right: 20px;
+button:hover {
+	background-color: #7a9460;
 }
 
 .soundscript_logo{
-	background:url('/assets/sound_logo.png');
 	width:353px;
 	height:69px;
-}
-
-#soundscript_logo{
+	background:url('/assets/sound_logo.png');
 	float:left;
-	margin-top: 10px;
-margin-left: 20px;
 }
 
 .container{
-	margin: 130px auto;
-	margin-left: 5%;
-	background-color: white;
+	margin: 100px auto;
 }
 
 .videoShowContainer{
-	margin: 75px 0 0 0;
+	margin-top: 75px;
 	min-width: 1050px;
 }
 
 #index_page_container{
 	background-color: #bdbec5;
-	margin: 20px auto;
+	margin: auto;
   width: 950px;
-  padding: 0px 20px 20px 20px;
   overflow:scroll;
 }
 
-#blurb {
-	margin: 10px auto;
-	font-family: 'Quicksand', sans-serif;
-	text-align: center;
-	color: #323338;	
-	font-size: 1.4em;
-	height: 90px;
-  width: 500px;
+.front_button {
+	background-color:#f0a502;
+	color:white;
 }
 
 #search_form{
-	padding-top: 20px;
-	width:300px;
-	padding-bottom: 30px;
-}
-
-#search_form form {
-	width:700px;
-	padding-top: 30px;
+	padding: 25px 0;
+	margin-left: 150px;
 }
 
 #search_form form input{
 	width:500px;
-	height:30px;
-	font-size: 20px;
 }
 
-#index_page_container #search_form{
-	margin-left: 150px;
-}
-
-#index_page_container .video_thumbnail{
-	margin: 20px;
-	margin-bottom: 5px;
+.video_thumbnail{
+	margin: 10px 20px;
 	float:left;
 	width: 195px;
 	height:220px;
 }
 
-.video_thumbnail p {
-	margin: 0;
-}
-
-#index_page_container .video_thumbnail img{
+.video_thumbnail img{
 	width: 180px;
-	height: 101px;
+	height: 100px;
 }
 
 .login_form {
@@ -158,18 +130,14 @@ margin-left: 20px;
 	margin: auto;
 	padding: 20px;
 	background-color: gray;
-	border-radius: .75em;
 }
 
 .login_form form label{
 	padding-top: 12px;
-	font-family: 'Quicksand', sans-serif;
 	color:white;
 }
 
 .login_form form input{
-	border-radius: .30em;
-	font-size: 20px;
 	height:30px; 
 	width:100%;
 }
@@ -177,14 +145,6 @@ margin-left: 20px;
 #error_message{
 	margin-top: 30px;
 	color:red;
-}
-
-#new_user{
-	width:300px;
-}
-
-ul {
-	padding-left: 0;
 }
 
 .clearfix {
@@ -200,62 +160,48 @@ ul {
 	color:white;
 }
 
-.input_fields{
-	background-color:lightgray;
-}
-
-.input_fields:hover{
-	background-color: white;
-}
-
 #submit_index:hover{
 	background-color: yellow;
 }
 
 #profile_container{
-     width:700px;
-     height: 100%;
-     margin: 150px auto;
-     padding: 50px;
-     background-color: lightgray;
-     font-family: 'Lato', sans-serif;
+	width:700px;
+	height: 100%;
+	margin: 150px auto;
+	padding: 50px;
+	background-color: lightgray;
 }
 
-#button_add_track{
-	padding-left: 21px;
+.container_language{
+	width: 800px;
+	margin: 100px auto;
 }
 
-.timeButton, .deleteButton, .editButton, .appendTrack, .buttonDisplay {
-	color: white;
-	font-size: 1.1em;
-	padding: 4px;
-	width: 100%;
-	border: 0;
-	margin: 0;
-	border-top: 1px solid black;
-	border-bottom: 1px solid black;
-	background-color: #667799;
+#edit_profile_span{
+	float: right
 }
 
-.appendTrack {
-	width: 270px;
+#search_language{
+	width:700px;
+	padding:50px;
+	background-color: lightgray;
 }
 
-.timeButton:hover, .editButton:hover, .appendTrack:hover {
-	background-color: #7a9460;
-}
 
-.deleteButton:hover {
-	background-color: #dd7788;
-}
+
+
+
+
+
+
+
+
 
 .flickr_pagination {
   text-align: center;
-  padding: 0.3em;
-  cursor: default;
 }
 
-.flickr_pagination a, .flickr_pagination span, .flickr_pagination em {
+.flickr_pagination span, .flickr_pagination em {
   padding: 0.2em 0.5em;
 }
 
@@ -270,9 +216,9 @@ ul {
 }
 
 .flickr_pagination a {
+	padding: 0.2em 0.5em;
   border: 1px solid #dddddd;
   color: #0063dc;
-  text-decoration: none;
 }
 
 .flickr_pagination a:hover, .flickr_pagination a:focus {
@@ -289,121 +235,3 @@ padding-top: 0.8em;
 .flickr_pagination .previous_page, .flickr_pagination .next_page {
 border-width: 2px;
 }
-
-.flickr_pagination .previous_page {
-margin-right: 1em;
-}
-
-.flickr_pagination .next_page {
-margin-left: 1em;
-}
-
-.video_thumbnail a {
-	font-family: 'Lato', sans-serif;
-	text-decoration: none;
-	color: black;
-}
-.video_thumbnail a:hover {
-	font-family: 'Lato', sans-serif;
-	text-decoration: none;
-	text-decoration: underline;
-}
-
-table,td
-{
-border-collapse:collapse;
-border-radius: 5px;
-background-color: white;
-
-}
-td, td{
-	padding-left: 12px;
-	padding-right: 12px;
-	padding-top: 8px;
-	padding-bottom: 8px;
-}
-
-td a{
-	text-decoration: none;
-	color: black;
-}
-
-th{
-	border-bottom: black solid 1px;
-}
-
-td a:hover{
-	text-decoration: underline;
-	color: black;
-}
-
-td{
-	text-decoration: none;
-	color:black;
-}
-
-.langSelect {
-	font-size: 1em;
-	margin-top: 32px;
-	width: 100%;
-	border: 0;
-	border-radius: 0;
-}
-
-.container_language{
-	width: 800px;
-	margin: 100px auto;
-	font-family: 'Lato', sans-serif;
-}
-
-#myytplayer{
-	margin-top: 10px;
-}
-
-#edit_profile_span{
-	float: right
-}
-
-#edit_profile{
-	background-color: white;
-	color:black;
-	text-decoration: none;
-	list-style: none;
-	padding: 3px 3px 3px 3px;
-	border-radius: .2em;
-}
-
-#edit_profile a{
-	background-color: white;
-	color:black;
-	text-decoration: none;
-	list-style: none;
-}
-
-#edit_profile:hover{
-	background-color: black;
-	color:white;
-}
-
-#search_language{
-	width:700px;
-	padding:50px;
-	background-color: lightgray;
-	font-family: 'Lato', sans-serif;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

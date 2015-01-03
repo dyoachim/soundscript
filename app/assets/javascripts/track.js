@@ -1,11 +1,5 @@
-function moveProgressBar(input) {
-  $('.progressBar').css('position', 'fixed');
-  $('.trackWrapper').animate({scrollLeft: input * 160},249);
-}
-
-
 function Track(track, duration, existing) {
-	this.creatorId = track ?track.creatorId : null;
+	this.creatorId = track ? track.creatorId : null;
 	this.trackId = track ? track.trackId : null;
 	this.videoId = track ? track.videoId : null;
 	this.language = track ? track.language : null;
@@ -25,87 +19,142 @@ Track.prototype.initialize = function() {
 	if (this.existing) {
 		this.construct();
 		this.fillPostIts();
-		this.upVote(); 
-		this.downVote();
 	}
 	else {
 		this.constructNew();
 	}
-	this.attachDblClick();
-	this.attachScroll();
 };
 
 Track.prototype.construct = function() {
-	var AUTH_TOKEN = $('meta[name=csrf-token]').attr('content');
-	var transcript = "<div class='trackLine'>";
-	transcript += "<div class='forward'>";
-	transcript += "<div class='language_box'>";
-	if (true){
-		transcript += "<button class='editButton' onclick='javascript:showEditForm(this);'>Edit</button>"
-		transcript += "<button class='editButton upVote' data-trackId='" + this.trackId  +"'>Up Vote</button>"
-		transcript += "<button class='editButton downVote' data-trackId='" + this.trackId  +"'>Down Vote</button>"
-	}
-	transcript += "<div class='langDisplay' id='lang" + this.trackId + "'>" + this.language + "</div>";
-	transcript += "</div>";
-	transcript += "<div class='trackWrapper'>";
-	transcript += "<div class='show_tracks_box' id='" + this.trackId + "'style='width:"+ this.duration + "em;'>";
-	transcript += "<div class='progressBar'></div>";
-	transcript += "<div class='snapLine'></div>";
-	transcript += "<div class='snapLine'></div>";
-	transcript += "<div class='snapLine'></div>";
-  transcript += "</div>";
-  transcript += "</div>";
-  transcript += "</div>";
+  var AUTH_TOKEN = $('meta[name=csrf-token]').attr('content'),
+    id = this.trackId,
+    editButton = document.createElement('button'),
+    upButton = document.createElement('button'),
+    downButton = document.createElement('button'),
+    langDisplay = document.createElement('div'),
+    languageBox = document.createElement('div'),
+    snapLine1 = document.createElement('div'),
+    snapLine2 = document.createElement('div'),
+    snapLine3 = document.createElement('div'),
+    tracksBox = document.createElement('div'),
+    trackWrapper = document.createElement('div'),
+    trackLine = document.createElement('div'),
+    trackContainer = document.querySelectorAll('.track_divs')[0];
+
+  editButton.innerHTML = "Edit";
+  editButton.onclick = function () {
+    alert("Coming soon"); 
+  };
+
+  upButton.className = 'upVote';
+  upButton.dataset.trackId = id;
+  upButton.innerHTML = 'Up';
+
+  downButton.className = 'downVote';
+  downButton.dataset.trackId = id;
+  downButton.innerHTML = 'Down';
+
+  langDisplay.className = 'langDisplay';
+  langDisplay.id = 'lang' + id;
+  langDisplay.innerHTML = this.language;
+
+  languageBox.className = 'language_box';
+  languageBox.appendChild(editButton);
+  languageBox.appendChild(upButton);
+  languageBox.appendChild(downButton);
+  languageBox.appendChild(langDisplay);
+
+  snapLine1.className = 'snapLine';
+  snapLine2.className = 'snapLine';
+  snapLine3.className = 'snapLine';
   
+  tracksBox.className = 'show_tracks_box';
+  tracksBox.id = id;
+  tracksBox.style.width = this.duration + 'em';
+  tracksBox.appendChild(snapLine1);
+  tracksBox.appendChild(snapLine2);
+  tracksBox.appendChild(snapLine3);
 
-  transcript += "<div class='reversed'>";
-	transcript += "<div class='language_box'>";
-	transcript += "<button class='editButton' id='submitEdit" + this.trackId + "'>Submit</button>";
-	transcript += "<button class='editButton' onclick='javascript:hideEditForm(this);'>Cancel</button>"
-	transcript += "<form action='/videos/" + this.videoId + "/tracks/" + this.trackId + "' method='POST'>";
-	transcript += "<input name='authenticity_token' type='hidden' value ='" + AUTH_TOKEN +"'/>";
-	transcript += "<input name='_method' type='hidden' value='delete' /><input type='submit' class ='deleteButton' value='Delete'></form>";
-	transcript += "<select class='langSelect' id='select" + this.trackId + "' name = 'language'>";
-	for(var i = 0; i < VIDEOAPP.languages.length; i++){
-		transcript += "<option>" + VIDEOAPP.languages[i]['title'] + "</option>";
-	}
-	transcript += "</select>";
-	transcript += "</div>"
-	transcript += "<div class='trackWrapper'>"
-	transcript += "<div class='tracks_box' id='" + this.trackId + "edit'style='width:"+ this.duration + "em;'>";
-	transcript += "<div class='progressBar'></div>";
-	transcript += "<div class='snapLine ui-widget-header'></div>";
-	transcript += "<div class='snapLine'></div>";
-	transcript += "<div class='snapLine ui-widget-header'></div></div>"
-  transcript += "</div>";
-  transcript += "</div>";
+  trackWrapper.className = 'trackWrapper';
+  trackWrapper.appendChild(tracksBox);
 
-	$('.track_divs').append(transcript);
-	attachSubmitEdit($('#submitEdit' + this.trackId), this.trackId);
+  trackLine.className = 'trackLine';
+  trackLine.appendChild(languageBox);
+  trackLine.appendChild(trackWrapper);
+
+  window.requestAnimationFrame(function () {
+    trackContainer.appendChild(trackLine);
+  });
 };
 
 Track.prototype.constructNew = function() {
+  var submitButton = document.createElement('button'),
+    deleteButton = document.createElement('button'),
+    langSelect = document.createElement('select'),
+    languageBox = document.createElement('div'),
+    snapLine1 = document.createElement('div'),
+    snapLine2 = document.createElement('div'),
+    snapLine3 = document.createElement('div'),
+    tracksBox = document.createElement('div'),
+    trackWrapper = document.createElement('div'),
+    trackLine = document.createElement('div'),
+    trackContainer = document.querySelectorAll('.track_divs')[0],
+    option,
+    i;
 
-	var transcript = "<div class='trackLine'>";
-	    transcript += "<div class='forward'>";
-	    transcript += "<div class='language_box'><button class='timeButton'>Submit</button>";
-		  transcript +="<button class ='deleteButton' onclick='javascript:removeEditTrack(this);'>Delete</button>";
-		  transcript += "<select name='language'>";
+  submitButton.innerHTML = 'Submit';
+  submitButton.onclick = function () {
+     var postIts = [];  
+    var languageName = $(this).next().next().val();
+    var url = '/videos/' + VIDEOAPP.videoId + '/tracks'
+ 
+    $(tracksBox).find('.post-it').each(function(){
+      postIts.push({ content: $(this).children(".content").text(), position_css: this.style['cssText']})
+    });
 
-			for(var i = 0; i < VIDEOAPP.languages.length; i++){
-				transcript += "<option>" + VIDEOAPP.languages[i]['title'] + "</option>";
-			}
-			transcript += "</select>";
-		  transcript += "</div>";
-		  transcript += "<div class='trackWrapper'>";
-			transcript += "<div class='tracks_box' style='width:"+ this.duration + "em;'>";
-			transcript += "<div class='progressBar'></div>";
-			transcript += "<div class='snapLine ui-widget-header'></div>";
-			transcript += "<div class='snapLine'></div>";
-			transcript += "<div class='snapLine ui-widget-header'>";
-			transcript += "</div></div></div></div></div>";
-	$('.track_divs').append(transcript);
+    $.post(url, { data: postIts, languagename: languageName }, function( response ) { location.reload();});
+  };
+
+  deleteButton.innerHTML = 'Delete';
+  deleteButton.onclick = function () { $(trackLine).remove(); }
+
+  langSelect.name = 'language';
+  for (i = 0; i < VIDEOAPP.languages.length; i++) {
+    option = document.createElement('option');
+    option.innerHTML = VIDEOAPP.languages[i]['title'];
+    langSelect.appendChild(option);
+  }
+
+  languageBox.className = 'language_box';
+  languageBox.appendChild(submitButton);
+  languageBox.appendChild(deleteButton);
+  languageBox.appendChild(langSelect);
+
+  snapLine1.className = 'snapLine ui-widget-header';
+  snapLine2.className = 'snapLine';
+  snapLine3.className = 'snapLine ui-widget-header';
+  
+  tracksBox.className = 'tracks_box';
+  tracksBox.style.width = this.duration + 'em';
+  tracksBox.appendChild(snapLine1);
+  tracksBox.appendChild(snapLine2);
+  tracksBox.appendChild(snapLine3);
+  tracksBox.ondblclick = function () {
+    new PostIt(null, this.trackId, false, $(this),event);
+  };
+
+  trackWrapper.className = 'trackWrapper';
+  trackWrapper.appendChild(tracksBox);
+
+  trackLine.className = 'trackLine';
+  trackLine.appendChild(languageBox);
+  trackLine.appendChild(trackWrapper);
+
+  window.requestAnimationFrame(function () {
+    trackContainer.appendChild(trackLine);
+  });
 };
+
 
 Track.prototype.fillPostIts = function() {
 	for (var i = 0; i < this.transcriptions.length; i++) {	
@@ -113,105 +162,40 @@ Track.prototype.fillPostIts = function() {
 	}
 };
 
-function removeEditTrack(element) {
-	$(element).parent().parent().parent().remove();
-}
-
-Track.prototype.attachDblClick = function() {
-	$('.tracks_box').each(function() {
-		if (!$(this).attr('data-dblclick')) {
-		  $(this).on('dblclick',function(event){
-	    	if (event.target.className == "tracks_box") {
-	      	new PostIt(null, this.trackId, false, $(this),event);
-	    	}
-	  	});
-	  	$(this).attr('data-dblclick', true);
-		}
-	});
-};
-
-
 Track.prototype.upVote = function() {
-  var videoId = this.videoId; 
-	$('.upVote').each(function() {
-		if (!$(this).attr('data-upVoteClick')) {
-		  $(this).on('click',function(event){
-		    var trackId = parseInt($(this).attr('data-trackId'), 10); 
-		    var url  = '/videos/' + videoId + '/tracks/' + trackId ; 
-		    var data = trackId;
-		    var that = this;
-		    $.ajax({
-			url: url,
-			data: { vote: "up", _method: 'put'}, 
-			method: "post"   
-		      }).done(function() {
-			$(that).hide(); 
-		      }); 
-	  	});
-	  	$(this).attr('data-upVoteClick', true);
-		}
-	});
+ //  var videoId = this.videoId; 
+	// $('.upVote').each(function() {
+	// 	if (!$(this).attr('data-upVoteClick')) {
+	// 	  $(this).on('click',function(event){
+	// 	    var trackId = parseInt($(this).attr('data-trackId'), 10); 
+	// 	    var data = trackId;
+	// 	    var that = this;
+	// 	    $.ajax({
+	// 				url: '/videos/' + videoId + '/tracks/' + trackId,
+	// 				data: { vote: "up", _method: 'put'}, 
+	// 				method: "post"   
+	// 	    }).done(function() { $(that).hide(); alert('success'); }); 
+	//   	});
+	//   	$(this).attr('data-upVoteClick', true);
+	// 	}
+	// });
 };
 
 Track.prototype.downVote = function() {
-  var videoId = this.videoId; 
-	$('.downVote').each(function() {
-		if (!$(this).attr('data-downVoteClick')) {
-		  $(this).on('click',function(event){
-		    var trackId = parseInt($(this).attr('data-trackId'), 10); 
-		    var url  = '/videos/' + videoId + '/tracks/' + trackId ; 
-		    var data = trackId;
-		    var that = this;
-		    $.ajax({
-			url: url,
-			data: { vote: 'down',  _method: 'put'}, 
-			method: "post"   
-		      }).done(function() {
-			$(that).hide(); 
-		      }); 
-	  	});
-	  	$(this).attr('data-downVoteClick', true);
-		}
-	});
-};
-
-Track.prototype.attachScroll = function() {
-	$('.trackWrapper').each(function() {
-		if (!$(this).attr('data-scroll')) {
-			$(this).on('scroll',function(event){
-				var xPosition = $(this).scrollLeft();
-				$('.trackWrapper').each(function() {
-					$(this).scrollLeft(xPosition);
-				});
-	  	});
-	  	$(this).attr('data-scroll', true);
-		}
-	});
-};
-
-var attachSubmitEdit = function(element, trackId) {
-	element.on("click", function(){
-    var postIts = [];  
-    var languageName = $('#select'+ trackId).val();
-    var url = '/videos/' + VIDEOAPP.videoId + '/tracks/' + trackId;
- 
-    element.parent('.language_box').next().children('.tracks_box').find('.post-it').each(function(){
-      postIts.push({ content: $(this).children(".content").text(), position_css: this.style['cssText']})
-    });
-
-    $.post(url, { _method: "put", data: postIts, languagename: languageName }, function( response ) {
-
-    }).done(function() {		
-
-    $('#' + trackId).children().remove(".track_post-it");
-    $('#lang' + trackId).html("<div>" + languageName + "</div>");
-    $('#' + trackId + "edit").children().remove(".post-it");
-
- 		for (var i = 0; i < postIts.length; i++) {	
- 			new PostIt(postIts[i], trackId, true);
- 		}
-    });
-    
-  	hideEditForm(element);
-	});
+ //  var videoId = this.videoId; 
+	// $('.downVote').each(function() {
+	// 	if (!$(this).attr('data-downVoteClick')) {
+	// 	  $(this).on('click',function(event){
+	// 	    var trackId = parseInt($(this).attr('data-trackId'), 10); 
+	// 	    var data = trackId;
+	// 	    var that = this;
+	// 	    $.ajax({
+	// 				url: '/videos/' + videoId + '/tracks/' + trackId ,
+	// 				data: { vote: 'down',  _method: 'put'}, 
+	// 				method: "post"   
+	// 	     }).done(function() { $(that).hide(); alert('success'); }); 
+	//   	});
+	//   	$(this).attr('data-downVoteClick', true);
+	// 	}
+	// });
 };

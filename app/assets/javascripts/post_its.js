@@ -1,72 +1,74 @@
-// var PostIt = function(event) {
-//   this.css_position = "top:" + event.offsetY + "px; left:" + event.offsetX + "px"
-
-//   this.buildPostIt = function(element) {
-//   	var post_it = ['<div class="post-it" style="' + this.css_position + '">',
-//      				        '<section class="header"></section>',
-//             				'<section class="content" contenteditable="true">Click here to edit</section>',
-//             				'<span class="removeNote">X</span>',
-//           				'</div>'].join('\n');
-	
-// 		element.append(post_it)
-
-// 	  $('.post-it').draggable({ handle: ".header", containment: "parent", snap: ".ui-widget-header", snapMode: "outer" }).resizable({containment: "parent"});
-// 	  $('.removeNote').on('click', function(){
-// 	    $(this).parent().remove();
-// 	  });
-//   };
-// };
-
-function PostIt(entry, trackId, existing, element,eventData) {
+function PostIt(entry, trackId, existing, element, eventData) {
+  'use strict';
   this.content = entry ? entry.content : null;
   this.positionCss = entry ? entry.position_css : null;
   this.trackId = trackId;
   this.existing = existing;
-  this.eventData = eventData ? eventData : null;
-  this.element = element ? element : null;
+  this.eventData = eventData || null;
+  this.element = element || null;
 
   this.initialize();
 }
 
-PostIt.prototype.initialize = function() {
-  if (this.existing)
+PostIt.prototype.initialize = function () {
+  'use strict';
+  if (this.existing) {
     this.construct();
-  else
+  } else {
     this.constructNew(this.eventData, this.element);
+  }
 };
 
-PostIt.prototype.construct = function() {
- var postIt = ['<div class="track_post-it" style="' + this.positionCss + '">',
-                   '<section class="header"></section>',
-                '<section class="content">' + this.content + '</section>',
-                '</div>'].join('\n');
+PostIt.prototype.construct = function () {
+  'use strict';
+  var postIt = document.createElement('div'),
+    header = document.createElement('div'),
+    content = document.createElement('div'),
+    that = this;
 
-  var editPostIt = ['<div class="post-it" style="' + this.positionCss + '">',
-                   '<section class="header"></section>',
-                '<section class="content" contenteditable="true">' + this.content + '</section>',
-                '<span class="removeNote">X</span>',
-                '</div>'].join('\n');
+  header.className = 'header';
 
- $('#' + this.trackId).append(postIt);
- $('#' + this.trackId + 'edit').append(editPostIt);
+  content.className = 'content';
+  content.innerHTML = this.content;
 
- $('.post-it').draggable({ handle: ".header", containment: "parent", snap: ".ui-widget-header", snapMode: "outer" }).resizable({containment: "parent"});
- $('.removeNote').on('click', function(){
-   $(this).parent().remove();
- });
+  postIt.className = 'track_post-it';
+  postIt.style.cssText = this.positionCss;
+  postIt.appendChild(header);
+  postIt.appendChild(content);
+
+  window.requestAnimationFrame(function () {
+    document.getElementById(that.trackId).appendChild(postIt);
+  });
 };
 
-PostIt.prototype.constructNew = function(event, element) {
- var post_it = ['<div class="post-it" style= "top:' + event.offsetY + 'px; left:' + event.offsetX + 'px">',
-                   '<section class="header"></section>',
-                 '<section class="content" contenteditable="true">Click here to edit</section>',
-                 '<span class="removeNote">X</span>',
-               '</div>'].join('\n');
+PostIt.prototype.constructNew = function (event, element) {
+  'use strict';
+  var postIt = document.createElement('div'),
+    header = document.createElement('section'),
+    content = document.createElement('section'),
+    removeNote = document.createElement('span');
 
- element.append(post_it);
+  header.className = 'header';
 
- $('.post-it').draggable({ handle: ".header", containment: "parent", snap: ".ui-widget-header", snapMode: "outer" }).resizable({containment: "parent"});
- $('.removeNote').on('click', function(){
-   $(this).parent().remove();
- });
+  content.className = 'content';
+  content.contentEditable = true;
+  content.innerHTML = 'Click here to edit.';
+
+  removeNote.className = 'removeNote';
+  removeNote.innerHTML = 'X';
+  removeNote.onclick = function () {
+    postIt.remove();
+  };
+
+  postIt.className = 'post-it';
+  postIt.style.top = event.offsetY + 'px';
+  postIt.style.left = event.offsetX + 'px';
+  postIt.appendChild(header);
+  postIt.appendChild(content);
+  postIt.appendChild(removeNote);
+  $(postIt).draggable({ handle: ".header", containment: "parent", snap: ".ui-widget-header", snapMode: "outer" }).resizable({containment: "parent"});
+
+  window.requestAnimationFrame(function () {
+    element.append(postIt);
+  });
 };

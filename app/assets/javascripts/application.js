@@ -13,30 +13,3 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
-$(document).ready( function(){
-
-  $('#form_nav').hide();
-  $('#search_language_form').hide();
-
-  $('#browse').on("click", function(event){
-    event.preventDefault();
-    $('#search_language_form').show();
-    $('#form_nav').show();
-    $('#browse').hide();
-  });
-
-  $('.track_divs').on("click", ".timeButton", function(){
-    var postIts = [];  
-    console.log($(this).next().next());
-    var languageName = $(this).next().next().val();
-    var url = '/videos/' + VIDEOAPP.videoId + '/tracks'
- 
-    $(this).parent('.language_box').next().children('.tracks_box').find('.post-it').each(function(){
-      postIts.push({ content: $(this).children(".content").text(), position_css: this.style['cssText']})
-    });
-
-    $.post(url, { data: postIts, languagename: languageName }, function( response ) {});
-    location.reload();
-    
-  });
-});

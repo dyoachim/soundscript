@@ -6,12 +6,7 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-  <link href='http://fonts.googleapis.com/css?family=Muli' rel='stylesheet' type='text/css'>
-  <link href='http://fonts.googleapis.com/css?family=Noto+Sans|Quicksand|Muli' rel='stylesheet' type='text/css'>
-  <link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css'>
-  <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/themes/smoothness/jquery-ui.css" />
-  <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
   <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/jquery-ui.min.js"></script>
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
 
@@ -24,7 +19,7 @@
 <body>
 		<nav>
 			<ul>
-				<a href="/"><li id="soundscript_logo"><div class="soundscript_logo"></div></li></a>
+				<a href="/"><li class="soundscript_logo"></li></a>
 				<%if current_user%>
 					<li class="nav_link"><%= link_to "Logout", session_path(current_user), data: { confirm: "Are you sure?" }, method: "delete" %>	</li>
 					<li class="nav_link"><%= link_to "Profile", user_path(current_user) %></li>	
@@ -36,21 +31,16 @@
 					<form id="form_nav" action='/' method='GET'>
 						<input type='text' name='search_term' placeholder='Search'>
 						<input type='submit', value='Search'>
-					</form><a id="browse" href="#">Search</a>
+					</form>
 				</li>
 				<li class="nav_link">
 					<form id="search_language_form"  action="/languages/show" method="get">
-						<select name = 'language'>
-							<% @languages.each do |lang| %>
-								<option><%=lang.title %></option>
-							<%end%>
-						</select>
+						
 						<input type='submit', value='search tracks by language'>
 					</form>
 				</li>
 			</ul>
 		</nav>
-		<br>
 		<%= yield %>
 </body>
 </html>

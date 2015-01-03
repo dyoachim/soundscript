@@ -5,12 +5,20 @@
 		</div>
 	</div>
 	<div class='controls_box'>
-		<p style="font-family: 'Lato', sans-serif; margin-left: 30px; font-size:23px; text-decoration:underline;"><%= @video.snippet.title%><p>
+		<p><%= @video.snippet.title%></p>
+		<div><span id="totalDuration">--:--</span></div>
+		<button class="control" id="replay" onclick="javascript:ytplayer.seekTo(0)"></button>
+		<button class="control" id="play" onclick="javascript:playPauseVideo(ytplayer)"></button>
+		<button class="control" id="rewind" onclick="javascript:ytplayer.seekTo(ytplayer.getCurrentTime() - 5)"></button>
+		<div id="button_add_track"><button class="appendTrack">Add Track</button></div>
 	</div>
 	<div class='clearfix'></div>
-	<div class="track_divs">
-	</div>
+	<div class="track_divs"></div>
 </div>
+
+
+
+
 
 <script>
 	var VIDEOAPP = {
@@ -19,64 +27,71 @@
 	  languages: <%= raw @languages.to_json %>
 	}
 
-</script>
 <% if @tracks.any? %>
-			<script>
-			var tracks = [],
-				transcriptJson;
-			</script>
-		<% @tracks.each do |trackBuild| %>
-			<script>
-				var track = {};
-				var notes = [];
-				transcriptJson = <%= raw trackBuild.transcript %>;
-				track.creatorId = <%= trackBuild.user_id %>;
-				track.trackId = <%= trackBuild.id %>;
-				track.language = '<%= Language.find(trackBuild.language_id).title %>';
-				track.videoId = '<%= @video.id %>';
-				if (transcriptJson) {
-					$.each(transcriptJson, function(key, value) {	
-						var note = {};
-		 				note.content = value.content;
-		 				note.position_css = value.position_css;
-		 				notes.push(note);
-					});
-				}
-	 			track.transcriptions = notes;
-	 			tracks.push(track)
-			</script>
+	var transcriptJson,
+		tracks = [],
+		track = {},
+		notes = [];
+
+	<% @tracks.each do |trackBuild| %>
+			track = {};
+			notes = [];
+			transcriptJson = <%= raw trackBuild.transcript %>;
+			track.creatorId = <%= trackBuild.user_id %>;
+			track.trackId = <%= trackBuild.id %>;
+			track.language = '<%= Language.find(trackBuild.language_id).title %>';
+			track.videoId = '<%= @video.id %>';
+			if (transcriptJson) {
+				$.each(transcriptJson, function(key, value) {	
+					var note = {};
+	 				note.content = value.content;
+	 				note.position_css = value.position_css;
+	 				notes.push(note);
+				});
+			}
+ 			track.transcriptions = notes;
+ 			tracks.push(track)
 	<% end %>
-	<script>VIDEOAPP.tracks = tracks;</script>
+	VIDEOAPP.tracks = tracks;
 <% else %>
-	<script>VIDEOAPP.tracks = "";</script>
+	VIDEOAPP.tracks = "";
 <% end %>
+</script>
+
+
+
 <script type="text/javascript">
 	var params = { allowScriptAccess: "always" };
 	var atts = { id: "myytplayer" };
 	var videoURL = "http://www.youtube.com/v/" + VIDEOAPP.videoId + "?enablejsapi=1&playerapiid=ytplayer&version=3";
   var tracksContainer;
-	
-	swfobject.embedSWF(videoURL,"ytapiplayer", "640", "321", "8", null, null, params, atts);
 
-	<% if current_user%>
+  <% if current_user%>
 		var currentUserId = <%=current_user.id%>;
 	<%else%>
 		var currentUserId = 0;
 	<%end%>
+	
+	swfobject.embedSWF(videoURL,"ytapiplayer", "640", "321", "8", null, null, params, atts);
 
   function onYouTubePlayerReady(playerId) {
     ytplayer = document.getElementById("myytplayer");
-    VIDEOAPP.duration = ytplayer.getDuration();
-
+    var vidDuration = ytplayer.getDuration();
+    
+    VIDEOAPP.duration = vidDuration;
   	tracksContainer = new TracksContainer(VIDEOAPP.duration, VIDEOAPP.loggedIn, VIDEOAPP.tracks, currentUserId);
 
-    setInterval(updatePlayerInfo, 250);
-  }
+    setInterval(
+    	function () {
+  			var currTime = Number(ytplayer.getCurrentTime()).toFixed(2);
+  			var duration = Number(vidDuration).toFixed(2);
+  			var wrapper = $('.trackWrapper');
 
-  function updatePlayerInfo() {
-	  if (ytplayer && ytplayer.getPlayerState() === 1) {
-	    tracksContainer.updateHTML("totalDuration", Number(ytplayer.getCurrentTime()).toFixed(2), Number(ytplayer.getDuration()).toFixed(2));   
-	    moveProgressBar(ytplayer.getCurrentTime()); 
-	  }
-	}
+	    	if (ytplayer.getPlayerState() === 1) {
+		    	wrapper.animate({scrollLeft: currTime * 160},249);
+		    	tracksContainer.updateHTML("totalDuration", currTime, duration);   
+				}
+    	}
+    , 250 );
+  }
 </script>

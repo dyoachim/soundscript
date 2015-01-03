@@ -14,56 +14,23 @@ TracksContainer.prototype.constructTracks = function() {
 	}
 };
 
-TracksContainer.prototype.constructTransportControls = function() {
-	var transportControls = "<ul>" +
-		'<div style="font-family: "Quicksand", sans-serif;"><span id="totalDuration">--:--</span></div>'+
-		'<a href="javascript:ytplayer.seekTo(0)"><li id="replay"></li></a>' +
-		'<a id="playPauseLink" href="javascript:playPauseVideo(ytplayer)"><li id="play"></li></a>' +
-		'<a href="javascript:ytplayer.seekTo(ytplayer.getCurrentTime() - 5)">' +
-		'<li id="rewind"></li></a><br>' +
-		'</ul>';
-	if (this.loggedIn) {
-		transportControls += '<div id="button_add_track"><button class="appendTrack">Add Track</button></div>'
-	}
-	$('.controls_box').append(transportControls);
-};
-
-function playPauseVideo(player) {
-	if (player.getPlayerState() === 1) {
-		$('#playPauseLink').html('<li id="play"></li>')
-		player.pauseVideo();
-	}
-	else {
-		$('#playPauseLink').html('<li id="pause"></li>')
-		player.playVideo();
-	}
-}
-
-
 TracksContainer.prototype.initialize = function() {
-	this.constructTransportControls();
-	this.attachAddNewTrack();
-	this.constructTracks();
+  this.attachAddNewTrack();
+  this.constructTracks();
 };
 
 TracksContainer.prototype.updateHTML = function(elmId, currentTime, totalTime) {
-	document.getElementById(elmId).innerHTML = currentTime.toHHMMSS() + " / " + totalTime.toHHMMSS();
-}
-
-TracksContainer.prototype.attachAddNewTrack = function() {
-	var duration = this.duration;
-  $('.controls_box').on("click", '.appendTrack',function(){
-    new Track(null, duration, false);
+  var timer = currentTime.toHHMMSS() + " / " + totalTime.toHHMMSS();
+  window.requestAnimationFrame(function () {
+    document.getElementById(elmId).innerHTML = timer;
   });
 }
 
-
-function showEditForm(button) {
-	$(button).parent().parent().css('z-index',"3");
-}
-
-function hideEditForm(button) {
-	$(button).parent().parent().prev().css('z-index',"4");
+TracksContainer.prototype.attachAddNewTrack = function() {
+  var duration = this.duration;
+  $('.controls_box').on("click", '.appendTrack',function(){
+    new Track(null, duration, false);
+  });
 }
 
 String.prototype.toHHMMSS = function () {
@@ -78,3 +45,10 @@ String.prototype.toHHMMSS = function () {
   return time;
 }
 
+function playPauseVideo(player) {
+	if (player.getPlayerState() === 1) {
+    player.pauseVideo();
+  } else { 
+    player.playVideo(); 
+  }
+}

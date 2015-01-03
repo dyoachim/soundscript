@@ -21,16 +21,18 @@ class TracksController < ApplicationController
 
     if params[:vote]
       if params[:vote].include?('up')
-	      track = Track.find(params[:id])
-	      track.upVote
+	track = Track.find(params[:id])
+	track.upVote
       elsif params[:vote].include?('down')
-	      track = Track.find(params[:id])
-	      track.downVote
+	track = Track.find(params[:id])
+	track.downVote
       end
     end
 
-    language_id = Language.find_by_title(params[:languagename]).id
-    Track.find(params[:id]).update_attributes(language_id: language_id, transcript: params[:data].to_json)
+    if params[:languagename]
+      language_id = Language.find_by_title(params[:languagename]).id
+      Track.find(params[:id]).update_attributes(language_id: language_id, transcript: params[:data].to_json)
+    end
     redirect_to '/'
 
   end

@@ -4,7 +4,6 @@
 	background-color: gray;
 	border: 1px solid black;
 	position: absolute;
-	margin-top: 10px;
 }
 
 .trackWrapper {
@@ -36,28 +35,8 @@
 	position: relative;
 }
 
-.progressBar {
-  position: absolute; 
-  background-color: red;
-  width: 3px;
-  height: 100%;
-  margin-left: 40px;  
-}
-
 .trackLine {
 	height: 198px;
-}
-
-.forward {
-	position: absolute;
-	width: 100%;
-	z-index: 10;
-}
-
-.reversed {
-	position: absolute;
-	width: 100%;
-	z-index: 3;
 }
 
 .langDisplay {
